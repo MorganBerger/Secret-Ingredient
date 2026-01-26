@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Secret-Ingredient.sln"
+    "dotnet.defaultSolution": "Secret-Ingredient.slnx"
 }
