@@ -7,10 +7,16 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 400f;
     [SerializeField] private bool _jump = false;
+    [SerializeField] private bool _isWalling = false; //If there is a wall in front of the player
+	private bool _isWallSliding = false; //If player is sliding in a wall
+	private bool _oldWallSlidding = false; //If player is sliding in a wall in the previous frame
+
     private bool _canDoubleJump = false;
     
     public float moveSpeed = 2f;
     private float horizontalInput;
+
+    private float prevVelocityX = 0f;
 
     [SerializeField] private bool _grounded;
 
@@ -24,7 +30,7 @@ public class CharacterController : MonoBehaviour
 
     public UnityEvent OnLandEvent;
 
-    const float _groundedRadius = .2f;
+    const float _groundedRadius = .025f;
 
     void Start()
     {
@@ -37,6 +43,9 @@ public class CharacterController : MonoBehaviour
         if (_grounded && _jump)
         {
             // Add a vertical force to the player.
+
+            Debug.Log("Jumpiiiing");
+
             anim.SetBool("IsJumping", true);
             anim.SetBool("JumpUp", true);
             _grounded = false;
@@ -46,6 +55,9 @@ public class CharacterController : MonoBehaviour
             // particleJumpUp.Play();
         }
         _jump = false;
+
+        // Debug.Log("Vertical Velocity: " + rb.linearVelocity.y);
+
     }
 
     // Update is called once per frame
@@ -75,6 +87,12 @@ public class CharacterController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         }
 
+        if (rb.linearVelocity.y <= 0.1f && !_grounded)
+        {
+            anim.SetBool("JumpUp", false);
+            // This is a great place to trigger a "Fall" animation if you have one
+        }
+
         anim.SetBool("Moving", moving);
 
         if (horizontalInput > 0)
@@ -85,7 +103,7 @@ public class CharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("H Input: " + horizontalInput);
+        // Debug.Log("H Input: " + horizontalInput);
         rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
 
         bool wasGrounded = _grounded;
@@ -97,10 +115,16 @@ public class CharacterController : MonoBehaviour
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			if (colliders[i].gameObject != gameObject)
+            {
 				_grounded = true;
-				if (!wasGrounded)
+                Debug.Log("Grounded");
+
+				if (!wasGrounded && !anim.GetBool("JumpUp"))
 				{
-					OnLandEvent.Invoke();
+					// OnLandEvent.Invoke();
+
+                    Debug.Log("Landed");
+                    anim.SetBool("IsJumping", false);
 					// if (!m_IsWall && !isDashing) 
                     // {
 						// particleJumpDown.Play();
@@ -111,8 +135,46 @@ public class CharacterController : MonoBehaviour
 						// limitVelOnWallJump = false;
                     }
 				}
+            }
 		}
 
+        _isWalling = false;
+
+		if (!_grounded)
+		{
+			// OnFallEvent.Invoke();
+			Collider2D[] collidersWall = Physics2D.OverlapCircleAll(_wallCheck.position, _groundedRadius, whatIsGround);
+			for (int i = 0; i < collidersWall.Length; i++)
+			{
+				if (collidersWall[i].gameObject != null)
+				{
+					// isDashing = false;
+					_isWalling = true;
+				}
+			}
+			prevVelocityX = rb.linearVelocity.x;
+		}
+
+        // if (!oldWallSlidding && m_Rigidbody2D.velocity.y < 0 || isDashing)
+        // {
+        //     isWallSliding = true;
+        //     m_WallCheck.localPosition = new Vector3(-m_WallCheck.localPosition.x, m_WallCheck.localPosition.y, 0);
+        //     Flip();
+        //     StartCoroutine(WaitToCheck(0.1f));
+        //     canDoubleJump = true;
+        //     animator.SetBool("IsWallSliding", true);
+        // }
+        // isDashing = false;
+
         Jump();
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_groundCheck.position, _groundedRadius);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(_wallCheck.position, _groundedRadius);
     }
 }
