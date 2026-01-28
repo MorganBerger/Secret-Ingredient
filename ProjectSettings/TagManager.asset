@@ -3,12 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - Rooms
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
   - Player
+  - Ground
   - Water
   - UI
   - 
