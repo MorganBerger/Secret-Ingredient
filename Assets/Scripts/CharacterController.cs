@@ -82,6 +82,7 @@ public class CharacterController : MonoBehaviour
 		{
 			_jump = true;
 		}
+
         if (Input.GetKeyUp(KeyCode.Z) && rb.linearVelocity.y > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
@@ -169,6 +170,8 @@ public class CharacterController : MonoBehaviour
         Jump();
     }
 
+    #region Gizmos
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -177,4 +180,7 @@ public class CharacterController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(_wallCheck.position, _groundedRadius);
     }
+
+    #endregion
 }
+

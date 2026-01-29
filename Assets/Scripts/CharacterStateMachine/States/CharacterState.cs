@@ -11,11 +11,11 @@ public class CharacterState
     protected bool isAnimationFinished;
     protected float startTime;
     
-    public CharacterState(Character _character, CharacterStateMachine _stateMachine, Animator _animator, string _animationName)
+    public CharacterState(Character _character, string _animationName)
     {
         character = _character;
-        stateMachine = _stateMachine;
-        animator = _animator;
+        stateMachine = _character.stateMachine;
+        animator = _character.anim;
         animationName = _animationName;
     }
 
@@ -30,20 +30,23 @@ public class CharacterState
     {
         isExitingState = true;
         if (!isAnimationFinished) isAnimationFinished = true;
-        animator.SetBool(animationName, true);   
+        animator.SetBool(animationName, false);
     }
     public virtual void LogicUpdate()
     {
         TransitionChecks();
     }
+
     public virtual void PhysicsUpdate()
     {
         
     }
+
     public virtual void TransitionChecks()
     {
         
     }
+    
     public virtual void AnimationTrigger()
     {
         isAnimationFinished = true;
