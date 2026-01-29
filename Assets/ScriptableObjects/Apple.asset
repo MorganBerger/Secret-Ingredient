@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: Assembly-CSharp::Items
   itemName: Apple
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -3534272100233526456, guid: fb421730dc37149bea3824e48922df8d, type: 3}
   itemDescription: What ? This is a simple apple with nothing special
   itemType: 0
   consumableType: 0
   itemRarity: 0
+  recipe: []

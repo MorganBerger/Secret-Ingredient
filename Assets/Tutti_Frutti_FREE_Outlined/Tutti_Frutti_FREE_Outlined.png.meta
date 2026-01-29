@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: da5ae2384f9b74b3390c7e4922a89882
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4043306021878701940
+    second: Tutti_Frutti_FREE_Outlined_0
+  - first:
+      213: 5656911336349730391
+    second: Tutti_Frutti_FREE_Outlined_1
+  - first:
+      213: 1500127330743192714
+    second: Tutti_Frutti_FREE_Outlined_2
+  - first:
+      213: -144641032133527718
+    second: Tutti_Frutti_FREE_Outlined_3
+  - first:
+      213: 4237882731694370667
+    second: Tutti_Frutti_FREE_Outlined_4
+  - first:
+      213: -8930904465847989674
+    second: Tutti_Frutti_FREE_Outlined_5
+  - first:
+      213: 2492191182858187079
+    second: Tutti_Frutti_FREE_Outlined_6
+  - first:
+      213: -7894590451691796947
+    second: Tutti_Frutti_FREE_Outlined_7
+  - first:
+      213: -1307472233295287402
+    second: Tutti_Frutti_FREE_Outlined_8
+  - first:
+      213: 3157837468991487474
+    second: Tutti_Frutti_FREE_Outlined_9
+  - first:
+      213: -2949697706475434452
+    second: Tutti_Frutti_FREE_Outlined_10
+  - first:
+      213: -7485764510618825467
+    second: Tutti_Frutti_FREE_Outlined_11
+  - first:
+      213: -8108119359194499838
+    second: Tutti_Frutti_FREE_Outlined_12
+  - first:
+      213: 3983715615371457688
+    second: Tutti_Frutti_FREE_Outlined_13
+  - first:
+      213: -602059672206963898
+    second: Tutti_Frutti_FREE_Outlined_14
+  - first:
+      213: 77404226047161881
+    second: Tutti_Frutti_FREE_Outlined_15
+  - first:
+      213: 2065289804448082959
+    second: Tutti_Frutti_FREE_Outlined_16
+  - first:
+      213: 6300069046990820427
+    second: Tutti_Frutti_FREE_Outlined_17
+  - first:
+      213: 9065480830072939284
+    second: Tutti_Frutti_FREE_Outlined_18
+  - first:
+      213: -5744336977749493432
+    second: Tutti_Frutti_FREE_Outlined_19
+  - first:
+      213: -3452986459771685911
+    second: Tutti_Frutti_FREE_Outlined_20
+  - first:
+      213: 7867250508320064594
+    second: Tutti_Frutti_FREE_Outlined_21
+  - first:
+      213: -5012744106899015450
+    second: Tutti_Frutti_FREE_Outlined_22
+  - first:
+      213: -5027800736300205759
+    second: Tutti_Frutti_FREE_Outlined_23
+  - first:
+      213: 7896522922602802156
+    second: Tutti_Frutti_FREE_Outlined_24
+  - first:
+      213: -162259209361964860
+    second: Tutti_Frutti_FREE_Outlined_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 223
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f17409765bc1830800000000000000
+      internalID: 4043306021878701940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 223
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756810983e2618e40800000000000000
+      internalID: 5656911336349730391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8c8dcafbd581d410800000000000000
+      internalID: 1500127330743192714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 225
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a573cb36fb12efdf0800000000000000
+      internalID: -144641032133527718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 227
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6fa76624ebffca30800000000000000
+      internalID: 4237882731694370667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 225
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65a4e2ec4bd0f0480800000000000000
+      internalID: -8930904465847989674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_6
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 225
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7417f963daa069220800000000000000
+      internalID: 2492191182858187079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_7
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 224
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2648bfbfc7c07290800000000000000
+      internalID: -7894590451691796947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 194
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b6fbc5eeceadde0800000000000000
+      internalID: -1307472233295287402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 191
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdf7a57274e2db20800000000000000
+      internalID: 3157837468991487474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_10
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 193
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e4fba60919017d0800000000000000
+      internalID: -2949697706475434452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_11
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 197
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50dc650c6d83d1890800000000000000
+      internalID: -7485764510618825467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_12
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 196
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2057eb6c66c2a7f80800000000000000
+      internalID: -8108119359194499838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 194
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 894746cde30094730800000000000000
+      internalID: 3983715615371457688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 194
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64b04800bed05a7f0800000000000000
+      internalID: -602059672206963898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_15
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 193
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 916b7a5cbbef21100800000000000000
+      internalID: 77404226047161881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 160
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0c2d50822269ac10800000000000000
+      internalID: 2065289804448082959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_17
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 161
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4452564b675e6750800000000000000
+      internalID: 6300069046990820427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4136c92b8ce0fcd70800000000000000
+      internalID: 9065480830072939284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 165
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849b91b14f30840b0800000000000000
+      internalID: -5744336977749493432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3331b0c178410d0800000000000000
+      internalID: -3452986459771685911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_21
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 161
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 254cd63a7a61e2d60800000000000000
+      internalID: 7867250508320064594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_22
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 164
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e8f95e1bc72f6ab0800000000000000
+      internalID: -5012744106899015450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_23
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 159
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149f0676ed9a93ab0800000000000000
+      internalID: -5027800736300205759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb2872b2c5169d60800000000000000
+      internalID: 7896522922602802156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tutti_Frutti_FREE_Outlined_25
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 131
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0c178db1a8fbdf0800000000000000
+      internalID: -162259209361964860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tutti_Frutti_FREE_Outlined_0: 4043306021878701940
+      Tutti_Frutti_FREE_Outlined_1: 5656911336349730391
+      Tutti_Frutti_FREE_Outlined_10: -2949697706475434452
+      Tutti_Frutti_FREE_Outlined_11: -7485764510618825467
+      Tutti_Frutti_FREE_Outlined_12: -8108119359194499838
+      Tutti_Frutti_FREE_Outlined_13: 3983715615371457688
+      Tutti_Frutti_FREE_Outlined_14: -602059672206963898
+      Tutti_Frutti_FREE_Outlined_15: 77404226047161881
+      Tutti_Frutti_FREE_Outlined_16: 2065289804448082959
+      Tutti_Frutti_FREE_Outlined_17: 6300069046990820427
+      Tutti_Frutti_FREE_Outlined_18: 9065480830072939284
+      Tutti_Frutti_FREE_Outlined_19: -5744336977749493432
+      Tutti_Frutti_FREE_Outlined_2: 1500127330743192714
+      Tutti_Frutti_FREE_Outlined_20: -3452986459771685911
+      Tutti_Frutti_FREE_Outlined_21: 7867250508320064594
+      Tutti_Frutti_FREE_Outlined_22: -5012744106899015450
+      Tutti_Frutti_FREE_Outlined_23: -5027800736300205759
+      Tutti_Frutti_FREE_Outlined_24: 7896522922602802156
+      Tutti_Frutti_FREE_Outlined_25: -162259209361964860
+      Tutti_Frutti_FREE_Outlined_3: -144641032133527718
+      Tutti_Frutti_FREE_Outlined_4: 4237882731694370667
+      Tutti_Frutti_FREE_Outlined_5: -8930904465847989674
+      Tutti_Frutti_FREE_Outlined_6: 2492191182858187079
+      Tutti_Frutti_FREE_Outlined_7: -7894590451691796947
+      Tutti_Frutti_FREE_Outlined_8: -1307472233295287402
+      Tutti_Frutti_FREE_Outlined_9: 3157837468991487474
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -29,6 +29,7 @@ public class Pickable : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && showMessage)
         {
+            InventoryManager.Instance.AddItem(item, 1);
             Destroy(gameObject);
         }
     }

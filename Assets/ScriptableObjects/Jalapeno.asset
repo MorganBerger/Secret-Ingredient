@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jalapeno
   m_EditorClassIdentifier: Assembly-CSharp::Items
   itemName: Jalapeno
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -6188892174442803215, guid: 37d3e01372ef9409b978861293414ef0, type: 3}
   itemDescription: Wait wait wait, this seems to be weird, you shouldn't eat that.
   itemType: 0
   consumableType: 2
