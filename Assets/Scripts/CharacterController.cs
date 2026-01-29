@@ -94,7 +94,7 @@ public class CharacterController : MonoBehaviour
             // This is a great place to trigger a "Fall" animation if you have one
         }
 
-        anim.SetBool("Moving", moving);
+        // anim.SetBool("Moving", moving);
 
         if (horizontalInput > 0)
             transform.localScale = new Vector3(1, 1, 1);
