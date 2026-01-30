@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 253814314}
   - component: {fileID: 253814313}
   - component: {fileID: 253814312}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &253814314
 SpriteRenderer:
   serializedVersion: 2
