@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class Character: MonoBehaviour
@@ -9,6 +10,7 @@ public class Character: MonoBehaviour
     public JumpState jumpState { get; private set; }
     public FallState fallState { get; private set; }
     public PeakState peakState { get; private set; }
+    public WallSlideState wallSlideState { get; private set; }
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
@@ -39,6 +41,7 @@ public class Character: MonoBehaviour
         jumpState = new JumpState(this, "isJumping");
         fallState = new FallState(this, "isFalling");
         peakState = new PeakState(this, "isPeaking");
+        wallSlideState = new WallSlideState(this, "isWallSliding");
 
         stateMachine.InitializeStateMachine(idleState);
     }
@@ -55,15 +58,18 @@ public class Character: MonoBehaviour
 
     public bool IsTouchingGround()
     {
-        return isTouching(groundCheck, checkRadius, whatIsGround);
+        var isTouching = IsTouching(groundCheck, checkRadius, whatIsGround);
+        return isTouching;
     }
 
     public bool IsTouchingWall()
     {
-        return isTouching(wallCheck, checkRadius, whatIsWall);
+        var isTouching = IsTouching(wallCheck, checkRadius, whatIsWall);
+        // Debug.Log("IsTouchingWall: " + isTouching);
+        return isTouching;
     }
 
-    public bool isTouching(Transform checkPoint, float checkRadius, LayerMask targetLayer)
+    public bool IsTouching(Transform checkPoint, float checkRadius, LayerMask targetLayer)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPoint.position, checkRadius, targetLayer);
         foreach (var col in colliders)

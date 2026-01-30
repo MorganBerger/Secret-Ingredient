@@ -23,7 +23,7 @@ public class GroundedState : MovementState
             return;
         }
 
-        if (character.rb.linearVelocity.y < -0.1f)
+        if (character.rb.linearVelocity.y < -0.1f && !character.IsTouchingGround())
         {
             stateMachine.ChangeState(character.fallState);
             return;
