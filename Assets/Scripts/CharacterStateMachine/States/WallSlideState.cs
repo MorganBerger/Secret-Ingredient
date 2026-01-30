@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WallSlideState : AirState
 {
-    private float slideSpeed = 1f;
+    private float slideSpeed = 0.8f;
 
     public WallSlideState(Character _character, string _animationName)
         : base(_character, _animationName)

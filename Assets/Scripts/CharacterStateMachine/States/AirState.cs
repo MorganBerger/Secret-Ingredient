@@ -22,12 +22,15 @@ public class AirState : MovementState
     {
         base.TransitionChecks();
 
-        if (character.IsTouchingGround() && canCheckForGround)
+        var touchingGround = character.IsTouchingGround();
+        var touchingWall = character.IsTouchingWall();
+
+        if (touchingGround && canCheckForGround)
         {
             stateMachine.ChangeState(character.idleState);
         }
 
-        if (character.IsTouchingWall() && Input.GetAxisRaw("Horizontal") != 0)
+        if (touchingWall && !touchingGround && Input.GetAxisRaw("Horizontal") != 0)
         {
             stateMachine.ChangeState(character.wallSlideState);
         }
