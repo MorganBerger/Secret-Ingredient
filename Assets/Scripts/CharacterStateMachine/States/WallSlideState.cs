@@ -9,6 +9,12 @@ public class WallSlideState : AirState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+        character.canDoubleJump = true;
+    }
+
     public override void TransitionChecks()
     {
         base.TransitionChecks();
