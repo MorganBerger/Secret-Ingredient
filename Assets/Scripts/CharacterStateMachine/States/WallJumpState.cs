@@ -36,10 +36,9 @@ public class WallJumpState : AirState
 
     public override void TransitionChecks()
     {
-        if (!canTransition)
-        {
-            return;
-        }
+        if (isExitingState) return;
+
+        if (!canTransition) return;
         
         base.TransitionChecks();
 

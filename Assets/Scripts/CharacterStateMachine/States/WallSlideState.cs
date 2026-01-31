@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WallSlideState : AirState
+public class WallSlideState : GroundedState
 {
     private float slideSpeed = 0.5f;
 
@@ -17,6 +17,8 @@ public class WallSlideState : AirState
 
     public override void TransitionChecks()
     {
+        if (isExitingState) return;
+
         base.TransitionChecks();
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -25,9 +27,10 @@ public class WallSlideState : AirState
             return;
         }
 
-        if (!character.IsTouchingWall() || Input.GetAxisRaw("Horizontal") == 0)
+        var direction = character.transform.localScale.x;
+        if (!character.IsTouchingWall() || Input.GetAxisRaw("Horizontal") != direction)
         {
-            stateMachine.ChangeState(character.fallState);
+            stateMachine.ChangeState(character.peakState);
         }
     }
 
