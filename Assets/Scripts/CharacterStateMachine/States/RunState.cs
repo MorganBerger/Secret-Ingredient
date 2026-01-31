@@ -8,4 +8,11 @@ public class RunState: GroundedState
         : base(_character, _animationName)
     {
     }
+
+    public override void TransitionChecks()
+    {
+        base.TransitionChecks();
+
+        if (isExitingState) return;
+    }
 }

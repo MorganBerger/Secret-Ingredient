@@ -18,14 +18,4 @@ public class PeakState : AirState
             stateMachine.ChangeState(character.fallState);
         }
     }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
-
-        // if (Time.time >= startTime + minPeakDuration)
-        // {
-        //     stateMachine.ChangeState(character.fallState);
-        // }
-    }
 }
