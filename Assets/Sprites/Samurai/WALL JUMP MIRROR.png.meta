@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 65ed2e4aa91894f90b81681c8a975606
+guid: f8908ec2ec4874b548254fb87efbd303
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4546344558479509100
-    second: WALL JUMP_0
+      213: 4978236663530180583
+    second: WALL JUMP MIRRORED_0
   - first:
-      213: -8425727339655888767
-    second: WALL JUMP_1
+      213: 743198874821734636
+    second: WALL JUMP MIRRORED_1
   - first:
-      213: -1691345252981062761
-    second: WALL JUMP_2
+      213: 8437640618026364308
+    second: WALL JUMP MIRRORED_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,20 +109,20 @@ TextureImporter:
       name: WALL JUMP_0
       rect:
         serializedVersion: 2
-        x: 33
+        x: 30
         y: 18
         width: 33
-        height: 29
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6683b2d94cd71f30800000000000000
-      internalID: 4546344558479509100
+      spriteID: 7efca81aedf361540800000000000000
+      internalID: 4978236663530180583
       vertices: []
       indices: 
       edges: []
@@ -131,20 +131,20 @@ TextureImporter:
       name: WALL JUMP_1
       rect:
         serializedVersion: 2
-        x: 129
+        x: 126
         y: 18
         width: 33
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 180838140adc11b80800000000000000
-      internalID: -8425727339655888767
+      spriteID: ce03833607f505a00800000000000000
+      internalID: 743198874821734636
       vertices: []
       indices: 
       edges: []
@@ -153,20 +153,20 @@ TextureImporter:
       name: WALL JUMP_2
       rect:
         serializedVersion: 2
-        x: 225
+        x: 222
         y: 18
         width: 33
-        height: 28
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 793458b14722788e0800000000000000
-      internalID: -1691345252981062761
+      spriteID: 49d6ed30075881570800000000000000
+      internalID: 8437640618026364308
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0765e09ceeee040cf816a3a649301f29
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WALL JUMP_0: 4546344558479509100
-      WALL JUMP_1: -8425727339655888767
-      WALL JUMP_2: -1691345252981062761
+      WALL JUMP_0: 4978236663530180583
+      WALL JUMP_1: 743198874821734636
+      WALL JUMP_2: 8437640618026364308
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
