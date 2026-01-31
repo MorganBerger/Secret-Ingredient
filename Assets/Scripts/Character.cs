@@ -11,6 +11,8 @@ public class Character: MonoBehaviour
     public FallState fallState { get; private set; }
     public PeakState peakState { get; private set; }
     public WallSlideState wallSlideState { get; private set; }
+    public WallJumpState wallJumpState { get; private set; }
+    public DoubleJumpState doubleJumpState { get; private set; }
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
@@ -42,6 +44,8 @@ public class Character: MonoBehaviour
         fallState = new FallState(this, "isFalling");
         peakState = new PeakState(this, "isPeaking");
         wallSlideState = new WallSlideState(this, "isWallSliding");
+        wallJumpState = new WallJumpState(this, "isJumping");
+        doubleJumpState = new DoubleJumpState(this, "isJumping");
 
         stateMachine.InitializeStateMachine(idleState);
     }
@@ -65,7 +69,6 @@ public class Character: MonoBehaviour
     public bool IsTouchingWall()
     {
         var isTouching = IsTouching(wallCheck, checkRadius, whatIsWall);
-        // Debug.Log("IsTouchingWall: " + isTouching);
         return isTouching;
     }
 

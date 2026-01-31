@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JumpState : AirState
 {
-    private float jumpForce = 200f;
+    private float jumpForce = 4f;
     private float jumpCooldown = 0.1f;
 
     private bool canTransition;
@@ -18,7 +18,7 @@ public class JumpState : AirState
         
         canTransition = false;
 
-        character.rb.AddForce(new Vector2(0f, jumpForce));
+        character.rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
     }
 
     public override void TransitionChecks()
@@ -43,10 +43,5 @@ public class JumpState : AirState
         {
             character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
         }
-    }
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
     }
 }

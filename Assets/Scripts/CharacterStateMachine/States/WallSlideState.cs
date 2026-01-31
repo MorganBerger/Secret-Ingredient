@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WallSlideState : AirState
 {
-    private float slideSpeed = 0.8f;
+    private float slideSpeed = 0.5f;
 
     public WallSlideState(Character _character, string _animationName)
         : base(_character, _animationName)
@@ -12,6 +12,12 @@ public class WallSlideState : AirState
     public override void TransitionChecks()
     {
         base.TransitionChecks();
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            stateMachine.ChangeState(character.wallJumpState);
+            return;
+        }
 
         if (!character.IsTouchingWall() || Input.GetAxisRaw("Horizontal") == 0)
         {
