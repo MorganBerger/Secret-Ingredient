@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DoubleJumpState : JumpState
 {
+
     public DoubleJumpState(Character _character, string _animationName)
         : base(_character, _animationName)
     {
@@ -9,6 +10,9 @@ public class DoubleJumpState : JumpState
 
     public override void Enter()
     {
+        character.canDoubleJump = false;
+        character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
+
         base.Enter();
     }
 

@@ -14,6 +14,8 @@ public class Character: MonoBehaviour
     public WallJumpState wallJumpState { get; private set; }
     public DoubleJumpState doubleJumpState { get; private set; }
 
+    public bool canDoubleJump { get; set; }
+
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
 

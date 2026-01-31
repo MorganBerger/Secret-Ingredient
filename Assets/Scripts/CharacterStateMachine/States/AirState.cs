@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class AirState : MovementState
 {
-
-    private float airCooldown = 0.1f;
     private bool canCheckForGround;
 
     public AirState(Character _character, string _animationName)
@@ -20,6 +18,8 @@ public class AirState : MovementState
 
     public override void TransitionChecks()
     {
+        if (isExitingState) return;
+
         base.TransitionChecks();
 
         var touchingGround = character.IsTouchingGround();
@@ -30,9 +30,16 @@ public class AirState : MovementState
             stateMachine.ChangeState(character.idleState);
         }
 
-        if (touchingWall && !touchingGround && Input.GetAxisRaw("Horizontal") != 0)
+        var direction = character.transform.localScale.x;
+        if (touchingWall && !touchingGround && Input.GetAxisRaw("Horizontal") == direction)
         {
             stateMachine.ChangeState(character.wallSlideState);
+        }
+
+        var type = GetType();
+        if (character.canDoubleJump && Input.GetKeyDown(KeyCode.Z) && type != typeof(WallSlideState))
+        {
+            stateMachine.ChangeState(character.doubleJumpState);
         }
     }
 
