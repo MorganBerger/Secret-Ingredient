@@ -14,6 +14,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private bool isDragging = false;
     private bool disabled = false;
     private Animator animator;
+    public float doubleClickTime = 0.3f;
+    private float lastClickTime = 0f;
 
     void Awake()
     {
@@ -159,7 +161,25 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 InventoryManager.Instance.RemoveItem(currentItem, 1);
                 FindFirstObjectByType<InventoryGrid>().RefreshInventory();
             }
+            return;
         }
+
+        // Handle double click to consume the item
+        float timeSinceLastClick = Time.time - lastClickTime;
+        if (timeSinceLastClick <= doubleClickTime)
+        {
+            if (currentItem.itemType == ItemType.Consumable)
+            {
+                UIManager.Instance.HideMenu();
+                WaitForSeconds wait = new WaitForSeconds(0.2f);
+                Character playerCharacter = FindFirstObjectByType<Character>();
+                playerCharacter.ConsumeItem(currentItem);
+                InventoryManager.Instance.RemoveItem(currentItem, 1);
+                FindFirstObjectByType<InventoryGrid>().RefreshInventory();
+            }
+            lastClickTime = 0f;
+        }
+
     }
 
     public void OnPointerEnter(PointerEventData eventData)

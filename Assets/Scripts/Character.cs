@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 public class Character: MonoBehaviour
@@ -27,10 +26,10 @@ public class Character: MonoBehaviour
     public Transform groundCheck;
     public Transform wallCheck;
 
-    public int health;
-    public int speed;
-    public int attackSpeed;
-    public int damage;
+    public float health = 3;
+    public float speed = 2f;
+    public float attackSpeed = 1f;
+    public float damage = 1f;
 
     public float checkRadius {
         get { return 0.025f; }
@@ -93,6 +92,56 @@ public class Character: MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void ConsumeItem(Items item)
+    {
+        // TODO: start drink animation
+        Debug.Log("Drinking " + item.itemName);
+        switch (item.consumableType)
+        {
+            case ConsumableType.HealthUp:
+                health += .5f;
+                break;
+            case ConsumableType.MediumHealthUp:
+                health += 1;
+                break;
+            case ConsumableType.BigHealthUp:
+                health += 2;
+                break;
+            case ConsumableType.HealthDown:
+                health -= 1;
+                break;
+            case ConsumableType.SpeedUp:
+                speed += 0.2f;
+                break;
+            case ConsumableType.SpeedDown:
+                speed -= 0.2f;
+                break;
+            case ConsumableType.AttackSpeedUp:
+                attackSpeed += 0.2f;
+                break;
+            case ConsumableType.AttackSpeedDown:
+                attackSpeed -= 0.2f;
+                break;
+            case ConsumableType.DamageUp:
+                damage += 0.5f;
+                break;
+            case ConsumableType.DamageDown:
+                damage -= 0.5f;
+                break;
+            case ConsumableType.Dash:
+                CharacterSkills.canDash = true;
+                break;
+            case ConsumableType.DoubleJump:
+                CharacterSkills.canDoubleJump = true;
+                break;
+            case ConsumableType.ClawHook:
+                CharacterSkills.canWallClimb = true;
+                break;
+            default:
+                break;
+        }
     }
 
     void OnDrawGizmos()

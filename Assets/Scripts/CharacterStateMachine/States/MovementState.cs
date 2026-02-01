@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MovementState : CharacterState
 {
-    private float moveSpeed = 2f;
 
     protected bool canGoRight;
     protected bool canGoLeft;
@@ -52,7 +51,7 @@ public class MovementState : CharacterState
         
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        var velocity = horizontalInput * moveSpeed;
+        var velocity = horizontalInput * character.speed;
 
         if (!canGoRight && velocity > 0)
         {
