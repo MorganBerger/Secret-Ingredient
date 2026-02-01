@@ -16,6 +16,7 @@ public class Character: MonoBehaviour
     public DashState dashState { get; private set; }
 
     public bool canDoubleJump { get; set; }
+    public bool canDash { get; set; }
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
