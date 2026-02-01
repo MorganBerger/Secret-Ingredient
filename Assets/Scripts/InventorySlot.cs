@@ -16,6 +16,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Animator animator;
     public float doubleClickTime = 0.3f;
     private float lastClickTime = 0f;
+    private int currentClickCount = 0;
 
     void Awake()
     {
@@ -139,7 +140,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// <param name="eventData">Pointer event data</param>
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!HasItem() || CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable) return;
+        if (!HasItem()) return;
+        currentClickCount++;
 
         // Detect CMD/Ctrl keys
         bool isCommandHeld = Input.GetKey(KeyCode.LeftCommand) ||
@@ -149,6 +151,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         if (isCommandHeld)
         {
+            if (CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable) return;
+
             DropZone availableCraftSlot = leftCraftZone.HasItem() ? rightCraftZone : leftCraftZone;
             if (availableCraftSlot != null)
             {
@@ -161,6 +165,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 InventoryManager.Instance.RemoveItem(currentItem, 1);
                 FindFirstObjectByType<InventoryGrid>().RefreshInventory();
             }
+            currentClickCount = 0;
             return;
         }
 
@@ -171,15 +176,15 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             if (currentItem.itemType == ItemType.Consumable)
             {
                 UIManager.Instance.HideMenu();
-                WaitForSeconds wait = new WaitForSeconds(0.2f);
                 Character playerCharacter = FindFirstObjectByType<Character>();
                 playerCharacter.ConsumeItem(currentItem);
-                InventoryManager.Instance.RemoveItem(currentItem, 1);
-                FindFirstObjectByType<InventoryGrid>().RefreshInventory();
             }
             lastClickTime = 0f;
+            currentClickCount = 0;
+        } else
+        {
+            lastClickTime = Time.time;
         }
-
     }
 
     public void OnPointerEnter(PointerEventData eventData)

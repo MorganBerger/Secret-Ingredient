@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items
   itemName: LifePotion
   itemSprite: {fileID: -5867177917300053870, guid: 26c8d366b952246279fcd2027351a54e, type: 3}
-  itemDescription: Ohh what a nice fruit. It has to be juicy. Take a bite!
+  itemDescription: Hmm, nice red color, that must be refreshing.
   itemType: 0
   consumableType: 15
   itemRarity: 1

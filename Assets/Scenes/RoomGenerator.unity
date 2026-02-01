@@ -9295,6 +9295,10 @@ MonoBehaviour:
     m_Bits: 0
   groundCheck: {fileID: 1387646683}
   wallCheck: {fileID: 522484909}
+  health: 3
+  speed: 2
+  attackSpeed: 2
+  damage: 2
 --- !u!50 &1086972119
 Rigidbody2D:
   serializedVersion: 5

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Character: MonoBehaviour
 {
@@ -96,11 +97,11 @@ public class Character: MonoBehaviour
         return false;
     }
 
-    public void ConsumeItem(Items item)
+    public void ConsumeItem(Items item, bool playAnimation = true)
     {
-        // ON EST EN IDLE STATE
-        stateMachine.ChangeState(drinkState);
-        Debug.Log("Drinking " + item.itemName);
+        if (item == null) return;
+
+        if (playAnimation) stateMachine.ChangeState(drinkState);
         switch (item.consumableType)
         {
             case ConsumableType.HealthUp:
@@ -142,9 +143,23 @@ public class Character: MonoBehaviour
             case ConsumableType.ClawHook:
                 CharacterSkills.canWallClimb = true;
                 break;
+            case ConsumableType.Random:
+                // Apply a random effect
+                Array values = Enum.GetValues(typeof(ConsumableType));
+                System.Random random = new();
+                ConsumableType randomEffect = (ConsumableType)values.GetValue(random.Next(values.Length - 1));
+                Items randomItem = ScriptableObject.CreateInstance<Items>();
+                randomItem.consumableType = randomEffect;
+                ConsumeItem(randomItem, false);
+                break;
+            case ConsumableType.None:
+                break;
             default:
                 break;
+
         }
+        InventoryManager.Instance.RemoveItem(item, 1);
+        FindFirstObjectByType<InventoryGrid>().RefreshInventory();
     }
 
     void OnDrawGizmos()
