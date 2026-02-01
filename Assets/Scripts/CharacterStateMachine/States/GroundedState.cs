@@ -5,6 +5,12 @@ public class GroundedState : MovementState
     public GroundedState(Character _character, string _animationName) 
         : base(_character, _animationName) { }
 
+    public override void Enter()
+    {
+        base.Enter();
+        character.canDoubleJump = true;
+    }
+
     public override void TransitionChecks()
     {
         base.TransitionChecks();
@@ -23,9 +29,9 @@ public class GroundedState : MovementState
             return;
         }
 
-        if (character.rb.linearVelocity.y < -0.1f)
+        if (character.rb.linearVelocity.y < -0.1f && !character.IsTouchingGround() && !character.IsTouchingWall())
         {
-            stateMachine.ChangeState(character.fallState);
+            stateMachine.ChangeState(character.peakState);
             return;
         }
     }

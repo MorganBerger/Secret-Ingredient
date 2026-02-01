@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 65ed2e4aa91894f90b81681c8a975606
+guid: 8bb81c2c9db594fe6ab5a08617665b62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4546344558479509100
-    second: WALL JUMP_0
+      213: -8786306677893841322
+    second: WALL SLIDE MIRRORED_0
   - first:
-      213: -8425727339655888767
-    second: WALL JUMP_1
+      213: -4804695900065687318
+    second: WALL SLIDE MIRRORED_1
   - first:
-      213: -1691345252981062761
-    second: WALL JUMP_2
+      213: 4523788278683218706
+    second: WALL SLIDE MIRRORED_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WALL JUMP_0
+      name: WALL SLIDE MIRROR_0
       rect:
         serializedVersion: 2
         x: 33
-        y: 18
-        width: 33
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 26
+        width: 21
+        height: 45
+      alignment: 9
+      pivot: {x: 0.3285, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6683b2d94cd71f30800000000000000
-      internalID: 4546344558479509100
+      spriteID: 65ebe78d0a4c01680800000000000000
+      internalID: -8786306677893841322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALL JUMP_1
+      name: WALL SLIDE MIRROR_1
       rect:
         serializedVersion: 2
         x: 129
-        y: 18
-        width: 33
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 26
+        width: 21
+        height: 43
+      alignment: 9
+      pivot: {x: 0.3285, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 180838140adc11b80800000000000000
-      internalID: -8425727339655888767
+      spriteID: ae81fc6098a425db0800000000000000
+      internalID: -4804695900065687318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALL JUMP_2
+      name: WALL SLIDE MIRROR_2
       rect:
         serializedVersion: 2
         x: 225
-        y: 18
-        width: 33
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 26
+        width: 21
+        height: 41
+      alignment: 9
+      pivot: {x: 0.3285, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 793458b14722788e0800000000000000
-      internalID: -1691345252981062761
+      spriteID: 2133dfda879b7ce30800000000000000
+      internalID: 4523788278683218706
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 10438c40dfed743e38a277c72c01b912
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +183,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      WALL JUMP_0: 4546344558479509100
-      WALL JUMP_1: -8425727339655888767
-      WALL JUMP_2: -1691345252981062761
+      WALL SLIDE MIRROR_0: -8786306677893841322
+      WALL SLIDE MIRROR_1: -4804695900065687318
+      WALL SLIDE MIRROR_2: 4523788278683218706
+      c_0: -8786306677893841322
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

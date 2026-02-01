@@ -13,6 +13,8 @@ public class IdleState : GroundedState
     {
         base.TransitionChecks();
 
+        if (isExitingState) return; 
+
         float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (!Mathf.Approximately(moveInput, 0f))

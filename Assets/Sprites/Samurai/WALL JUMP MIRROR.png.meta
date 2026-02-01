@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 411b594f441f8453e8ea2e26cd1acb81
+guid: f8908ec2ec4874b548254fb87efbd303
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2846059745885363141
-    second: WALL SLIDE_0
+      213: 4978236663530180583
+    second: WALL JUMP MIRRORED_0
   - first:
-      213: -2482786229060366699
-    second: WALL SLIDE_1
+      213: 743198874821734636
+    second: WALL JUMP MIRRORED_1
   - first:
-      213: 3836825122401184844
-    second: WALL SLIDE_2
+      213: 8437640618026364308
+    second: WALL JUMP MIRRORED_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,67 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WALL SLIDE_0
+      name: WALL JUMP_0
       rect:
         serializedVersion: 2
-        x: 41
-        y: 25
-        width: 23
-        height: 43
+        x: 30
+        y: 18
+        width: 33
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b34e6fc7db3c088d0800000000000000
-      internalID: -2846059745885363141
+      spriteID: 7efca81aedf361540800000000000000
+      internalID: 4978236663530180583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALL SLIDE_1
+      name: WALL JUMP_1
       rect:
         serializedVersion: 2
-        x: 137
-        y: 25
-        width: 23
-        height: 45
+        x: 126
+        y: 18
+        width: 33
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59e00ab341f5b8dd0800000000000000
-      internalID: -2482786229060366699
+      spriteID: ce03833607f505a00800000000000000
+      internalID: 743198874821734636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WALL SLIDE_2
+      name: WALL JUMP_2
       rect:
         serializedVersion: 2
-        x: 233
-        y: 25
-        width: 23
-        height: 47
+        x: 222
+        y: 18
+        width: 33
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4c6406de142f3530800000000000000
-      internalID: 3836825122401184844
+      spriteID: 49d6ed30075881570800000000000000
+      internalID: 8437640618026364308
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0765e09ceeee040cf816a3a649301f29
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WALL SLIDE_0: -2846059745885363141
-      WALL SLIDE_1: -2482786229060366699
-      WALL SLIDE_2: 3836825122401184844
+      WALL JUMP_0: 4978236663530180583
+      WALL JUMP_1: 743198874821734636
+      WALL JUMP_2: 8437640618026364308
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class Character: MonoBehaviour
@@ -9,6 +10,12 @@ public class Character: MonoBehaviour
     public JumpState jumpState { get; private set; }
     public FallState fallState { get; private set; }
     public PeakState peakState { get; private set; }
+    public WallSlideState wallSlideState { get; private set; }
+    public WallJumpState wallJumpState { get; private set; }
+    public DoubleJumpState doubleJumpState { get; private set; }
+    public DashState dashState { get; private set; }
+
+    public bool canDoubleJump { get; set; }
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
@@ -18,6 +25,11 @@ public class Character: MonoBehaviour
 
     public Transform groundCheck;
     public Transform wallCheck;
+
+    public int health;
+    public int speed;
+    public int attackSpeed;
+    public int damage;
 
     public float checkRadius {
         get { return 0.025f; }
@@ -39,6 +51,10 @@ public class Character: MonoBehaviour
         jumpState = new JumpState(this, "isJumping");
         fallState = new FallState(this, "isFalling");
         peakState = new PeakState(this, "isPeaking");
+        wallSlideState = new WallSlideState(this, "isWallSliding");
+        wallJumpState = new WallJumpState(this, "isJumping");
+        doubleJumpState = new DoubleJumpState(this, "isJumping");
+        dashState = new DashState(this, "isDashing");
 
         stateMachine.InitializeStateMachine(idleState);
     }
@@ -55,15 +71,17 @@ public class Character: MonoBehaviour
 
     public bool IsTouchingGround()
     {
-        return isTouching(groundCheck, checkRadius, whatIsGround);
+        var isTouching = IsTouching(groundCheck, checkRadius, whatIsGround);
+        return isTouching;
     }
 
     public bool IsTouchingWall()
     {
-        return isTouching(wallCheck, checkRadius, whatIsWall);
+        var isTouching = IsTouching(wallCheck, checkRadius, whatIsWall);
+        return isTouching;
     }
 
-    public bool isTouching(Transform checkPoint, float checkRadius, LayerMask targetLayer)
+    public bool IsTouching(Transform checkPoint, float checkRadius, LayerMask targetLayer)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(checkPoint.position, checkRadius, targetLayer);
         foreach (var col in colliders)

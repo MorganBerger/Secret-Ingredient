@@ -34,7 +34,7 @@ public class CharacterState
     }
     public virtual void LogicUpdate()
     {
-        TransitionChecks();
+        TransitionChecks();   
     }
 
     public virtual void PhysicsUpdate()

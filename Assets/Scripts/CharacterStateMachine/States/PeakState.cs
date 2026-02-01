@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class PeakState : MovementState
+public class PeakState : AirState
 {
-    private float minPeakDuration = 0.1f;
+    private float minPeakDuration = 0.15f;
 
     public PeakState(Character _character, string _animationName)
         : base(_character, _animationName)
     {
     }
 
-    public override void PhysicsUpdate()
+    public override void TransitionChecks()
     {
-        base.PhysicsUpdate();
+        base.TransitionChecks();
 
         if (Time.time >= startTime + minPeakDuration)
         {
