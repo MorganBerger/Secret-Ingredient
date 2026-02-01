@@ -18,6 +18,18 @@ public class MovementState : CharacterState
         canGoLeft = true;
     }
 
+    public override void TransitionChecks()
+    {
+        base.TransitionChecks();
+        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            stateMachine.ChangeState(character.dashState);
+            return;
+        }
+
+    }
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();

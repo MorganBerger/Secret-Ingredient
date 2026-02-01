@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DashState: MovementState
+public class DashState: CharacterState
 {
     private float dashSpeed = 5f;
     private float dashDuration = 0.35f;
