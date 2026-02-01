@@ -68,8 +68,8 @@ public class CraftManager : MonoBehaviour
         isCrafting = true;
         craftTimer = 0f;
         if (craftCoroutine != null) StopCoroutine(craftCoroutine);
-        if (leftItem != null) StartCoroutine(CookIngredients(leftCraftZone));
-        if (rightItem != null) StartCoroutine(CookIngredients(rightCraftZone));
+        if (leftItem != null) StartCoroutine(CookIngredients(leftCraftZone, leftItem));
+        if (rightItem != null) StartCoroutine(CookIngredients(rightCraftZone, rightItem));
         craftCoroutine = StartCoroutine(CraftingProcess());
     }
 
@@ -78,7 +78,7 @@ public class CraftManager : MonoBehaviour
     /// </summary>
     /// <param name="zone">Drop zone containing the ingredient</param>
     /// <returns></returns>
-    private IEnumerator CookIngredients(DropZone zone)
+    private IEnumerator CookIngredients(DropZone zone, Items item)
     {
         GameObject clone = new();
         clone.transform.SetParent(cauldronAnimator.gameObject.transform);
@@ -86,7 +86,7 @@ public class CraftManager : MonoBehaviour
         clone.transform.position = iconPosition.position;
 
         Image cloneImage = clone.AddComponent<Image>();
-        cloneImage.sprite = leftItem.itemSprite;
+        cloneImage.sprite = item.itemSprite;
         cloneImage.preserveAspect = true;
 
         leftCraftZone.ClearZone();

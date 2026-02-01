@@ -7,6 +7,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     public Image itemIcon;
     public TextMeshProUGUI quantityText;
+    [SerializeField] private Image consumableHintImg;
     private Items currentItem;
     private int quantity;
     private DropZone leftCraftZone;
@@ -31,7 +32,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void Start()
     {
-
+        consumableHintImg.gameObject.SetActive(true);
+        consumableHintImg.enabled = false;
     } 
 
     void Update()
@@ -55,7 +57,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             itemIcon.sprite = item.itemSprite;
             itemIcon.preserveAspect = true;
             itemIcon.enabled = true;
-
+            Debug.Log("Setting item in slot: " + item.itemName + " x" + quantity + "and type " + item.itemType);
+            consumableHintImg.enabled = item.itemType == ItemType.Consumable;
+            Debug.Log("Consumable hint enabled: " + consumableHintImg.enabled);
             if (item.animatorController != null && item.hasAnimation)
             {
                 animator.runtimeAnimatorController = item.animatorController;
@@ -80,6 +84,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else
         {
+            consumableHintImg.enabled = false;
             ClearSlot();
         }
     }
@@ -94,6 +99,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         itemIcon.sprite = null;
         itemIcon.enabled = false;
         quantityText.enabled = false;
+        consumableHintImg.enabled = false;
     }
 
     public Items GetItem() => currentItem;

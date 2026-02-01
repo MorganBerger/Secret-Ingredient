@@ -8,13 +8,24 @@ public class InventoryGrid : MonoBehaviour
     public InventoryManager inventoryManager;
 
     private List<InventorySlot> slots = new();
-    private int maxSlots = 20;
+    private int maxSlots = 24;
+    private bool shadowRefreshed = false;
 
     void Start()
     {
         inventoryManager = InventoryManager.Instance;
         CreateSlots();
         RefreshInventory();
+    }
+
+    void Update()
+    {
+        // Little cheat code here, update once potion shadows
+        if (!shadowRefreshed)
+        {
+            RefreshInventory();
+            shadowRefreshed = true;
+        }
     }
 
     /// <summary>
