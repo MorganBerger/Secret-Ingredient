@@ -13,6 +13,7 @@ public class Character: MonoBehaviour
     public WallSlideState wallSlideState { get; private set; }
     public WallJumpState wallJumpState { get; private set; }
     public DoubleJumpState doubleJumpState { get; private set; }
+    public DashState dashState { get; private set; }
 
     public bool canDoubleJump { get; set; }
 
@@ -24,6 +25,11 @@ public class Character: MonoBehaviour
 
     public Transform groundCheck;
     public Transform wallCheck;
+
+    public int health;
+    public int speed;
+    public int attackSpeed;
+    public int damage;
 
     public float checkRadius {
         get { return 0.025f; }
@@ -48,6 +54,7 @@ public class Character: MonoBehaviour
         wallSlideState = new WallSlideState(this, "isWallSliding");
         wallJumpState = new WallJumpState(this, "isJumping");
         doubleJumpState = new DoubleJumpState(this, "isJumping");
+        dashState = new DashState(this, "isDashing");
 
         stateMachine.InitializeStateMachine(idleState);
     }
