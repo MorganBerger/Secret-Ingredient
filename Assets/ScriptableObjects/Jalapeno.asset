@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Jalapeno
   m_EditorClassIdentifier: Assembly-CSharp::Items
   itemName: Jalapeno
-  itemSprite: {fileID: -6188892174442803215, guid: 37d3e01372ef9409b978861293414ef0, type: 3}
+  itemSprite: {fileID: -6188892174442803215, guid: 7613668418c3a482995afce5a167792b, type: 3}
   itemDescription: Wait wait wait, this seems to be weird, you shouldn't eat that.
   itemType: 0
   consumableType: 2
   itemRarity: 0
+  craftable: 1
+  hasAnimation: 0
   recipe: []
+  animatorController: {fileID: 0}

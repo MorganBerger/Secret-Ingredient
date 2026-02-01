@@ -31,6 +31,10 @@ public class DragVisualManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts the drag visual with the given item sprite.
+    /// </summary>
+    /// <param name="itemSprite">Item sprite to clone</param>
     public void StartDrag(Sprite itemSprite)
     {
         if (currentDragObject != null)
@@ -45,6 +49,10 @@ public class DragVisualManager : MonoBehaviour
         dragImage.color = color;
     }
 
+    /// <summary>
+    /// Updates the drag visual position
+    /// </summary>
+    /// <param name="position">Vector 2 current position</param>
     public void UpdateDragPosition(Vector2 position)
     {
         if (currentDragObject != null)
@@ -53,6 +61,9 @@ public class DragVisualManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Ends the drag visual and destroy clone
+    /// </summary>
     public void EndDrag()
     {
         if (currentDragObject != null)

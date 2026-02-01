@@ -3,21 +3,38 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public Image itemIcon;
     public TextMeshProUGUI quantityText;
-
     private Items currentItem;
     private int quantity;
     private DropZone leftCraftZone;
     private DropZone rightCraftZone;
     private bool isDragging = false;
+    private bool disabled = false;
+    private Animator animator;
 
     void Awake()
     {
         leftCraftZone = GameObject.Find("LeftCraftSlot").GetComponent<DropZone>();
         rightCraftZone = GameObject.Find("RightCraftSlot").GetComponent<DropZone>();
+        animator = itemIcon.gameObject.GetComponent<Animator>();
+        if (animator == null)
+        {
+            animator = itemIcon.gameObject.AddComponent<Animator>();
+        }
+    }
+
+    private void Start()
+    {
+
+    } 
+
+    void Update()
+    {
+        disabled = CraftManager.Instance.IsCraftDisabled();
+        itemIcon.color = disabled ? new Color(1f, 1f, 1f, 0.5f) : Color.white;
     }
 
     /// <summary>
@@ -33,7 +50,20 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (item != null)
         {
             itemIcon.sprite = item.itemSprite;
+            itemIcon.preserveAspect = true;
             itemIcon.enabled = true;
+
+            if (item.animatorController != null && item.hasAnimation)
+            {
+                animator.runtimeAnimatorController = item.animatorController;
+                animator.enabled = true;
+                animator.Play("Idle");
+            }
+            else
+            {
+                animator.runtimeAnimatorController = null;
+                animator.enabled = false;
+            }
 
             if (quantity > 0)
             {
@@ -72,7 +102,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// <param name="eventData">Pointer event data</param>
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!HasItem()) return;
+        if (!HasItem() || CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable) return;
 
         isDragging = true;
         DragVisualManager.Instance.StartDrag(currentItem.itemSprite);
@@ -107,7 +137,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// <param name="eventData">Pointer event data</param>
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!HasItem()) return;
+        if (!HasItem() || CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable) return;
 
         // Detect CMD/Ctrl keys
         bool isCommandHeld = Input.GetKey(KeyCode.LeftCommand) ||
@@ -129,6 +159,22 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 InventoryManager.Instance.RemoveItem(currentItem, 1);
                 FindFirstObjectByType<InventoryGrid>().RefreshInventory();
             }
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (HasItem())
+        {
+            InventoryManager.Instance.ShowItemDescription(currentItem);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (HasItem())
+        {
+            InventoryManager.Instance.HideItemDescription();
         }
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2065a0f179d0f4db9a1bef3ee44a690a, type: 3}
+  m_Name: Cauliflower
+  m_EditorClassIdentifier: Assembly-CSharp::Items
+  itemName: Cauliflower
+  itemSprite: {fileID: -2529115437362917722, guid: 1805bfee78ec04e71bc6ae7ff7cd730c, type: 3}
+  itemDescription: 'This one stink, but it could be useful, alone or cooked with
+    another one. '
+  itemType: 0
+  consumableType: 5
+  itemRarity: 0
+  craftable: 1
+  hasAnimation: 0
+  recipe: []
+  animatorController: {fileID: 0}

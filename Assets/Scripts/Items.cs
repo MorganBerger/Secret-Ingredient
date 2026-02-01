@@ -10,20 +10,22 @@ public class Items : ScriptableObject
     public ItemType itemType;
     public ConsumableType consumableType;
     public ItemRarity itemRarity;
-    [SerializeField] private List<Craft> recipe = new();
+    public bool craftable;
+    public bool hasAnimation = false;
+    [SerializeField] public List<Craft> recipe = new();
+    [SerializeField] public RuntimeAnimatorController animatorController;
 }
 
 public enum ItemType
 {
     Consumable,
-    Equipment,
-    Power,
+    Craftable,
 }
 
 public enum ConsumableType
 {
     HealthUp,
-    MediumHealthUp,
+    BigHealthUp,
     HealthDown,
     SpeedUp,
     SpeedDown,
@@ -31,9 +33,14 @@ public enum ConsumableType
     AttackSpeedDown,
     DamageUp,
     DamageDown,
-    Power,
     FireAspect,
-    Range,
+    PoisonAspect,
+    ClawHook,
+    Dash,
+    DoubleJump,
+    Random,
+    MediumHealthUp,
+    None,
 }
 
 public enum ItemRarity
@@ -48,4 +55,10 @@ public class Craft
 {
     public Items item;
     public int quantity;
+
+    public Craft(Items item, int quantity)
+    {
+        this.item = item;
+        this.quantity = quantity;
+    }
 }

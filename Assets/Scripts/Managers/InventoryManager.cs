@@ -1,10 +1,13 @@
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
     [SerializedDictionary("Item", "Quantity")]
     public SerializedDictionary<Items, int> items = new();
+    [SerializeField] private TextMeshProUGUI itemTitleText;
+    [SerializeField] private TextMeshProUGUI itemDescriptionText;
     public static InventoryManager Instance;
 
     private void Awake()
@@ -18,6 +21,12 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        itemTitleText.gameObject.SetActive(false);
+        itemDescriptionText.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -54,5 +63,28 @@ public class InventoryManager : MonoBehaviour
             }
         }
         FindFirstObjectByType<InventoryGrid>().RefreshInventory();
+    }
+
+    /// <summary>
+    /// Show item title & description in the UI
+    /// </summary>
+    /// <param name="item"></param>
+    public void ShowItemDescription(Items item)
+    {
+        itemTitleText.text = item.itemName;
+        itemDescriptionText.text = item.itemDescription;
+        itemTitleText.gameObject.SetActive(true);
+        itemDescriptionText.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Hide item title & description in the UI
+    /// </summary>
+    public void HideItemDescription()
+    {
+        itemTitleText.text = "";
+        itemDescriptionText.text = "";
+        itemTitleText.gameObject.SetActive(false);
+        itemDescriptionText.gameObject.SetActive(false);
     }
 }

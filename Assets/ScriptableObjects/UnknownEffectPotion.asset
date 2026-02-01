@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2065a0f179d0f4db9a1bef3ee44a690a, type: 3}
+  m_Name: UnknownEffectPotion
+  m_EditorClassIdentifier: Assembly-CSharp::Items
+  itemName: Unknown Effect Potion
+  itemSprite: {fileID: 329204884572423319, guid: c14430acccf2f4ac9aacc9903034674b, type: 3}
+  itemDescription: This one is weird. I'm not sure you should really drink it!
+  itemType: 0
+  consumableType: 14
+  itemRarity: 1
+  craftable: 0
+  hasAnimation: 1
+  recipe: []
+  animatorController: {fileID: 9100000, guid: 13cadac32fc5048dbbc0048e87ce758f, type: 2}

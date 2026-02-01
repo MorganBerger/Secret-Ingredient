@@ -16,7 +16,10 @@ MonoBehaviour:
   itemSprite: {fileID: 0}
   itemDescription: The softness of this object is unparalleled. Try to find a second
     one, it might come in handy.
-  itemType: 0
-  consumableType: 3
+  itemType: 1
+  consumableType: 16
   itemRarity: 0
+  craftable: 1
+  hasAnimation: 0
   recipe: []
+  animatorController: {fileID: 0}

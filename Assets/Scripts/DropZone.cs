@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler
+public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Image itemIcon;
+    [SerializeField] public Image itemIcon;
     [SerializeField] private Image itemPlaceholder;
     [SerializeField] private Image crossButton;
     private Items currentItem = null;
@@ -42,6 +42,8 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler
     /// <param name="eventData"></param>
     public void OnDrop(PointerEventData eventData)
     {
+        if (CraftManager.Instance.IsCraftDisabled()) return;
+
         InventorySlot draggedSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
 
         if (draggedSlot != null && draggedSlot.HasItem())
@@ -54,6 +56,7 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler
             ReceiveItem(draggedSlot.GetItem());
             InventoryManager.Instance.RemoveItem(draggedSlot.GetItem(), 1);
             FindFirstObjectByType<InventoryGrid>().RefreshInventory();
+            CraftManager.Instance.UpdateCraftStatus();
         }
     }
 
@@ -68,7 +71,9 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (itemIcon != null)
         {
             itemIcon.sprite = item.itemSprite;
+            itemIcon.preserveAspect = true;
         }
+        CraftManager.Instance.UpdateCraftStatus();
     }
 
     /// <summary>
@@ -80,6 +85,7 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (itemIcon != null) itemIcon.enabled = false;
         if (itemPlaceholder != null) itemPlaceholder.enabled = true;
         if (crossButton != null) crossButton.enabled = false;
+        CraftManager.Instance.UpdateCraftStatus();
     }
 
     /// <summary>
@@ -106,7 +112,7 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler
     /// <param name="eventData">Pointer event data</param>
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!HasItem()) return;
+        if (!HasItem() || CraftManager.Instance.isCrafting) return;
         if (eventData.button == PointerEventData.InputButton.Right) {
             InventoryManager.Instance.AddItem(currentItem, 1);
             ClearZone();
@@ -118,8 +124,32 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler
     /// </summary>
     public void OnCrossClear()
     {
-        if (!HasItem()) return;
+        if (!HasItem() || CraftManager.Instance.isCrafting) return;
         InventoryManager.Instance.AddItem(currentItem, 1);
         ClearZone();
+    }
+
+    /// <summary>
+    /// Show item description on pointer enter
+    /// </summary>
+    /// <param name="eventData">Pointer event data</param>
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (HasItem())
+        {
+            InventoryManager.Instance.ShowItemDescription(currentItem);
+        }
+    }
+
+    /// <summary>
+    /// Hide item description on pointer exit
+    /// </summary>
+    /// <param name="eventData">Pointer event data</param>
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (HasItem())
+        {
+            InventoryManager.Instance.HideItemDescription();
+        }
     }
 }
