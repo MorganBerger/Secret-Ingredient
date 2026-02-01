@@ -18,7 +18,8 @@ public class CharacterStateMachine
 
     public void ChangeState(CharacterState newState)
     {
-        if (_CurrentState == newState || !CanChangeState(newState.GetType())) return;
+        if (_CurrentState == newState) return;
+        if (!CanChangeState(newState.GetType())) return;
 
         Debug.Log("Changing state from " + _CurrentState.GetType().Name + " to " + newState.GetType().Name);
         _CurrentState.Exit();
@@ -34,7 +35,7 @@ public class CharacterStateMachine
                 if (!CharacterSkills.canDash) return false;
                 break;
             case var t when t == typeof(DoubleJumpState):
-                if (!CharacterSkills.canDoubleJump) return false ;
+                if (!CharacterSkills.canDoubleJump) return false;
                 break;
             case var t when t == typeof(WallSlideState):
                 if (!CharacterSkills.canWallClimb) return false;
