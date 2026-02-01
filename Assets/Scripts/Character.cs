@@ -13,6 +13,7 @@ public class Character: MonoBehaviour
     public WallJumpState wallJumpState { get; private set; }
     public DoubleJumpState doubleJumpState { get; private set; }
     public DashState dashState { get; private set; }
+    public DrinkState drinkState { get; private set; }
 
     public bool canDoubleJump { get; set; }
     public bool canDash { get; set; }
@@ -55,6 +56,7 @@ public class Character: MonoBehaviour
         wallJumpState = new WallJumpState(this, "isJumping");
         doubleJumpState = new DoubleJumpState(this, "isJumping");
         dashState = new DashState(this, "isDashing");
+        drinkState = new DrinkState(this, "isDrinking");
 
         stateMachine.InitializeStateMachine(idleState);
     }
@@ -96,7 +98,8 @@ public class Character: MonoBehaviour
 
     public void ConsumeItem(Items item)
     {
-        // TODO: start drink animation
+        // ON EST EN IDLE STATE
+        stateMachine.ChangeState(drinkState);
         Debug.Log("Drinking " + item.itemName);
         switch (item.consumableType)
         {
