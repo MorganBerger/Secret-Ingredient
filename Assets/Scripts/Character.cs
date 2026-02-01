@@ -15,6 +15,9 @@ public class Character: MonoBehaviour
     public DoubleJumpState doubleJumpState { get; private set; }
     public DashState dashState { get; private set; }
     public DrinkState drinkState { get; private set; }
+    public GroundAttackState groundAttackState { get; private set; }
+    public AirAttackState airAttackState { get; private set; }
+    public HurtState hurtState { get; private set; }
 
     public bool canDoubleJump { get; set; }
     public bool canDash { get; set; }
@@ -58,6 +61,9 @@ public class Character: MonoBehaviour
         doubleJumpState = new DoubleJumpState(this, "isJumping");
         dashState = new DashState(this, "isDashing");
         drinkState = new DrinkState(this, "isDrinking");
+        groundAttackState = new GroundAttackState(this, "isAttacking");
+        airAttackState = new AirAttackState(this, "isAirAttacking");
+        hurtState = new HurtState(this, "isHurting");
 
         stateMachine.InitializeStateMachine(idleState);
     }
@@ -160,6 +166,11 @@ public class Character: MonoBehaviour
         }
         InventoryManager.Instance.RemoveItem(item, 1);
         FindFirstObjectByType<InventoryGrid>().RefreshInventory();
+    }
+
+    void AnimationFinished()
+    {
+        stateMachine._CurrentState.AnimationTrigger();
     }
 
     void OnDrawGizmos()

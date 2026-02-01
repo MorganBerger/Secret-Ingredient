@@ -15,7 +15,7 @@ public class DrinkState : CharacterState
 
         if (isExitingState) return;
 
-        if (Time.time >= startTime + drinkDuration)
+        if (isAnimationFinished)
         {
             stateMachine.ChangeState(character.idleState);
         }

@@ -21,6 +21,12 @@ public class MovementState : CharacterState
     {
         base.TransitionChecks();
         
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            stateMachine.ChangeState(character.hurtState);
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.F) && character.canDash)
         {
             stateMachine.ChangeState(character.dashState);

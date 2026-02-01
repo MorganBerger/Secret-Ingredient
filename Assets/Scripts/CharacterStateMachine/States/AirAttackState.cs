@@ -1,10 +1,16 @@
 using UnityEngine;
 
-public class PeakState : AirState
+public class AirAttackState : CharacterState
 {
-    public PeakState(Character _character, string _animationName)
+    public AirAttackState(Character _character, string _animationName)
         : base(_character, _animationName)
     {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
     }
 
     public override void TransitionChecks()

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public struct CharacterSkills
 {
-    public static bool canDash = false;
-    public static bool canDoubleJump = false;
-    public static bool canWallClimb = false;
+    public static bool canDash = true;
+    public static bool canDoubleJump = true;
+    public static bool canWallClimb = true;
 }
 
 public class CharacterStateMachine

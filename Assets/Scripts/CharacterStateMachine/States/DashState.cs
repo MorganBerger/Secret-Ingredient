@@ -3,7 +3,7 @@ using UnityEngine;
 public class DashState: CharacterState
 {
     private float dashSpeed = 3f;
-    private float dashDuration = 0.35f;
+    // private float dashDuration = 0.35f;
 
     public DashState(Character _character, string _animationName) 
         : base(_character, _animationName) { }
@@ -38,7 +38,8 @@ public class DashState: CharacterState
             return;
         }
 
-        if (Time.time >= startTime + dashDuration)
+        // if (Time.time >= startTime + dashDuration)
+        if (isAnimationFinished)
         {
             if (!touchingGround) {
                 stateMachine.ChangeState(character.fallState);
@@ -51,6 +52,8 @@ public class DashState: CharacterState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        if (isExitingState) return;
 
         // Neutralize any vertical velocity during dash 
         character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);

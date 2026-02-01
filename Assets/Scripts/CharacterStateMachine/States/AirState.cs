@@ -22,6 +22,12 @@ public class AirState : MovementState
 
         base.TransitionChecks();
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            stateMachine.ChangeState(character.airAttackState);
+            return;
+        }
+
         var touchingGround = character.IsTouchingGround();
         var touchingWall = character.IsTouchingWall();
 

@@ -18,6 +18,12 @@ public class GroundedState : MovementState
 
         if (isExitingState) return;
 
+        if (Input.GetKeyDown(KeyCode.T) && GetType() != typeof(WallSlideState))
+        {
+            stateMachine.ChangeState(character.groundAttackState);
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             stateMachine.ChangeState(character.jumpState);
