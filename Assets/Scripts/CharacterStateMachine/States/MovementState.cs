@@ -21,12 +21,11 @@ public class MovementState : CharacterState
     {
         base.TransitionChecks();
         
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && character.canDash)
         {
             stateMachine.ChangeState(character.dashState);
             return;
         }
-
     }
 
     public override void LogicUpdate()

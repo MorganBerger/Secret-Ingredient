@@ -9,11 +9,14 @@ public class GroundedState : MovementState
     {
         base.Enter();
         character.canDoubleJump = true;
+        character.canDash = true;
     }
 
     public override void TransitionChecks()
     {
         base.TransitionChecks();
+
+        if (isExitingState) return;
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
