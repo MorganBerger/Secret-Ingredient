@@ -21,7 +21,13 @@ public class IdleState : GroundedState
         {
             stateMachine.ChangeState(character.runState);
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            stateMachine.ChangeState(character.drinkState);
+        }
     }
+
 
     public override void PhysicsUpdate()
     {
