@@ -19,6 +19,7 @@ TagManager:
   - Pickable
   - Background
   - Ennemy
+  - Fog
   - 
   - 
   - 
@@ -44,6 +45,9 @@ TagManager:
   - name: Background
     uniqueID: 303897549
     locked: 0
+  - name: Fog
+    uniqueID: 2774783029
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -54,3 +58,4 @@ TagManager:
   - Default
   - Background
   - Player
+  - Fog
