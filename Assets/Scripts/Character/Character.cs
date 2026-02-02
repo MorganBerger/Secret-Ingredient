@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using System.Collections;
 
 public struct CharacterSkills
 {
@@ -51,6 +52,7 @@ public class Character: MonoBehaviour
     }
 
     public Collider2D[] attackHitboxes;
+    private bool canTakeDamage = true;
 
     void Awake()
     {
@@ -219,6 +221,10 @@ public class Character: MonoBehaviour
 
     public void TakeDamage(float damageAmount, GameObject attacker)
     {
+        if (!canTakeDamage) return;
+
+        canTakeDamage = false;
+
         ApplyKnockback(attacker);
 
         health -= damageAmount;
@@ -230,6 +236,14 @@ public class Character: MonoBehaviour
         {
             stateMachine.ChangeState(hurtState);
         }
+
+        StartCoroutine(TakeDamageCooldown());
+    }
+
+    IEnumerator TakeDamageCooldown()
+    {
+        yield return new WaitForSeconds(1f);
+        canTakeDamage = true;
     }
 
     private void ApplyKnockback(GameObject from)
