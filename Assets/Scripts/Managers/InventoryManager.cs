@@ -1,6 +1,7 @@
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
 using TMPro;
+using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -27,6 +28,47 @@ public class InventoryManager : MonoBehaviour
     {
         itemTitleText.gameObject.SetActive(false);
         itemDescriptionText.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Get the current inventory in order to save it
+    /// </summary>
+    /// <returns>The current inventory as a SerializedDictionary of Items and their quantities</returns>
+    public Dictionary<string, int> GetInventoryToSave()
+    {
+        Dictionary<string, int> inventoryToSave = new Dictionary<string, int>();
+        foreach (var item in items)
+        {
+            Debug.Log("Saving item: " + item.Key.itemName + " with quantity " + item.Value);
+            inventoryToSave.Add(item.Key.itemName.ToString(), item.Value);
+        }
+        return inventoryToSave;
+    }
+
+    /// <summary>
+    /// Set the inventory from the saved data
+    /// </summary>
+    /// <param name="savedInventory"></param>
+    /// <returns>A serialized dictionnary of user's inventory</returns>
+    public static SerializedDictionary<Items, int> SetInventoryFromSaveData(Dictionary<string, int> savedInventory)
+    {
+        Debug.Log("Setting inventory from saved data..." + savedInventory);
+        SerializedDictionary<Items, int> loadedInventory = new SerializedDictionary<Items, int>();
+        foreach (var entry in savedInventory)
+        {
+            Debug.Log("Processing entry: " + entry.Key + " with quantity " + entry.Value);
+            Items item = Resources.Load<Items>($"Items/{entry.Key}");
+            Debug.Log("Loaded item from resources: " + item);
+            if (item != null)
+            {
+                loadedInventory.Add(item, entry.Value);
+            }
+            else
+            {
+                Debug.LogWarning($"Item '{entry.Key}' not found in Resources/Items folder.");
+            }
+        }
+        return loadedInventory;
     }
 
     /// <summary>

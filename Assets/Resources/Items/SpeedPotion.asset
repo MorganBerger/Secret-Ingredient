@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2065a0f179d0f4db9a1bef3ee44a690a, type: 3}
+  m_Name: SpeedPotion
+  m_EditorClassIdentifier: Assembly-CSharp::Items
+  itemName: Speed Potion
+  itemSprite: {fileID: -4864893047706822652, guid: c2b289618d4684b60b3c3dea7051f85f, type: 3}
+  itemDescription: 'If you drink this one, please, continue to pay attention to your
+    surroundings '
+  itemType: 0
+  consumableType: 3
+  itemRarity: 1
+  craftable: 0
+  hasAnimation: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 301661ca9f8a240dc9f359aa9d37b62b, type: 2}
+    quantity: 1
+  animatorController: {fileID: 9100000, guid: 8ddf9cac90e03411286a89d1d9d3ef5a, type: 2}
+  animationId: 3

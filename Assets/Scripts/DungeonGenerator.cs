@@ -21,7 +21,16 @@ public class DungeonGenerator : MonoBehaviour
     {
         if (generateOnStart)
         {
-            GenerateDungeon();
+            int seed;
+            if (GameManager.Instance.currentSeed >= 1)
+            {
+                seed = GameManager.Instance.currentSeed;
+            }
+            else
+            {
+                seed = Random.Range(1, 100000);
+            }
+            GenerateDungeon(seed);
         }
     }
 
@@ -33,8 +42,14 @@ public class DungeonGenerator : MonoBehaviour
     {
         // Ensure no previous dungeon exists
         ClearDungeon();
+        Debug.Log("Generating dungeon... with seed : " + seed);
+        if (seed.HasValue)
+        {
+            GameManager.Instance.currentSeed = seed.Value;
+            Random.InitState(seed.Value);
+            random = new System.Random(seed.Value);
+        }
 
-        random = seed.HasValue ? new System.Random(seed.Value) : new System.Random();
 
         // Get a first room to start the generation
         RoomPrefab startRoom = GetRandomStartRoom();

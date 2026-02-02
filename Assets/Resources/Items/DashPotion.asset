@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2065a0f179d0f4db9a1bef3ee44a690a, type: 3}
+  m_Name: DashPotion
+  m_EditorClassIdentifier: Assembly-CSharp::Items
+  itemName: Dash Potion
+  itemSprite: {fileID: -1648307937220610424, guid: 6142e2b69fb3546bd88ecadd31a85331, type: 3}
+  itemDescription: Drink it and you'll be able to dash in your current direction
+    by pressing [Shift].
+  itemType: 0
+  consumableType: 9
+  itemRarity: 2
+  craftable: 0
+  hasAnimation: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 7e8be8e9628844d769005b5d111aa4f3, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: 301661ca9f8a240dc9f359aa9d37b62b, type: 2}
+    quantity: 1
+  animatorController: {fileID: 9100000, guid: ca5b687f7ab634b0bad4c725b5c60e0b, type: 2}
+  animationId: 9

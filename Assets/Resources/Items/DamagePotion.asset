@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2065a0f179d0f4db9a1bef3ee44a690a, type: 3}
+  m_Name: DamagePotion
+  m_EditorClassIdentifier: Assembly-CSharp::Items
+  itemName: Damage Potion
+  itemSprite: {fileID: 351556591053067568, guid: 9124587a396a44f90af5f8ea0c5ca4bd, type: 3}
+  itemDescription: Oh lord, if you drink this, you're going to kick some ***** !
+  itemType: 0
+  consumableType: 7
+  itemRarity: 1
+  craftable: 0
+  hasAnimation: 1
+  recipe:
+  - item: {fileID: 11400000, guid: 824f0ab0e912c4bd3b5d467906c239a5, type: 2}
+    quantity: 1
+  animatorController: {fileID: 9100000, guid: bcb178d4e958e42628e39c573453802f, type: 2}
+  animationId: 4
