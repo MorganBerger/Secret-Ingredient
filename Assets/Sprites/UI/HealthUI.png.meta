@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: ac79cdb685ede4424a5424473c1324b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7928004021640426736
+    second: HealthUI_0
+  - first:
+      213: -5317887827840227842
+    second: HealthUI_1
+  - first:
+      213: 2930450890159999871
+    second: HealthUI_2
+  - first:
+      213: 3636623378748699650
+    second: HealthUI_3
+  - first:
+      213: 7729739118708529550
+    second: HealthUI_4
+  - first:
+      213: -5604303487715832123
+    second: HealthUI_5
+  - first:
+      213: -5181469153440654655
+    second: HealthUI_6
+  - first:
+      213: -888568887353418511
+    second: HealthUI_7
+  - first:
+      213: 7549890845715501892
+    second: HealthUI_8
+  - first:
+      213: -8923311580912109398
+    second: HealthUI_9
+  - first:
+      213: 5398755302050122484
+    second: HealthUI_10
+  - first:
+      213: 2989497437838501577
+    second: HealthUI_11
+  - first:
+      213: 3285450023592689633
+    second: HealthUI_12
+  - first:
+      213: 8385021249363060821
+    second: HealthUI_13
+  - first:
+      213: 260599996631177045
+    second: HealthUI_14
+  - first:
+      213: 22708548628820992
+    second: HealthUI_15
+  - first:
+      213: 7652849623146442937
+    second: HealthUI_16
+  - first:
+      213: -1235989876300721736
+    second: HealthUI_17
+  - first:
+      213: 3656758161904011714
+    second: HealthUI_18
+  - first:
+      213: 5851866876762736742
+    second: HealthUI_19
+  - first:
+      213: -2010668086930183781
+    second: HealthUI_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: heart_full
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 55
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e89101946cc854b60800000000000000
+      internalID: 7729739118708529550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_half
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 55
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce0739bba38932b0800000000000000
+      internalID: -5604303487715832123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_empty
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 44
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa44f7e75b3cea40800000000000000
+      internalID: 5398755302050122484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 70511acdac9e346b2ae6b3050b04909c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      H: 7928004021640426736
+      HealthUI_1: -5317887827840227842
+      HealthUI_11: 2989497437838501577
+      HealthUI_12: 3285450023592689633
+      HealthUI_13: 8385021249363060821
+      HealthUI_14: 260599996631177045
+      HealthUI_15: 22708548628820992
+      HealthUI_16: 7652849623146442937
+      HealthUI_17: -1235989876300721736
+      HealthUI_18: 3656758161904011714
+      HealthUI_19: 5851866876762736742
+      HealthUI_2: 2930450890159999871
+      HealthUI_20: -2010668086930183781
+      HealthUI_3: 3636623378748699650
+      HealthUI_6: -5181469153440654655
+      HealthUI_7: -888568887353418511
+      HealthUI_8: 7549890845715501892
+      HealthUI_9: -8923311580912109398
+      heart_empty: 5398755302050122484
+      heart_full: 7729739118708529550
+      heart_half: -5604303487715832123
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
