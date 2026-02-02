@@ -6,4 +6,16 @@ public class DeathState : CharacterState
         : base(_character, _animationName)
     {
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+        character.rb.linearVelocity = Vector2.zero;
+    }
+
+    public override void PhysicsUpdate()
+    {
+        base.PhysicsUpdate();
+        character.rb.linearVelocity = Vector2.zero;
+    }
 }

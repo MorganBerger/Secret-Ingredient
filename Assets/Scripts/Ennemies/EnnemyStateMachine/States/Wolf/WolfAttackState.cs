@@ -7,12 +7,21 @@ public class WolfAttackState : WolfState
     {
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+        wolf.rb.linearVelocity = Vector2.zero;
+    }
+
     public override void TransitionChecks()
     {
         base.TransitionChecks();
 
         if (isExitingState) return;
 
-        // stateMachine.ChangeState(wolf.idleState);
+        if (isAnimationFinished)
+        {
+            stateMachine.ChangeState(wolf.idleState);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Linq;
 
 public struct CharacterSkills
 {
@@ -48,6 +49,8 @@ public class Character: MonoBehaviour
         get { return 0.025f; }
         private set {}
     }
+
+    public Collider2D[] attackHitboxes;
 
     void Awake()
     {
@@ -193,13 +196,45 @@ public class Character: MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collided with " + collision.gameObject.name);
+        if (stateMachine._CurrentState != groundAttackState && stateMachine._CurrentState != airAttackState)
+        {
+            return;
+        }
+
+        var touching = false;
+        foreach (var hitbox in attackHitboxes)
+            touching = touching || hitbox.IsTouching(collision);
+        
+        if (!touching)
+        {
+            return;
+        }
 
         var ennemy = collision.GetComponentInParent<Ennemy>();
         if (ennemy != null)
         {
-            Debug.Log("Sword hit ennemy " + ennemy.gameObject.name);
-            ennemy.TakeDamage(damage);
+            ennemy.TakeDamage(damage, gameObject);
         }
+    }
+
+    public void TakeDamage(float damageAmount, GameObject attacker)
+    {
+        ApplyKnockback(attacker);
+
+        health -= damageAmount;
+        if (health <= 0)
+        {
+            stateMachine.ChangeState(deathState);
+        }
+        else
+        {
+            stateMachine.ChangeState(hurtState);
+        }
+    }
+
+    private void ApplyKnockback(GameObject from)
+    {
+        Vector2 knockbackDirection = (transform.position - from.transform.position).normalized;
+        rb.AddForce(knockbackDirection * 1.5f, ForceMode2D.Impulse);
     }
 }

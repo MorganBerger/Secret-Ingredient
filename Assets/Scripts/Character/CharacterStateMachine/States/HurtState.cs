@@ -10,7 +10,7 @@ public class HurtState : CharacterState
     public override void Enter()
     {
         base.Enter();
-        character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
+        character.rb.linearVelocity = Vector2.zero;
     }
 
     public override void TransitionChecks()

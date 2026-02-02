@@ -11,6 +11,13 @@ public class State
     protected bool isAnimationFinished;
     protected float startTime;
 
+    public State(StateMachine _stateMachine, Animator _animator, string _animationName)
+    {
+        stateMachine = _stateMachine;
+        animator = _animator;
+        animationName = _animationName;
+    }
+
     public virtual void Enter()
     {
         isAnimationFinished = false;
