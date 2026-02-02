@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 174d92e0396594292a2819fdedb4b21e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4081420872446094636
+    second: Wolf DEATH_0
+  - first:
+      213: 4695083883041897269
+    second: Wolf DEATH_1
+  - first:
+      213: 5469874156043565018
+    second: Wolf DEATH_2
+  - first:
+      213: -1986064383318205489
+    second: Wolf DEATH_3
+  - first:
+      213: 3455987647454001045
+    second: Wolf DEATH_4
+  - first:
+      213: -3080418341845352098
+    second: Wolf DEATH_5
+  - first:
+      213: 923849055195594888
+    second: Wolf DEATH_6
+  - first:
+      213: -7855498617178578556
+    second: Wolf DEATH_7
+  - first:
+      213: -7342765582890500284
+    second: Wolf DEATH_8
+  - first:
+      213: -7244479837506004722
+    second: Wolf DEATH_9
+  - first:
+      213: 7002481083871521492
+    second: Wolf DEATH_10
+  - first:
+      213: -3566423842282610893
+    second: Wolf DEATH_11
+  - first:
+      213: 4922204339070059358
+    second: Wolf DEATH_12
+  - first:
+      213: -903531165298170467
+    second: Wolf DEATH_13
+  - first:
+      213: -7493001970158473501
+    second: Wolf DEATH_14
+  - first:
+      213: 1950573681269084594
+    second: Wolf DEATH_15
+  - first:
+      213: -1775818721915786175
+    second: Wolf DEATH_16
+  - first:
+      213: 4044532305247996829
+    second: Wolf DEATH_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wolf DEATH_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 19
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d25cfe3751eb57c0800000000000000
+      internalID: -4081420872446094636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 19
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53bbf5f7ae9482140800000000000000
+      internalID: 4695083883041897269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 19
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad7f0157095e8eb40800000000000000
+      internalID: 5469874156043565018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 18
+        width: 37
+        height: 28
+      alignment: 9
+      pivot: {x: 0.6, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcb534b47f41074e0800000000000000
+      internalID: -1986064383318205489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_4
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 19
+        width: 27
+        height: 34
+      alignment: 9
+      pivot: {x: 0.85, y: 0.38}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59732aa647226ff20800000000000000
+      internalID: 3455987647454001045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_5
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 19
+        width: 27
+        height: 29
+      alignment: 9
+      pivot: {x: 0.75, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51c5beb6d72045d0800000000000000
+      internalID: -3080418341845352098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_6
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 19
+        width: 28
+        height: 31
+      alignment: 9
+      pivot: {x: 0.75, y: 0.42}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 880830922db22dc00800000000000000
+      internalID: 923849055195594888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_7
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 19
+        width: 28
+        height: 31
+      alignment: 9
+      pivot: {x: 0.75, y: 0.42}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 481af7db0a9abf290800000000000000
+      internalID: -7855498617178578556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_8
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 19
+        width: 29
+        height: 30
+      alignment: 9
+      pivot: {x: 0.7, y: 0.435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ff8d22b91491a90800000000000000
+      internalID: -7342765582890500284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_9
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 19
+        width: 36
+        height: 27
+      alignment: 9
+      pivot: {x: 0.58, y: 0.48}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0999fe78ff667b90800000000000000
+      internalID: -7244479837506004722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_10
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 19
+        width: 56
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4daed8ee17fcd2160800000000000000
+      internalID: 7002481083871521492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_11
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 19
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33fd2424964818ec0800000000000000
+      internalID: -3566423842282610893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_12
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 19
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53482674ce2f4440800000000000000
+      internalID: 4922204339070059358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_13
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 19
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9568e831330673f0800000000000000
+      internalID: -903531165298170467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_14
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 19
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eee6636862830890800000000000000
+      internalID: -7493001970158473501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_15
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 19
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b11544bd64d11b10800000000000000
+      internalID: 1950573681269084594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_16
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 19
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ca8b6f7460b57e0800000000000000
+      internalID: -1775818721915786175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wolf DEATH_17
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 19
+        width: 45
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b06e8e3b0112830800000000000000
+      internalID: 4044532305247996829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8a709841b362b4ec5a9911fdce3f2db2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Wolf DEATH_0: -4081420872446094636
+      Wolf DEATH_1: 4695083883041897269
+      Wolf DEATH_10: 7002481083871521492
+      Wolf DEATH_11: -3566423842282610893
+      Wolf DEATH_12: 4922204339070059358
+      Wolf DEATH_13: -903531165298170467
+      Wolf DEATH_14: -7493001970158473501
+      Wolf DEATH_15: 1950573681269084594
+      Wolf DEATH_16: -1775818721915786175
+      Wolf DEATH_17: 4044532305247996829
+      Wolf DEATH_2: 5469874156043565018
+      Wolf DEATH_3: -1986064383318205489
+      Wolf DEATH_4: 3455987647454001045
+      Wolf DEATH_5: -3080418341845352098
+      Wolf DEATH_6: 923849055195594888
+      Wolf DEATH_7: -7855498617178578556
+      Wolf DEATH_8: -7342765582890500284
+      Wolf DEATH_9: -7244479837506004722
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
