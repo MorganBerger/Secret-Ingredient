@@ -18,6 +18,7 @@ public class Character: MonoBehaviour
     public GroundAttackState groundAttackState { get; private set; }
     public AirAttackState airAttackState { get; private set; }
     public HurtState hurtState { get; private set; }
+    public DeathState deathState { get; private set; }
 
     public bool canDoubleJump { get; set; }
     public bool canDash { get; set; }
@@ -64,6 +65,7 @@ public class Character: MonoBehaviour
         groundAttackState = new GroundAttackState(this, "isAttacking");
         airAttackState = new AirAttackState(this, "isAirAttacking");
         hurtState = new HurtState(this, "isHurting");
+        deathState = new DeathState(this, "isDead");
 
         stateMachine.InitializeStateMachine(idleState);
     }
