@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class DashState: CharacterState
 {
-    private float dashSpeed = 3f;
-    // private float dashDuration = 0.35f;
+    private float dashSpeed = 6f;
+
+    private float dashDuration = 0.5f;
 
     public DashState(Character _character, string _animationName) 
         : base(_character, _animationName) { }
@@ -22,6 +23,8 @@ public class DashState: CharacterState
     public override void TransitionChecks()
     {
         base.TransitionChecks();
+        
+        if (isExitingState) return;
 
         var touchingGround = character.IsTouchingGround();
         var touchingWall = character.IsTouchingWall();
@@ -38,7 +41,6 @@ public class DashState: CharacterState
             return;
         }
 
-        // if (Time.time >= startTime + dashDuration)
         if (isAnimationFinished)
         {
             if (!touchingGround) {
@@ -55,7 +57,11 @@ public class DashState: CharacterState
 
         if (isExitingState) return;
 
-        // Neutralize any vertical velocity during dash 
-        character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
+        var velocity = character.transform.localScale.x * character.speed;
+
+        var timeElapsed = Time.time - startTime;
+        var lerpedVelocity = Mathf.Lerp(character.rb.linearVelocity.x, velocity, timeElapsed / dashDuration);
+
+        character.rb.linearVelocity = new Vector2(lerpedVelocity, 0f);        
     }
 }

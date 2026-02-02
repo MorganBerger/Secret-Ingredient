@@ -1,23 +1,15 @@
 using UnityEngine;
 
-public class CharacterState
+public class State
 {
-    protected Character character;
-    protected CharacterStateMachine stateMachine;
+    protected StateMachine stateMachine;
+
     protected Animator animator;
     protected string animationName;
 
     protected bool isExitingState;
     protected bool isAnimationFinished;
     protected float startTime;
-    
-    public CharacterState(Character _character, string _animationName)
-    {
-        character = _character;
-        stateMachine = _character.stateMachine;
-        animator = _character.anim;
-        animationName = _animationName;
-    }
 
     public virtual void Enter()
     {
@@ -44,7 +36,7 @@ public class CharacterState
 
     public virtual void TransitionChecks()
     {
-        
+   
     }
     
     public virtual void AnimationTrigger()
@@ -52,3 +44,4 @@ public class CharacterState
         isAnimationFinished = true;
     }
 }
+

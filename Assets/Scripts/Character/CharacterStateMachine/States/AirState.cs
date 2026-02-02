@@ -18,9 +18,9 @@ public class AirState : MovementState
 
     public override void TransitionChecks()
     {
-        if (isExitingState) return;
-
         base.TransitionChecks();
+
+        if (isExitingState) return;
 
         if (Input.GetKeyDown(KeyCode.T))
         {

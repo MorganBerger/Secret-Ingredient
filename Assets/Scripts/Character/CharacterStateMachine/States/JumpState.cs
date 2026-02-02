@@ -24,6 +24,9 @@ public class JumpState : AirState
     public override void TransitionChecks()
     {
         base.TransitionChecks();
+
+        if (isExitingState) return;
+
         if (character.rb.linearVelocity.y <= 0.5f && canTransition)
         {
             stateMachine.ChangeState(character.peakState);

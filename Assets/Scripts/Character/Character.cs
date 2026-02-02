@@ -1,6 +1,13 @@
 using UnityEngine;
 using System;
 
+public struct CharacterSkills
+{
+    public static bool canDash = false;
+    public static bool canDoubleJump = false;
+    public static bool canWallClimb = false;
+}
+
 public class Character: MonoBehaviour
 {
     public CharacterStateMachine stateMachine { get; private set; }

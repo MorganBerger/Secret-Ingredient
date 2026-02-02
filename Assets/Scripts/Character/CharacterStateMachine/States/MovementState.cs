@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MovementState : CharacterState
 {
-
     protected bool canGoRight;
     protected bool canGoLeft;
 
