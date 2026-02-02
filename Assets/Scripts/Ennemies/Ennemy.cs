@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Ennemy : MonoBehaviour
 {
-    protected float health = 100f;
-    protected float damage = 10f;
-    protected float speed = 2f;
+    public float health = 100f;
+    public float damage = 10f;
+    public float speed = 2f;
 
     public StateMachine stateMachine { get; protected set; }
     public Animator anim { get; private set; }
@@ -45,5 +45,10 @@ public class Ennemy : MonoBehaviour
     public virtual void Die()
     {
         // Destroy(gameObject);
+    }
+
+    void AnimationFinished()
+    {
+        stateMachine._CurrentState.AnimationTrigger();
     }
 }

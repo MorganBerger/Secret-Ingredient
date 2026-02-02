@@ -13,6 +13,6 @@ public class WolfAttackState : WolfState
 
         if (isExitingState) return;
 
-        stateMachine.ChangeState(wolf.idleState);
+        // stateMachine.ChangeState(wolf.idleState);
     }
 }

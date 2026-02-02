@@ -190,4 +190,16 @@ public class Character: MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(wallCheck.position, checkRadius);
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Collided with " + collision.gameObject.name);
+
+        var ennemy = collision.GetComponentInParent<Ennemy>();
+        if (ennemy != null)
+        {
+            Debug.Log("Sword hit ennemy " + ennemy.gameObject.name);
+            ennemy.TakeDamage(damage);
+        }
+    }
 }
