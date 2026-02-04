@@ -42,10 +42,9 @@ public class DungeonGenerator : MonoBehaviour
     {
         // Ensure no previous dungeon exists
         ClearDungeon();
-        Debug.Log("Generating dungeon... with seed : " + seed);
         if (seed.HasValue)
         {
-            GameManager.Instance.currentSeed = seed.Value;
+            if (GameManager.Instance != null) GameManager.Instance.currentSeed = seed.Value;
             Random.InitState(seed.Value);
             random = new System.Random(seed.Value);
         }

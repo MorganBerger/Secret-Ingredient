@@ -22,7 +22,6 @@ MonoBehaviour:
   craftable: 0
   hasAnimation: 1
   recipe:
-  - item: {fileID: 11400000, guid: 301661ca9f8a240dc9f359aa9d37b62b, type: 2}
+  - item: {fileID: 11400000, guid: 0ca3033e5ac07457b8494845ecb12b9d, type: 2}
     quantity: 1
   animatorController: {fileID: 9100000, guid: 8ddf9cac90e03411286a89d1d9d3ef5a, type: 2}
-  animationId: 3

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class JumpState : AirState
 {
-    private float jumpForce = 4f;
+    private float jumpForce = 5f;
     private float jumpCooldown = 0.1f;
 
     private bool canTransition;
@@ -42,7 +42,7 @@ public class JumpState : AirState
             canTransition = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.Z) && character.rb.linearVelocity.y > 0f)
+        if ((Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Space)) && character.rb.linearVelocity.y > 0f)
         {
             character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
         }

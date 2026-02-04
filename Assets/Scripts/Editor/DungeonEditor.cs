@@ -16,7 +16,8 @@ public class DungeonGeneratorEditor : Editor
         
         if (GUILayout.Button("Generate Dungeon", GUILayout.Height(30)))
         {
-            generator.GenerateDungeon();
+            int randomSeed = Random.Range(1, 100000);
+            generator.GenerateDungeon(randomSeed);
         }
         
         if (GUILayout.Button("Clear Dungeon", GUILayout.Height(30)))

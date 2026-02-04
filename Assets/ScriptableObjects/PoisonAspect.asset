@@ -17,9 +17,11 @@ MonoBehaviour:
   itemDescription: 'This one stink, but it could be useful, alone or cooked with
     another one. '
   itemType: 0
-  consumableType: 5
+  consumableType: 10
   itemRarity: 2
   craftable: 0
   hasAnimation: 1
-  recipe: []
+  recipe:
+  - item: {fileID: 11400000, guid: 0ca3033e5ac07457b8494845ecb12b9d, type: 2}
+    quantity: 2
   animatorController: {fileID: 9100000, guid: c8067a3f5a8164732bb5e70baa76ceea, type: 2}

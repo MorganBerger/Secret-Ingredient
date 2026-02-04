@@ -24,7 +24,7 @@ public class GroundedState : MovementState
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
         {
             stateMachine.ChangeState(character.jumpState);
             return;

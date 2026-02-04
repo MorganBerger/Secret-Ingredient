@@ -26,18 +26,21 @@ public class GameManager: MonoBehaviour
 
     private void Start()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        Screen.fullScreen = true;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        }
         LoadDataInTheGame();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TogglePauseGame();
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+ 
+        if (Input.GetKeyDown(KeyCode.K) || (Input.GetKeyDown(KeyCode.S) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftCommand))))
         {
             character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
             SaveData data = new()
@@ -64,21 +67,22 @@ public class GameManager: MonoBehaviour
     {
         currentLevel = saveData.level;
         currentSeed = saveData.seed;
-        character.transform.position = new Vector3(saveData.positionX, saveData.positionY, saveData.positionZ);
-        character.health = saveData.currentHealth;
-        character.speed = saveData.speed;
-        character.attackSpeed = saveData.attackSpeed;
-        character.damage = saveData.damage;
-        InventoryManager.Instance.items = InventoryManager.SetInventoryFromSaveData(saveData.inventory);
+        if (character != null)
+        {
+            character.transform.position = new Vector3(saveData.positionX, saveData.positionY, saveData.positionZ);
+            character.health = saveData.currentHealth;
+            character.speed = saveData.speed;
+            character.attackSpeed = saveData.attackSpeed;
+            character.damage = saveData.damage;
+        }
+
         CharacterSkills.canDash = saveData.canDash;
         CharacterSkills.canDoubleJump = saveData.canDoubleJump;
         CharacterSkills.canWallClimb = saveData.canWallClimb;
-    }
 
-    private void TogglePauseGame()
-    {
-        gamePaused = !gamePaused;
-        Time.timeScale = gamePaused ? 0f : 1f;
+        if (InventoryManager.Instance == null || saveData.inventory == null) return;
+        InventoryManager.Instance.items = InventoryManager.SetInventoryFromSaveData(saveData.inventory);
+
     }
 }
 

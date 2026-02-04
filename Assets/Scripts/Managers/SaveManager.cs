@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
-using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -25,8 +24,6 @@ public class SaveManager: MonoBehaviour
 
     public static void SaveGame(SaveData data)
     {
-        Debug.Log("Saving game to " + SavePath);
-        Debug.Log("Data: " + JsonConvert.SerializeObject(data, Formatting.Indented));
         string json = JsonConvert.SerializeObject(data, Formatting.Indented);
         File.WriteAllText(SavePath, json);
     }
