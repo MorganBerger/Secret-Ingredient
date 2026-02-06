@@ -103,12 +103,14 @@ public class Ennemy : MonoBehaviour
 
     public virtual void TakeDamage(float damageAmount, GameObject attacker)
     {
-        ApplyKnockback(attacker);
-
         health -= damageAmount;
         if (health <= 0)
         {
             Die();
+        }
+        else
+        {
+            ApplyKnockback(attacker);
         }
     }
 

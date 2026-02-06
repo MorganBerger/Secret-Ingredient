@@ -6,9 +6,9 @@ using System.Runtime.InteropServices.WindowsRuntime;
 
 public struct CharacterSkills
 {
-    public static bool canDash = false;
-    public static bool canDoubleJump = false;
-    public static bool canWallClimb = false;
+    public static bool canDash = true;
+    public static bool canDoubleJump = true;
+    public static bool canWallClimb = true;
 }
 
 public class Character: MonoBehaviour
@@ -93,6 +93,11 @@ public class Character: MonoBehaviour
     void FixedUpdate()
     {
         stateMachine._CurrentState.PhysicsUpdate();
+    }
+
+    public bool isDead()
+    {
+        return health <= 0;
     }
 
     public bool IsTouchingGround()
@@ -219,20 +224,21 @@ public class Character: MonoBehaviour
         if (ennemy != null)
         {
             ennemy.TakeDamage(damage, gameObject);
-            ApplyKnockback(ennemy.gameObject, force: .8f);
+            ApplyKnockback(ennemy.gameObject, force: .6f);
         }
     }
 
     public void TakeDamage(float damageAmount, GameObject attacker)
     {
-        if (health <= 0) return;
+        if (isDead()) return;
         if (!canTakeDamage) return;
 
         canTakeDamage = false;
         StartCoroutine(TakeDamageCooldown());
 
-        spriteRenderer.color = new Color(1, 1, 1, 0.75f);
         health -= damageAmount;
+
+        spriteRenderer.color = new Color(1, 1, 1, health <= 0 ? 1f : 0.75f);
   
         stateMachine.ChangeState(hurtState);
 

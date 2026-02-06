@@ -19,14 +19,7 @@ public class AirState : MovementState
     public override void TransitionChecks()
     {
         base.TransitionChecks();
-
         if (isExitingState) return;
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            stateMachine.ChangeState(character.airAttackState);
-            return;
-        }
 
         var touchingGround = character.IsTouchingGround();
         var touchingWall = character.IsTouchingWall();
@@ -34,6 +27,14 @@ public class AirState : MovementState
         if (touchingGround && canCheckForGround)
         {
             stateMachine.ChangeState(character.idleState);
+        }
+
+        if (character.isDead()) return;
+
+        if (Input.GetKeyDown(KeyCode.T) && !touchingGround)
+        {
+            stateMachine.ChangeState(character.airAttackState);
+            return;
         }
 
         var direction = character.transform.localScale.x;

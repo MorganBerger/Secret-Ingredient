@@ -20,9 +20,9 @@ public class WolfIdleState : WolfState
 
         if (isExitingState) return;
 
-        if (Time.time >= startTime + wolf.patrolPauseTime)
-        {
-            stateMachine.ChangeState(wolf.runState);
-        }
+        // if (Time.time >= startTime + wolf.patrolPauseTime)
+        // {
+        //     stateMachine.ChangeState(wolf.runState);
+        // }
     }
 }

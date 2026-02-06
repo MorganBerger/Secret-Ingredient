@@ -19,14 +19,8 @@ public class MovementState : CharacterState
     public override void TransitionChecks()
     {
         base.TransitionChecks();
-        
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            stateMachine.ChangeState(character.hurtState);
-            return;
-        }
 
-        if (Input.GetKeyDown(KeyCode.F) && character.canDash)
+        if (Input.GetKeyDown(KeyCode.F) && character.canDash && !character.isDead())
         {
             stateMachine.ChangeState(character.dashState);
             return;
@@ -52,6 +46,8 @@ public class MovementState : CharacterState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        if (character.isDead()) return;
         
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 

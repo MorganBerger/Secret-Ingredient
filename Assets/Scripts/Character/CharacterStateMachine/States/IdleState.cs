@@ -15,7 +15,7 @@ public class IdleState : GroundedState
 
         if (isExitingState) return; 
 
-        if (character.health <= 0)
+        if (character.isDead())
         {
             stateMachine.ChangeState(character.deathState);
             return;
