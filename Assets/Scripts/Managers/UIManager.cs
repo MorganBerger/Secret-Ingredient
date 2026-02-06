@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                ShowMenu(craftMenu, craftMenuCG);
+                ShowMenu(inventoryMenu, inventoryMenuCG);
             }
         }
     }

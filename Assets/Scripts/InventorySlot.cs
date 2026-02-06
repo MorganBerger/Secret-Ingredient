@@ -18,6 +18,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public float doubleClickTime = 0.3f;
     private float lastClickTime = 0f;
     private int currentClickCount = 0;
+    public bool shouldEnablePointerEvents = true;
 
     void Awake()
     {
@@ -57,9 +58,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             itemIcon.sprite = item.itemSprite;
             itemIcon.preserveAspect = true;
             itemIcon.enabled = true;
-            Debug.Log("Setting item in slot: " + item.itemName + " x" + quantity + "and type " + item.itemType);
             consumableHintImg.enabled = item.itemType == ItemType.Consumable;
-            Debug.Log("Consumable hint enabled: " + consumableHintImg.enabled);
             if (item.animatorController != null && item.hasAnimation)
             {
                 animator.runtimeAnimatorController = item.animatorController;
@@ -111,7 +110,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// <param name="eventData">Pointer event data</param>
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!HasItem() || CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable) return;
+        if (!HasItem() || CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable || !shouldEnablePointerEvents) return;
 
         isDragging = true;
         DragVisualManager.Instance.StartDrag(currentItem.itemSprite);
@@ -123,7 +122,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// <param name="eventData">Pointer event data</param>
     public void OnDrag(PointerEventData eventData)
     {
-        if (!HasItem() || !isDragging) return;
+        if (!HasItem() || !isDragging || !shouldEnablePointerEvents) return;
 
         DragVisualManager.Instance.UpdateDragPosition(eventData.position);
     }
@@ -134,7 +133,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// <param name="eventData">Pointer event data</param>
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!isDragging) return;
+        if (!isDragging || !shouldEnablePointerEvents) return;
 
         isDragging = false;
         DragVisualManager.Instance.EndDrag();
@@ -155,7 +154,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             Input.GetKey(KeyCode.LeftControl) ||
                             Input.GetKey(KeyCode.RightControl);
 
-        if (isCommandHeld)
+        if (isCommandHeld && shouldEnablePointerEvents)
         {
             if (CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable) return;
 
@@ -197,7 +196,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (HasItem())
         {
-            InventoryManager.Instance.ShowItemDescription(currentItem);
+            CanvasGroup panel = GetComponentInParent<CanvasGroup>();
+            InventoryManager.Instance.ShowItemDescription(panel, currentItem);
         }
     }
 
@@ -205,7 +205,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (HasItem())
         {
-            InventoryManager.Instance.HideItemDescription();
+            CanvasGroup panel = GetComponentInParent<CanvasGroup>();
+            InventoryManager.Instance.HideItemDescription(panel);
         }
     }
 }

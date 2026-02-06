@@ -85,7 +85,8 @@ public class CraftResult : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     {
         if (item != null)
         {
-            InventoryManager.Instance.ShowItemDescription(item);
+            CanvasGroup panel = GetComponentInParent<CanvasGroup>();
+            InventoryManager.Instance.ShowItemDescription(panel, item);
         }
     }
 
@@ -97,7 +98,8 @@ public class CraftResult : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     {
         if (item != null)
         {
-            InventoryManager.Instance.HideItemDescription();
+            CanvasGroup panel = GetComponentInParent<CanvasGroup>();
+            InventoryManager.Instance.HideItemDescription(panel);
         }
     }
 }

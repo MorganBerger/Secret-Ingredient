@@ -107,22 +107,22 @@ public class InventoryManager : MonoBehaviour
     /// Show item title & description in the UI
     /// </summary>
     /// <param name="item"></param>
-    public void ShowItemDescription(Items item)
+    public void ShowItemDescription(CanvasGroup panel, Items item)
     {
-        itemTitleText.text = item.itemName;
-        itemDescriptionText.text = item.itemDescription;
-        itemTitleText.gameObject.SetActive(true);
-        itemDescriptionText.gameObject.SetActive(true);
+        TextMeshProUGUI title = panel.GetComponentInChildren<HoveredItemTitle>().GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI desc = panel.GetComponentInChildren<HoveredItemDescription>().GetComponent<TextMeshProUGUI>();
+        title.text = item.itemName;
+        desc.text = item.itemDescription;
     }
 
     /// <summary>
     /// Hide item title & description in the UI
     /// </summary>
-    public void HideItemDescription()
+    public void HideItemDescription(CanvasGroup panel)
     {
-        itemTitleText.text = "";
-        itemDescriptionText.text = "";
-        itemTitleText.gameObject.SetActive(false);
-        itemDescriptionText.gameObject.SetActive(false);
+        TextMeshProUGUI title = panel.GetComponentInChildren<HoveredItemTitle>().GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI desc = panel.GetComponentInChildren<HoveredItemDescription>().GetComponent<TextMeshProUGUI>();
+        title.text = "";
+        desc.text = "";
     }
 }

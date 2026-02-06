@@ -6,6 +6,7 @@ public class InventoryGrid : MonoBehaviour
     public GameObject slotPrefab;
     public Transform contentParent;
     public InventoryManager inventoryManager;
+    [SerializeField] private bool shouldEnablePointerEvents = true;
 
     private List<InventorySlot> slots = new();
     private int maxSlots = 24;
@@ -37,6 +38,7 @@ public class InventoryGrid : MonoBehaviour
         {
             GameObject slotObj = Instantiate(slotPrefab, contentParent);
             InventorySlot slot = slotObj.GetComponent<InventorySlot>();
+            slot.shouldEnablePointerEvents = shouldEnablePointerEvents;
             slots.Add(slot);
         }
     }

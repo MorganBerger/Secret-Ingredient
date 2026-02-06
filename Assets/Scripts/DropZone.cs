@@ -137,7 +137,8 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler, IPoin
     {
         if (HasItem())
         {
-            InventoryManager.Instance.ShowItemDescription(currentItem);
+            CanvasGroup panel = GetComponentInParent<CanvasGroup>();
+            InventoryManager.Instance.ShowItemDescription(panel, currentItem);
         }
     }
 
@@ -149,7 +150,8 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler, IPoin
     {
         if (HasItem())
         {
-            InventoryManager.Instance.HideItemDescription();
+            CanvasGroup panel = GetComponentInParent<CanvasGroup>();
+            InventoryManager.Instance.HideItemDescription(panel);
         }
     }
 }
