@@ -11,6 +11,7 @@ public class Wolf: Ennemy
     public WolfRunState runState { get; private set; }
     public WolfAttackState attackState { get; private set; }
     public WolfDeathState deathState { get; private set; }
+    public WolfHitState hitState { get; private set; }
 
     public Collider2D attackCollider;
 
@@ -18,12 +19,11 @@ public class Wolf: Ennemy
     {
         base.Start();
 
-        stateMachine = new StateMachine();
-
         idleState = new WolfIdleState(this, "isIdle");
         runState = new WolfRunState(this, "isRunning");
         attackState = new WolfAttackState(this, "isAttacking");
         deathState = new WolfDeathState(this, "isDead");
+        hitState = new WolfHitState(this, "isHurting");
 
         stateMachine.InitializeStateMachine(idleState);
     }
@@ -33,21 +33,33 @@ public class Wolf: Ennemy
         return !IsTouching(groundCheck, checkRadius, whatIsGround);;
     }
 
+    public override void TakeDamage(float damageAmount, GameObject attacker)
+    {
+        stateMachine.ChangeState(hitState);
+
+        base.TakeDamage(damageAmount, attacker);
+    }
+
     public override void Die()
     {
         base.Die();
         stateMachine.ChangeState(deathState);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void HandleCollision(Collider2D collision)
     {
         var character = collision.GetComponentInParent<Character>();
+        
         if (character == null) return;
+        if (health <= 0) return;
 
-        var charHitBoxes = character.attackHitboxes;
+        var characterAttackHitBoxes = character.attackHitboxes;
+
         var isCharacterAttack = false;
-        foreach (var hitbox in charHitBoxes)
+        foreach (var hitbox in characterAttackHitBoxes)
+        {
             isCharacterAttack = isCharacterAttack || (collision == hitbox);
+        }
 
         if (isCharacterAttack)
         {
@@ -55,5 +67,15 @@ public class Wolf: Ennemy
         }
 
         Attack(character);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        HandleCollision(collision);
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        HandleCollision(collision);
     }
 }

@@ -15,6 +15,12 @@ public class IdleState : GroundedState
 
         if (isExitingState) return; 
 
+        if (character.health <= 0)
+        {
+            stateMachine.ChangeState(character.deathState);
+            return;
+        }
+
         float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (!Mathf.Approximately(moveInput, 0f))
@@ -26,11 +32,5 @@ public class IdleState : GroundedState
         {
             stateMachine.ChangeState(character.drinkState);
         }
-    }
-
-
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
     }
 }
