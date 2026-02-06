@@ -39,7 +39,6 @@ public class InventoryManager : MonoBehaviour
         Dictionary<string, int> inventoryToSave = new Dictionary<string, int>();
         foreach (var item in items)
         {
-            Debug.Log("Saving item: " + item.Key.itemName + " with quantity " + item.Value);
             inventoryToSave.Add(item.Key.itemName.ToString(), item.Value);
         }
         return inventoryToSave;
@@ -52,13 +51,10 @@ public class InventoryManager : MonoBehaviour
     /// <returns>A serialized dictionnary of user's inventory</returns>
     public static SerializedDictionary<Items, int> SetInventoryFromSaveData(Dictionary<string, int> savedInventory)
     {
-        Debug.Log("Setting inventory from saved data..." + savedInventory);
         SerializedDictionary<Items, int> loadedInventory = new SerializedDictionary<Items, int>();
         foreach (var entry in savedInventory)
         {
-            Debug.Log("Processing entry: " + entry.Key + " with quantity " + entry.Value);
             Items item = Resources.Load<Items>($"Items/{entry.Key}");
-            Debug.Log("Loaded item from resources: " + item);
             if (item != null)
             {
                 loadedInventory.Add(item, entry.Value);

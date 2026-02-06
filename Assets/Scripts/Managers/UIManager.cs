@@ -1,13 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    private bool isMenuOpened = false;
-    [SerializeField] private GameObject mainMenu;
-    private CanvasGroup canvasGroup;
+    [SerializeField] private GameObject craftMenu;
+    [SerializeField] private GameObject inventoryMenu;
+    [SerializeField] private CanvasGroup craftMenuCG;
+    [SerializeField] private CanvasGroup inventoryMenuCG;
+    private Dictionary<GameObject, bool> menuStates = new();
     private readonly float fadeDuration = 0.25f;
-    private Coroutine currentFade;
+    private Coroutine fadeCoroutine;
     public static UIManager Instance;
 
     private void Awake()
@@ -25,20 +28,28 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if (mainMenu != null)
+        if (craftMenu != null)
         {
-            canvasGroup = mainMenu.GetComponent<CanvasGroup>();
+            craftMenuCG = craftMenu.GetComponent<CanvasGroup>();
+            menuStates[craftMenu] = false;
         } else
         {
-            Debug.LogWarning("Main menu has not been assigned yet");
+            Debug.LogWarning("Craft menu has not been assigned yet");
         }
-        
-        // Cache le menu au démarrage
-        if (canvasGroup != null)
+
+        if (inventoryMenu != null)
         {
-            canvasGroup.alpha = 0f;
-            canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
+            inventoryMenuCG = inventoryMenu.GetComponent<CanvasGroup>();
+            menuStates[inventoryMenu] = false;
+        } else
+        {
+            Debug.LogWarning("Inventory menu has not been assigned yet");
+        }
+
+        // Ensure all menus are hidden at the start
+        foreach (KeyValuePair<GameObject, bool> kvp in menuStates)
+        {
+            ResetMenu(kvp.Key.GetComponent<CanvasGroup>());
         }
     }
 
@@ -46,75 +57,101 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            HideMenu();
+            List<GameObject> keys = new(menuStates.Keys);
+            foreach (GameObject key in keys) {
+                // menuStates[key] = false;
+                HideMenu(key, key.GetComponent<CanvasGroup>());
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))
         {
-            if (isMenuOpened)
+            if (menuStates[inventoryMenu] == true)
             {
-                HideMenu();
+                HideMenu(inventoryMenu, inventoryMenuCG);
             }
             else
             {
-                ShowMenu();
+                ShowMenu(craftMenu, craftMenuCG);
             }
         }
     }
 
-    public void ShowMenu()
+    private void ShowMenu(GameObject menu, CanvasGroup cg)
     {
-        isMenuOpened = true;
-        if (currentFade != null)
+        if (menuStates[menu] == true) return;
+        menuStates[menu] = true;
+
+        if (fadeCoroutine != null)
         {
-            StopCoroutine(currentFade);
+            StopCoroutine(fadeCoroutine);
         }
-        currentFade = StartCoroutine(FadeIn());
+        fadeCoroutine = StartCoroutine(FadeIn(cg));
     }
 
-    public void HideMenu()
+    private void HideMenu(GameObject menu, CanvasGroup cg)
     {
-        if (isMenuOpened == false) return;
+        if (menuStates[menu] == false) return;
 
-        isMenuOpened = false;
-        if (currentFade != null)
+        menuStates[menu] = false;
+        if (fadeCoroutine != null)
         {
-            StopCoroutine(currentFade);
+            StopCoroutine(fadeCoroutine);
         }
-        currentFade = StartCoroutine(FadeOut());
+        fadeCoroutine = StartCoroutine(FadeOut(cg));
     }
 
-    IEnumerator FadeIn()
+    IEnumerator FadeIn(CanvasGroup cg)
     {
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
+        cg.interactable = true;
+        cg.blocksRaycasts = true;
 
         float elapsed = 0f;
 
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Clamp01(elapsed / fadeDuration);
+            cg.alpha = Mathf.Clamp01(elapsed / fadeDuration);
             yield return null;
         }
 
-        canvasGroup.alpha = 1f;
+        cg.alpha = 1f;
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOut(CanvasGroup cg)
     {
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
 
         float elapsed = 0f;
 
         while (elapsed < fadeDuration)
         {
             elapsed += Time.deltaTime;
-            canvasGroup.alpha = 1f - Mathf.Clamp01(elapsed / fadeDuration);
+            cg.alpha = 1f - Mathf.Clamp01(elapsed / fadeDuration);
             yield return null;
         }
 
-        canvasGroup.alpha = 0f;
+        cg.alpha = 0f;
+    }
+
+     private void ResetMenu(CanvasGroup cg)
+    {
+        if (cg != null)
+        {
+            cg.alpha = 0f;
+            cg.interactable = false;
+            cg.blocksRaycasts = false;
+        }
+    }
+
+    public void ShowCraftMenu()
+    {
+        ShowMenu(craftMenu, craftMenuCG);
+    }
+
+    public void HideCraftMenu()
+    {
+        HideMenu(craftMenu, craftMenuCG);
     }
 }

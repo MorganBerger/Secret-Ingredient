@@ -40,7 +40,6 @@ TagManager:
   - 
   - 
   - 
-  - 
   m_SortingLayers:
   - name: Background
     uniqueID: 303897549
@@ -54,8 +53,12 @@ TagManager:
   - name: Player
     uniqueID: 1933020823
     locked: 0
+  - name: Pickable
+    uniqueID: 2498454329
+    locked: 0
   m_RenderingLayers:
   - Default
   - Background
   - Player
   - Fog
+  - Pickable

@@ -55,4 +55,6 @@ public class SaveData
     public bool canDash;
     public bool canDoubleJump;
     public bool canWallClimb;
+    public float lastCheckpointX;
+    public float lastCheckpointY;
 }
