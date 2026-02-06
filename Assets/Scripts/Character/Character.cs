@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public struct CharacterSkills
 {
@@ -34,6 +35,7 @@ public class Character: MonoBehaviour
 
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
+    public SpriteRenderer spriteRenderer { get; private set; }
 
     public LayerMask whatIsGround;
     public LayerMask whatIsWall;
@@ -58,6 +60,7 @@ public class Character: MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -216,39 +219,38 @@ public class Character: MonoBehaviour
         if (ennemy != null)
         {
             ennemy.TakeDamage(damage, gameObject);
+            ApplyKnockback(ennemy.gameObject, force: .8f);
         }
     }
 
     public void TakeDamage(float damageAmount, GameObject attacker)
     {
+        if (health <= 0) return;
         if (!canTakeDamage) return;
 
         canTakeDamage = false;
+        StartCoroutine(TakeDamageCooldown());
+
+        spriteRenderer.color = new Color(1, 1, 1, 0.75f);
+        health -= damageAmount;
+  
+        stateMachine.ChangeState(hurtState);
 
         ApplyKnockback(attacker);
-
-        health -= damageAmount;
-        if (health <= 0)
-        {
-            stateMachine.ChangeState(deathState);
-        }
-        else
-        {
-            stateMachine.ChangeState(hurtState);
-        }
-
-        StartCoroutine(TakeDamageCooldown());
     }
 
     IEnumerator TakeDamageCooldown()
     {
         yield return new WaitForSeconds(1f);
+
+        spriteRenderer.color = new Color(1, 1, 1, 1f);
         canTakeDamage = true;
     }
 
-    private void ApplyKnockback(GameObject from)
+    private void ApplyKnockback(GameObject from, float force = 2f)
     {
         Vector2 knockbackDirection = (transform.position - from.transform.position).normalized;
-        rb.AddForce(knockbackDirection * 1.5f, ForceMode2D.Impulse);
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(knockbackDirection * force, ForceMode2D.Impulse);
     }
 }

@@ -71,7 +71,6 @@ public class Ennemy : MonoBehaviour
         
         if (player != null)
         {
-            // Calculate direction to player
             float directionToPlayer = player.transform.position.x - transform.position.x;
             float facingDirection = transform.localScale.x;
 
@@ -80,10 +79,7 @@ public class Ennemy : MonoBehaviour
             bool isPlayerInFront = (directionToPlayer > 0 && facingDirection > 0) || 
                                    (directionToPlayer < 0 && facingDirection < 0);
 
-            if (isPlayerInFront)
-            {
-                return player;
-            }
+            if (isPlayerInFront) return player;
         }
 
         return null;
@@ -117,9 +113,7 @@ public class Ennemy : MonoBehaviour
     }
 
     public virtual void Die()
-    {
-        
-    }
+    {}
 
     void AnimationFinished()
     {

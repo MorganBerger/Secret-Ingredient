@@ -61,7 +61,6 @@ public class WolfRunState: WolfState
 
         if (isChasing && wolf.IsLedgeAhead())
         {
-            Debug.Log("Ledge ahead while chasing, stopping movement.");
             wolf.rb.linearVelocity = new Vector2(0, wolf.rb.linearVelocity.y);
             isChasing = false;
 

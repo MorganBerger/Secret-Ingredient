@@ -13,7 +13,7 @@ public class StateMachine
     {
         if (_CurrentState == newState) return;
 
-        Debug.Log("Changing state from " + _CurrentState.GetType().Name + " to " + newState.GetType().Name);
+        // Debug.Log("Changing state from " + _CurrentState.GetType().Name + " to " + newState.GetType().Name);
         _CurrentState.Exit();
         _CurrentState = newState;
         _CurrentState.Enter();
