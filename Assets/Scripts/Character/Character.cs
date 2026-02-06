@@ -224,7 +224,11 @@ public class Character: MonoBehaviour
         if (ennemy != null)
         {
             ennemy.TakeDamage(damage, gameObject);
-            ApplyKnockback(ennemy.gameObject, force: .6f);
+
+            if (ennemy.health > 0) 
+            {
+                ApplyKnockback(ennemy.gameObject, force: .6f);
+            }
         }
     }
 

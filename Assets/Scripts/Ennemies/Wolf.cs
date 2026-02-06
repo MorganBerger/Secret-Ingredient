@@ -9,9 +9,14 @@ public class Wolf: Ennemy
 
     public WolfIdleState idleState { get; private set; }
     public WolfRunState runState { get; private set; }
+    public WolfPatrolState patrolState { get; private set; }
+    public WolfChaseState chaseState { get; private set; }
+
     public WolfAttackState attackState { get; private set; }
-    public WolfDeathState deathState { get; private set; }
+
     public WolfHitState hitState { get; private set; }
+    public WolfDeathState deathState { get; private set; }
+    
 
     public Collider2D attackCollider;
 
@@ -20,7 +25,11 @@ public class Wolf: Ennemy
         base.Start();
 
         idleState = new WolfIdleState(this, "isIdle");
-        runState = new WolfRunState(this, "isRunning");
+
+        // runState = new WolfRunState(this, "isRunning");
+        patrolState = new WolfPatrolState(this, "isRunning");
+        chaseState = new WolfChaseState(this, "isRunning");
+
         attackState = new WolfAttackState(this, "isAttacking");
         deathState = new WolfDeathState(this, "isDead");
         hitState = new WolfHitState(this, "isHurting");
@@ -30,7 +39,7 @@ public class Wolf: Ennemy
 
     public bool IsLedgeAhead() 
     {
-        return !IsTouching(groundCheck, checkRadius, whatIsGround);;
+        return !IsTouching(groundCheck, checkRadius, whatIsGround);
     }
 
     public override void TakeDamage(float damageAmount, GameObject attacker)

@@ -79,7 +79,9 @@ public class Ennemy : MonoBehaviour
             bool isPlayerInFront = (directionToPlayer > 0 && facingDirection > 0) || 
                                    (directionToPlayer < 0 && facingDirection < 0);
 
-            if (isPlayerInFront) return player;
+            if (isPlayerInFront) {
+                return player;
+            }
         }
 
         return null;
