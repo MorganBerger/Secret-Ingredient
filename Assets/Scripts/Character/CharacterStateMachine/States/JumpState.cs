@@ -18,6 +18,7 @@ public class JumpState : AirState
         
         canTransition = false;
 
+        character.rb.linearVelocity = Vector2.zero;
         character.rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
     }
 
