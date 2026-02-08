@@ -154,9 +154,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                             Input.GetKey(KeyCode.LeftControl) ||
                             Input.GetKey(KeyCode.RightControl);
 
-        if (isCommandHeld && shouldEnablePointerEvents)
+        if (isCommandHeld)
         {
-            if (CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable) return;
+            if (CraftManager.Instance.IsCraftDisabled() || !currentItem.craftable || !shouldEnablePointerEvents) return;
 
             DropZone availableCraftSlot = leftCraftZone.HasItem() ? rightCraftZone : leftCraftZone;
             if (availableCraftSlot != null)
@@ -168,7 +168,6 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 }
                 availableCraftSlot.ReceiveItem(currentItem);
                 InventoryManager.Instance.RemoveItem(currentItem, 1);
-                FindFirstObjectByType<InventoryGrid>().RefreshInventory();
             }
             currentClickCount = 0;
             return;

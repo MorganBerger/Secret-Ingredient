@@ -73,7 +73,7 @@ public class CraftResult : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         if (isCommandHeld)
         {
             AddToInventory();
-            FindFirstObjectByType<InventoryGrid>().RefreshInventory();
+            InventoryManager.Instance.RefreshInventories();
         }
     }
 

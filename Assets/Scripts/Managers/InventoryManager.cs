@@ -26,8 +26,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        itemTitleText.gameObject.SetActive(false);
-        itemDescriptionText.gameObject.SetActive(false);
+        if (itemTitleText != null) itemTitleText.text = "";
+        if (itemDescriptionText != null) itemDescriptionText.text = "";
     }
 
     /// <summary>
@@ -82,7 +82,16 @@ public class InventoryManager : MonoBehaviour
         {
             items[item] = quantity;
         }
-        FindFirstObjectByType<InventoryGrid>().RefreshInventory();
+        RefreshInventories();
+    }
+
+    /// <summary>
+    /// Refresh all inventory grids in the scene to reflect the updated inventory data
+    /// </summary>
+    public void RefreshInventories()
+    {
+        List<InventoryGrid> grids = new(FindObjectsByType<InventoryGrid>(FindObjectsSortMode.None));
+        grids.ForEach(grid => grid.RefreshInventory());
     }
 
     /// <summary>
@@ -100,7 +109,7 @@ public class InventoryManager : MonoBehaviour
                 items.Remove(item);
             }
         }
-        FindFirstObjectByType<InventoryGrid>().RefreshInventory();
+        RefreshInventories();
     }
 
     /// <summary>

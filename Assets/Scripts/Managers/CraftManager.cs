@@ -200,7 +200,7 @@ public class CraftManager : MonoBehaviour
             if (item.recipe.Count == 2)
             {
                 // Check if boths ingredients match the recipe no matter the order
-                if ((item.recipe[0].item == leftCraft.item  && item.recipe[1].item == rightCraft.item) ||
+                if ((item.recipe[0].item == leftCraft.item && item.recipe[1].item == rightCraft.item) ||
                     (item.recipe[0].item == rightCraft.item && item.recipe[1].item == leftCraft.item))
                 {
                     return item;

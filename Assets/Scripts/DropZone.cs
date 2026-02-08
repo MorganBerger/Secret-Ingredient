@@ -55,7 +55,6 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerClickHandler, IPoin
             }
             ReceiveItem(draggedSlot.GetItem());
             InventoryManager.Instance.RemoveItem(draggedSlot.GetItem(), 1);
-            FindFirstObjectByType<InventoryGrid>().RefreshInventory();
             CraftManager.Instance.UpdateCraftStatus();
         }
     }

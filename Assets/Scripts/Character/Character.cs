@@ -187,7 +187,6 @@ public class Character: MonoBehaviour
 
         }
         InventoryManager.Instance.RemoveItem(item, 1);
-        FindFirstObjectByType<InventoryGrid>().RefreshInventory();
     }
 
     void AnimationFinished()

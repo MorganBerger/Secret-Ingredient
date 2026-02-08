@@ -5,7 +5,6 @@ public class InventoryGrid : MonoBehaviour
 {
     public GameObject slotPrefab;
     public Transform contentParent;
-    public InventoryManager inventoryManager;
     [SerializeField] private bool shouldEnablePointerEvents = true;
 
     private List<InventorySlot> slots = new();
@@ -14,9 +13,9 @@ public class InventoryGrid : MonoBehaviour
 
     void Start()
     {
-        inventoryManager = InventoryManager.Instance;
         CreateSlots();
-        RefreshInventory();
+        if (InventoryManager.Instance != null)
+            InventoryManager.Instance.RefreshInventories();
     }
 
     void Update()
@@ -24,7 +23,7 @@ public class InventoryGrid : MonoBehaviour
         // Little cheat code here, update once potion shadows
         if (!shadowRefreshed)
         {
-            RefreshInventory();
+            InventoryManager.Instance.RefreshInventories();
             shadowRefreshed = true;
         }
     }
@@ -55,7 +54,7 @@ public class InventoryGrid : MonoBehaviour
         }
 
         int index = 0;
-        foreach (KeyValuePair<Items, int> kvp in inventoryManager.items)
+        foreach (KeyValuePair<Items, int> kvp in InventoryManager.Instance.items)
         {
             // Fill the slots with current possessed items
             if (index < slots.Count)
