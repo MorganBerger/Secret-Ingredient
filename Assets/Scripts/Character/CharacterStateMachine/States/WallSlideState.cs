@@ -21,7 +21,8 @@ public class WallSlideState : GroundedState
 
         base.TransitionChecks();
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (character.jumpBufferCounter > 0f)
+        // if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
         {
             stateMachine.ChangeState(character.wallJumpState);
             return;
