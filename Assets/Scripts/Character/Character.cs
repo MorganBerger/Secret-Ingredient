@@ -7,7 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 public struct CharacterSkills
 {
     public static bool canDash = false;
-    public static bool canDoubleJump = true;
+    public static bool canDoubleJump = false;
     public static bool canWallClimb = true;
 }
 
@@ -52,6 +52,8 @@ public class Character: MonoBehaviour
         get { return 0.025f; }
         private set {}
     }
+
+    public float checkGroundBoxWidth;
 
     public Collider2D[] attackHitboxes;
     private bool canTakeDamage = true;
@@ -115,20 +117,10 @@ public class Character: MonoBehaviour
 
     public bool IsTouchingGround()
     {
-        var box = new Vector2(0.05f, checkRadius * 2);
+        var box = new Vector2(checkGroundBoxWidth, checkRadius * 2);
         Collider2D collider = Physics2D.OverlapBox(groundCheck.position, box, 0, whatIsGround);
-        // .OverlapCircleAll(groundCheck.position, checkRadius, whatIsGround);
-        // foreach (var col in colliders)
-        // {
-        //     if (col.gameObject != gameObject)
-        //     {
-        //         return true;
-        //     }
-        // }
-        return collider != null && collider.gameObject != gameObject;
 
-        // var isTouching = IsTouching(groundCheck, checkRadius, whatIsGround);
-        // return isTouching;
+        return collider != null && collider.gameObject != gameObject;
     }
 
     public bool IsTouchingWall()
@@ -219,15 +211,6 @@ public class Character: MonoBehaviour
         stateMachine._CurrentState.AnimationTrigger();
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(groundCheck.position, new Vector3(0.05f, checkRadius * 2, 0));
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(wallCheck.position, checkRadius);
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (stateMachine._CurrentState != groundAttackState && stateMachine._CurrentState != airAttackState)
@@ -286,5 +269,14 @@ public class Character: MonoBehaviour
         Vector2 knockbackDirection = (transform.position - from.transform.position).normalized;
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(knockbackDirection * force, ForceMode2D.Impulse);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(groundCheck.position, new Vector3(checkGroundBoxWidth, checkRadius * 2, 0));
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(wallCheck.position, checkRadius);
     }
 }
