@@ -20,7 +20,7 @@ public class WolfIdleState : WolfState
 
         if (isExitingState) return;
 
-        if (wolf.DetectPlayer() != null)
+        if (wolf.targetPlayer != null)
         {
             stateMachine.ChangeState(wolf.chaseState);
             return;
@@ -31,5 +31,15 @@ public class WolfIdleState : WolfState
             wolf.Flip();
             stateMachine.ChangeState(wolf.patrolState);
         }
+    }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        if (isExitingState) return;
+
+        var playerCollider = wolf.DetectPlayer(ahead: true);
+        wolf.targetPlayer = playerCollider != null ? playerCollider.gameObject : null;
     }
 }

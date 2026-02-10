@@ -2,29 +2,35 @@ using UnityEngine;
 
 public class WolfChaseState: WolfState
 {
+    private bool hasDetectedPlayer = false;
+
     public WolfChaseState(Wolf _wolf, string _animationName)
         : base(_wolf, _animationName)
     {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        hasDetectedPlayer = true;
     }
 
     public override void TransitionChecks()
     {
         base.TransitionChecks();
 
-        // Collider2D playerCollider = wolf.DetectPlayer();
+        if (wolf.targetPlayer == null)
+        {
+            stateMachine.ChangeState(wolf.idleState);
+            return;
+        }
 
-        // if (playerCollider == null)
-        // {
-        //     stateMachine.ChangeState(wolf.idleState);
-        //     return;
-        // }
-
-        // float distToPlayer = Vector2.Distance(wolf.transform.position, playerCollider.transform.position);
-        // if (distToPlayer <= wolf.attackRange)
-        // {
-        //     stateMachine.ChangeState(wolf.attackState);
-        //     return;
-        // }
+        float distToPlayer = Vector2.Distance(wolf.transform.position, wolf.targetPlayer.transform.position);
+        if (distToPlayer <= wolf.attackRange)
+        {
+            stateMachine.ChangeState(wolf.attackState);
+            return;
+        }
     }
 
     public override void LogicUpdate()
@@ -32,33 +38,20 @@ public class WolfChaseState: WolfState
         base.LogicUpdate();
         if (isExitingState) return;
 
-        Collider2D playerCollider = wolf.DetectPlayer();
-
-        if (playerCollider == null)
-        {
-            stateMachine.ChangeState(wolf.idleState);
-            return;
-        }
-
-        float distToPlayer = Vector2.Distance(wolf.transform.position, playerCollider.transform.position);
-        if (distToPlayer <= wolf.attackRange)
-        {
-            stateMachine.ChangeState(wolf.attackState);
-            return;
-        }
-
-        float dirToPlayer = playerCollider.transform.position.x - wolf.transform.position.x;
+        float dirToPlayer = wolf.targetPlayer.transform.position.x - wolf.transform.position.x;
         if ((dirToPlayer > 0 && wolf.transform.localScale.x < 0) || (dirToPlayer < 0 && wolf.transform.localScale.x > 0))
         {
             wolf.Flip();
         }
+
+        var playerCollider = wolf.DetectPlayer();
+        wolf.targetPlayer = playerCollider != null ? playerCollider.gameObject : null;
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
 
-        // Chase at high speed, but stop at ledges
         if (wolf.IsLedgeAhead())
         {
             wolf.rb.linearVelocity = new Vector2(0, wolf.rb.linearVelocity.y);

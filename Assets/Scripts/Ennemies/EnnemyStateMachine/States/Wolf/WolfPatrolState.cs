@@ -13,13 +13,23 @@ public class WolfPatrolState : WolfState
         startPosX = wolf.transform.position.x;
     }
 
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+
+        if (isExitingState) return;
+
+        var playerCollider = wolf.DetectPlayer(ahead: true);
+        wolf.targetPlayer = playerCollider != null ? playerCollider.gameObject : null;
+    }
+
     public override void TransitionChecks()
     {
         base.TransitionChecks();
 
         if (isExitingState) return;
 
-        if (wolf.DetectPlayer() != null)
+        if (wolf.targetPlayer != null)
         {
             stateMachine.ChangeState(wolf.chaseState);
             return;

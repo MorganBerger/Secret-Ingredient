@@ -4,7 +4,7 @@ public class Ennemy : MonoBehaviour
 {
     public float health = 5f;
     public float damage = 1f;
-    public float speed = 2f;
+    public float speed = 1.5f;
 
     public StateMachine stateMachine { get; protected set; }
     public Animator anim { get; private set; }
@@ -24,6 +24,8 @@ public class Ennemy : MonoBehaviour
         get { return 0.025f; }
         private set {}
     }
+
+    public GameObject targetPlayer;
 
     void Awake()
     {
@@ -65,7 +67,7 @@ public class Ennemy : MonoBehaviour
         return false;
     }
 
-    public Collider2D DetectPlayer()
+    public Collider2D DetectPlayer(bool ahead = false)
     {
         Collider2D player = Physics2D.OverlapCircle(transform.position, detectRange, playerLayer);
         
@@ -74,12 +76,11 @@ public class Ennemy : MonoBehaviour
             float directionToPlayer = player.transform.position.x - transform.position.x;
             float facingDirection = transform.localScale.x;
 
-            // Check if player is in front of the wolf 
-            // (Both must have the same sign: e.g., both positive for Right)
             bool isPlayerInFront = (directionToPlayer > 0 && facingDirection > 0) || 
                                    (directionToPlayer < 0 && facingDirection < 0);
 
-            if (isPlayerInFront) {
+            if (isPlayerInFront || !ahead) // If ahead is false, ignore the facing direction
+            {
                 return player;
             }
         }

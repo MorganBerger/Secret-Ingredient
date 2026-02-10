@@ -4,7 +4,7 @@ public class Wolf: Ennemy
 {
     public float patrolPauseTime = 1f;
 
-    public float chaseSpeed = 3f;
+    public float chaseSpeed = 1.5f;
     public float patrolDistance = 3.5f;
 
     public WolfIdleState idleState { get; private set; }
@@ -17,6 +17,7 @@ public class Wolf: Ennemy
     public WolfHitState hitState { get; private set; }
     public WolfDeathState deathState { get; private set; }
     
+    public string currentState;
 
     public Collider2D attackCollider;
 
