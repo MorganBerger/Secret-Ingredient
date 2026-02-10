@@ -6,7 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 
 public struct CharacterSkills
 {
-    public static bool canDash = true;
+    public static bool canDash = false;
     public static bool canDoubleJump = true;
     public static bool canWallClimb = true;
 }
@@ -56,6 +56,9 @@ public class Character: MonoBehaviour
     public Collider2D[] attackHitboxes;
     private bool canTakeDamage = true;
 
+    private float jumpBufferTime = .2f;
+    public float jumpBufferCounter { get; private set; }
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -87,8 +90,18 @@ public class Character: MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
         stateMachine._CurrentState.LogicUpdate();
     }
+
+    public void ConsumeJumpBuffer() => jumpBufferCounter = 0f;
 
     void FixedUpdate()
     {
@@ -102,8 +115,20 @@ public class Character: MonoBehaviour
 
     public bool IsTouchingGround()
     {
-        var isTouching = IsTouching(groundCheck, checkRadius, whatIsGround);
-        return isTouching;
+        var box = new Vector2(0.05f, checkRadius * 2);
+        Collider2D collider = Physics2D.OverlapBox(groundCheck.position, box, 0, whatIsGround);
+        // .OverlapCircleAll(groundCheck.position, checkRadius, whatIsGround);
+        // foreach (var col in colliders)
+        // {
+        //     if (col.gameObject != gameObject)
+        //     {
+        //         return true;
+        //     }
+        // }
+        return collider != null && collider.gameObject != gameObject;
+
+        // var isTouching = IsTouching(groundCheck, checkRadius, whatIsGround);
+        // return isTouching;
     }
 
     public bool IsTouchingWall()
@@ -197,7 +222,7 @@ public class Character: MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
+        Gizmos.DrawWireCube(groundCheck.position, new Vector3(0.05f, checkRadius * 2, 0));
 
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(wallCheck.position, checkRadius);

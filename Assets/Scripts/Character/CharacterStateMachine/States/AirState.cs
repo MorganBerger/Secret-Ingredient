@@ -44,7 +44,7 @@ public class AirState : MovementState
         }
 
         var type = GetType();
-        if (character.canDoubleJump && Input.GetKeyDown(KeyCode.Z) && type != typeof(WallSlideState))
+        if (character.canDoubleJump && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space)) && type != typeof(WallSlideState))
         {
             stateMachine.ChangeState(character.doubleJumpState);
         }
@@ -55,7 +55,7 @@ public class AirState : MovementState
         base.LogicUpdate();
 
         var type = GetType();
-        if (type == typeof(FallState) || type == typeof(WallSlideState))
+        if (type == typeof(PeakState) || type == typeof(FallState) || type == typeof(WallSlideState))
         {
             canCheckForGround = true;
         }
