@@ -12,6 +12,8 @@ public class DeathState : CharacterState
         base.Enter();
         character.rb.linearVelocity = Vector2.zero;
         character.spriteRenderer.color = new Color(1, 1, 1, 1f);
+
+        UIManager.Instance.ShowDeathMenu();
     }
 
     public override void PhysicsUpdate()

@@ -179,7 +179,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             if (currentItem.itemType == ItemType.Consumable)
             {
-                UIManager.Instance.HideCraftMenu();
+                UIManager.Instance.CloseEveryMenus();
                 Character playerCharacter = FindFirstObjectByType<Character>();
                 playerCharacter.ConsumeItem(currentItem);
             }

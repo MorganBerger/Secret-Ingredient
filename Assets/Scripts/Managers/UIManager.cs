@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject craftMenu;
     [SerializeField] private GameObject inventoryMenu;
+    [SerializeField] private GameObject deathMenu;
     [SerializeField] private CanvasGroup craftMenuCG;
+    [SerializeField] private CanvasGroup deathMenuCG;
     [SerializeField] private CanvasGroup inventoryMenuCG;
     private Dictionary<GameObject, bool> menuStates = new();
     private readonly float fadeDuration = 0.25f;
@@ -46,6 +49,15 @@ public class UIManager : MonoBehaviour
             Debug.LogWarning("Inventory menu has not been assigned yet");
         }
 
+        if (deathMenu != null)
+        {
+            deathMenuCG = deathMenu.GetComponent<CanvasGroup>();
+            menuStates[deathMenu] = false;
+        } else
+        {
+            Debug.LogWarning("Death menu has not been assigned yet");
+        }
+
         // Ensure all menus are hidden at the start
         foreach (KeyValuePair<GameObject, bool> kvp in menuStates)
         {
@@ -80,6 +92,7 @@ public class UIManager : MonoBehaviour
     private void ShowMenu(GameObject menu, CanvasGroup cg)
     {
         if (menuStates[menu] == true) return;
+        CloseEveryMenus();
         menuStates[menu] = true;
 
         if (fadeCoroutine != null)
@@ -87,6 +100,15 @@ public class UIManager : MonoBehaviour
             StopCoroutine(fadeCoroutine);
         }
         fadeCoroutine = StartCoroutine(FadeIn(cg));
+    }
+
+    public void CloseEveryMenus()
+    {
+        List<GameObject> keys = new(menuStates.Keys);
+        foreach (GameObject key in keys) {
+            menuStates[key] = false;
+            HideMenu(key, key.GetComponent<CanvasGroup>());
+        }
     }
 
     private void HideMenu(GameObject menu, CanvasGroup cg)
@@ -145,13 +167,39 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowCraftMenu()
+    public void ToggleCraftMenu()
     {
-        ShowMenu(craftMenu, craftMenuCG);
+        if (menuStates[craftMenu] == true)
+        {
+            HideMenu(craftMenu, craftMenuCG);
+        }
+        else
+        {
+            ShowMenu(craftMenu, craftMenuCG);
+        }
     }
 
     public void HideCraftMenu()
     {
         HideMenu(craftMenu, craftMenuCG);
+    }
+
+    public void ShowDeathMenu()
+    {
+        ShowMenu(deathMenu, deathMenuCG);
+    }
+
+    public void Quit()
+    {
+        Time.timeScale = 1f;
+        Application.Quit();
+    }
+
+    /// <summary>
+    /// Reloads the current scene, reloading data
+    /// </summary>
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

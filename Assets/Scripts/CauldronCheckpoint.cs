@@ -18,18 +18,10 @@ public class CauldronCheckpoint : MonoBehaviour
 
     private void Update()
     {
-        if (showMessage)
-        {
-            messageBox.SetActive(true);
-        }
-        else
-        {
-            messageBox.SetActive(false);
-        }
-
+        messageBox.SetActive(showMessage);
         if (Input.GetKeyDown(KeyCode.E) && showMessage)
         {
-            UIManager.Instance.ShowCraftMenu();
+            UIManager.Instance.ToggleCraftMenu();
         }
     }
 

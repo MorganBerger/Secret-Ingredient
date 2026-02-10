@@ -87,7 +87,7 @@ public class GameManager: MonoBehaviour
             canDoubleJump = CharacterSkills.canDoubleJump,
             canWallClimb = CharacterSkills.canWallClimb,
             lastCheckpointX = lastCheckpoint.x,
-            lastCheckpointY = lastCheckpoint.y
+            lastCheckpointY = lastCheckpoint.y,
         };
         SaveManager.SaveGame(data);
     }
