@@ -1,10 +1,12 @@
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class Bat : Ennemy
 {
     [SerializeField] public float chaseSpeed;
     [SerializeField] public float fallSpeed;
+    [SerializeField] public float attackForce;
 
     // Animation Data
     public BatIdleState idleState;
@@ -16,17 +18,17 @@ public class Bat : Ennemy
     public string currentState;
 
     public Collider2D attackCollider;
+    private GameObject tmpGizmoPlayer;
 
     public override void Start()
     {
         base.Start();
-        attackCollider = GetComponentInChildren<BoxCollider2D>();
 
         idleState = new BatIdleState(this, "isIdle");
-        chaseState = new BatChaseState(this, "isChasing");
+        chaseState = new BatChaseState(this, "isIdle");
         attackState = new BatAttackState(this, "isAttacking");
         hurtState = new BatHurtState(this, "isHurt");
-        fallingState = new BatFallState(this, "isDead");
+        fallingState = new BatFallState(this, "isFalling");
         deathState = new BatDeathState(this, "isDead");
 
         stateMachine.InitializeStateMachine(idleState);
@@ -72,5 +74,10 @@ public class Bat : Ennemy
     private void OnTriggerStay2D(Collider2D col)
     {
         HandleCollision(col);
+    }
+
+    public void AnimationEvent()
+    {
+        stateMachine._CurrentState.AnimationEvent();
     }
 }

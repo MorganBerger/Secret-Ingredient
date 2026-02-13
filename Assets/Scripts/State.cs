@@ -33,22 +33,24 @@ public class State
     }
     public virtual void LogicUpdate()
     {
-        TransitionChecks();   
+        TransitionChecks();
     }
 
     public virtual void PhysicsUpdate()
     {
-        
     }
 
     public virtual void TransitionChecks()
     {
-   
     }
     
     public virtual void AnimationTrigger()
     {
         isAnimationFinished = true;
+    }
+
+    public virtual void AnimationEvent()
+    {
     }
 }
 

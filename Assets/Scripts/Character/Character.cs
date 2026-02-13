@@ -1,9 +1,6 @@
 using UnityEngine;
 using System;
-using System.Linq;
 using System.Collections;
-using System.Runtime.InteropServices.WindowsRuntime;
-
 public struct CharacterSkills
 {
     public static bool canDash = false;
@@ -13,6 +10,8 @@ public struct CharacterSkills
 
 public class Character: MonoBehaviour
 {
+    [SerializeField] private float jumpBufferTime = .15f;
+
     public CharacterStateMachine stateMachine { get; private set; }
 
     public IdleState idleState { get; private set; }
@@ -58,7 +57,6 @@ public class Character: MonoBehaviour
     public Collider2D[] attackHitboxes;
     private bool canTakeDamage = true;
 
-    private float jumpBufferTime = .2f;
     public float jumpBufferCounter { get; private set; }
 
     void Awake()

@@ -8,7 +8,7 @@ public class BatFallState : BatState
     {
         base.PhysicsUpdate();
 
-        bat.rb.linearVelocity = new Vector2(0, bat.fallSpeed);
+        bat.rb.linearVelocity = new Vector2(0, -bat.fallSpeed);
 
     }
 

@@ -13,15 +13,21 @@ public class WolfAttackState : WolfState
         wolf.rb.linearVelocity = Vector2.zero;
     }
 
+    public override void AnimationTrigger()
+    {
+        base.AnimationTrigger();
+        stateMachine.ChangeState(wolf.idleState);
+    }
+
     public override void TransitionChecks()
     {
         base.TransitionChecks();
 
         if (isExitingState) return;
 
-        if (isAnimationFinished)
-        {
-            stateMachine.ChangeState(wolf.idleState);
-        }
+        // if (isAnimationFinished)
+        // {
+        //     stateMachine.ChangeState(wolf.idleState);
+        // }
     }
 }

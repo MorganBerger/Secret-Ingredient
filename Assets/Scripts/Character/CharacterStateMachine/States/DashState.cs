@@ -62,6 +62,6 @@ public class DashState: CharacterState
         var timeElapsed = Time.time - startTime;
         var lerpedVelocity = Mathf.Lerp(character.rb.linearVelocity.x, velocity, timeElapsed / dashDuration);
 
-        character.rb.linearVelocity = new Vector2(lerpedVelocity, 0f);        
+        character.rb.linearVelocity = new Vector2(lerpedVelocity, 0f);
     }
 }

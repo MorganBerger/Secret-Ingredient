@@ -1,8 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class BatChaseState: BatState
 {
     private bool hasDetectedPlayer = false;
+    private Vector2 dirToPlayer;
+    private Collider2D[] rejectedColliders;
 
     public BatChaseState(Bat _bat, string _animationName)
         : base(_bat, _animationName)
@@ -13,6 +17,7 @@ public class BatChaseState: BatState
     {
         base.Enter();
         hasDetectedPlayer = true;
+        rejectedColliders = bat.GetComponentsInChildren<Collider2D>();
     }
 
     public override void TransitionChecks()
@@ -28,6 +33,9 @@ public class BatChaseState: BatState
         float distToPlayer = Vector2.Distance(bat.transform.position, bat.targetPlayer.transform.position);
         if (distToPlayer <= bat.attackRange)
         {
+            RaycastHit2D[] hits = Physics2D.RaycastAll(bat.transform.position, (bat.targetPlayer.transform.position - bat.transform.position).normalized, bat.attackRange);
+            if (hits.Any(hit => hit.collider.gameObject.layer != LayerMask.NameToLayer("Player") && !rejectedColliders.Contains(hit.collider))) return;
+
             stateMachine.ChangeState(bat.attackState);
             return;
         }
@@ -38,8 +46,8 @@ public class BatChaseState: BatState
         base.LogicUpdate();
         if (isExitingState) return;
 
-        float dirToPlayer = bat.targetPlayer.transform.position.x - bat.transform.position.x;
-        if ((dirToPlayer > 0 && bat.transform.localScale.x < 0) || (dirToPlayer < 0 && bat.transform.localScale.x > 0))
+        dirToPlayer = bat.targetPlayer.transform.position - bat.transform.position;
+        if ((dirToPlayer.x > 0 && bat.transform.localScale.x < 0) || (dirToPlayer.x < 0 && bat.transform.localScale.x > 0))
         {
             bat.Flip();
         }
@@ -51,7 +59,7 @@ public class BatChaseState: BatState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        float moveDir = bat.transform.localScale.x;
-        bat.rb.linearVelocity = new Vector2(moveDir * bat.chaseSpeed, bat.rb.linearVelocity.y);
+        Vector2 normalizedDir = dirToPlayer.normalized;
+        bat.rb.linearVelocity = new Vector2(normalizedDir.x * bat.chaseSpeed, normalizedDir.y * bat.chaseSpeed);
     }
 }
