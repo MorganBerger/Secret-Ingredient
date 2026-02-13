@@ -25,10 +25,8 @@ public class GroundedState : MovementState
         }
 
         var type = GetType();
-        // if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
         if (character.jumpBufferCounter > 0f && type != typeof(WallSlideState))
         {
-            Debug.Log("JUMP YO");
             character.ConsumeJumpBuffer();
             stateMachine.ChangeState(character.jumpState);
             return;

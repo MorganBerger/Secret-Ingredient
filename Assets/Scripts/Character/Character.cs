@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 public struct CharacterSkills
 {
-    public static bool canDash = false;
+    public static bool canDash = true;
     public static bool canDoubleJump = false;
     public static bool canWallClimb = true;
 }
