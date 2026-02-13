@@ -18,6 +18,14 @@ public class DashState: CharacterState
         character.rb.AddForce(new Vector2(character.transform.localScale.x * dashSpeed, 0f), ForceMode2D.Impulse);
 
         character.canDash = false;
+
+        character.rb.gravityScale = 0f;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        character.rb.gravityScale = 1f;
     }
 
     public override void TransitionChecks()
