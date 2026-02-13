@@ -17,6 +17,9 @@ public class GroundAttackState : MovementState//CharacterState
     public override void AnimationTrigger()
     {
         base.AnimationTrigger();
+
+        if (isExitingState) return;
+
         stateMachine.ChangeState(character.idleState);
     }
 }

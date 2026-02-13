@@ -14,6 +14,8 @@ public class Character: MonoBehaviour
 
     public CharacterStateMachine stateMachine { get; private set; }
 
+    public string currentState;
+
     public IdleState idleState { get; private set; }
     public RunState runState { get; private set; }
     public JumpState jumpState { get; private set; }

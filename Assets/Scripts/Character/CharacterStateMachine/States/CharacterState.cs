@@ -7,4 +7,10 @@ public class CharacterState: State
     {
         character = _character;
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+        character.currentState = GetType().Name;
+    }
 }
