@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class GroundAttackState : CharacterState
+public class GroundAttackState : MovementState//CharacterState
 {
     public GroundAttackState(Character _character, string _animationName)
         : base(_character, _animationName)
     {
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
-        character.rb.linearVelocity = new Vector2(0f, 0f);
     }
 
     public override void TransitionChecks()
@@ -18,15 +12,11 @@ public class GroundAttackState : CharacterState
         base.TransitionChecks();
 
         if (isExitingState) return;
-
-        if (isAnimationFinished) 
-        {
-            stateMachine.ChangeState(character.idleState);
-        }
     }
 
-    public override void PhysicsUpdate()
+    public override void AnimationTrigger()
     {
-        base.PhysicsUpdate();
+        base.AnimationTrigger();
+        stateMachine.ChangeState(character.idleState);
     }
 }
