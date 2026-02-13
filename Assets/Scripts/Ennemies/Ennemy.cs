@@ -19,6 +19,7 @@ public class Ennemy : MonoBehaviour
     public LayerMask playerLayer;
     public float detectRange = 1.75f;
     public float attackRange = 0.275f;
+    public bool isDead = false;
 
     public float checkRadius {
         get { return 0.025f; }
@@ -38,9 +39,13 @@ public class Ennemy : MonoBehaviour
         stateMachine = new StateMachine();
     }
 
-    public void Update()
+    public virtual void Update()
     {
         stateMachine._CurrentState.LogicUpdate();
+        if (health <= 0 && !isDead)
+        {
+            Die();
+        }
     }
 
     public void FixedUpdate()
@@ -118,7 +123,9 @@ public class Ennemy : MonoBehaviour
     }
 
     public virtual void Die()
-    {}
+    {
+        isDead = true;
+    }
 
     void AnimationFinished()
     {

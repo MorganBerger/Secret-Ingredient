@@ -121,177 +121,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BAT FLIGHT_0
+      name: Bat FLIGHT_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 27
-        width: 35
-        height: 13
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a283c843d3c90e560800000000000000
-      internalID: 7341039179302451242
+      spriteID: 9981afa9e868e4133b8c3c1860ec3c35
+      internalID: -1287079094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BAT FLIGHT_1
+      name: Bat FLIGHT_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 26
-        width: 32
-        height: 13
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1ce3748d50ae96fa0800000000000000
-      internalID: -5806852933693260095
+      spriteID: 3803dd5e0858a4f90a922961285717bd
+      internalID: 2130374557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BAT FLIGHT_2
+      name: Bat FLIGHT_2
       rect:
         serializedVersion: 2
-        x: 147
-        y: 24
-        width: 26
-        height: 20
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 75d654b75c13640a0800000000000000
-      internalID: -6897771055024870057
+      spriteID: c8236eb9c32e045cb8661bfef561e82e
+      internalID: 1042787568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BAT FLIGHT_3
+      name: Bat FLIGHT_3
       rect:
         serializedVersion: 2
-        x: 210
-        y: 26
-        width: 27
-        height: 18
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5198103a64bde1720800000000000000
-      internalID: 2818931513209489685
+      spriteID: d1cf493c5d6e54cfaa7910e8ffc5a3e2
+      internalID: -1111786143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BAT FLIGHT_4
+      name: Bat FLIGHT_4
       rect:
         serializedVersion: 2
-        x: 269
-        y: 25
-        width: 38
-        height: 11
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c32146a843f3ce600800000000000000
-      internalID: 498843153623945788
+      spriteID: 25e32e4943e16495cb6c156f0d7e2304
+      internalID: -2004013278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BAT FLIGHT_5
+      name: Bat FLIGHT_5
       rect:
         serializedVersion: 2
-        x: 332
-        y: 23
-        width: 40
-        height: 15
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: df2c6318b19624070800000000000000
-      internalID: 8089143447563715325
+      spriteID: 0a0ea90fa0c1b4cac9e588a6dfae3d68
+      internalID: -2066448549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BAT FLIGHT_6
+      name: Bat FLIGHT_6
       rect:
         serializedVersion: 2
-        x: 401
-        y: 21
-        width: 29
-        height: 19
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e2d16eb83979c83d0800000000000000
-      internalID: -3203018575004164818
+      spriteID: 5a4bc02ae08ab40b5b329911eda44e31
+      internalID: -1117677888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BAT FLIGHT_7
+      name: Bat FLIGHT_7
       rect:
         serializedVersion: 2
-        x: 464
-        y: 21
-        width: 31
-        height: 19
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 45f82efed6a2f09c0800000000000000
-      internalID: -3958898895770972332
+      spriteID: a51d57923f59f454693343e14af6c9b5
+      internalID: 1443995291
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c7c07d6cd3bae4529979e42fb3de16fa
     internalID: 0
     vertices: []
     indices: 
@@ -308,16 +308,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      BAT FLIGHT_0: 7341039179302451242
-      BAT FLIGHT_1: -5806852933693260095
-      BAT FLIGHT_2: -6897771055024870057
-      BAT FLIGHT_3: 2818931513209489685
-      BAT FLIGHT_4: 498843153623945788
-      BAT FLIGHT_5: 8089143447563715325
-      BAT FLIGHT_6: -3203018575004164818
-      BAT FLIGHT_7: -3958898895770972332
+      Bat FLIGHT_0: -1287079094
+      Bat FLIGHT_1: 2130374557
+      Bat FLIGHT_2: 1042787568
+      Bat FLIGHT_3: -1111786143
+      Bat FLIGHT_4: -2004013278
+      Bat FLIGHT_5: -2066448549
+      Bat FLIGHT_6: -1117677888
+      Bat FLIGHT_7: 1443995291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
