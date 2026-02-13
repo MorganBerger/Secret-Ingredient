@@ -7,16 +7,9 @@ public class AirAttackState : AirState //CharacterState
     {
     }
 
-
-    public override void TransitionChecks()
+    public override void AnimationTrigger()
     {
-        base.TransitionChecks();
-
-        if (isExitingState) return;
-
-        if (isAnimationFinished)
-        {
-            stateMachine.ChangeState(character.fallState);
-        }
+        base.AnimationTrigger();
+        stateMachine.ChangeState(character.fallState);
     }
 }
