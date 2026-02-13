@@ -1,5 +1,4 @@
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class Bat : Ennemy
@@ -17,8 +16,7 @@ public class Bat : Ennemy
     public BatDeathState deathState;
     public string currentState;
 
-    public Collider2D attackCollider;
-    private GameObject tmpGizmoPlayer;
+    public Collider2D hitboxCollider;
 
     public override void Start()
     {
@@ -43,7 +41,7 @@ public class Bat : Ennemy
     public override void Die()
     {
         base.Die();
-        attackCollider.enabled = false;
+        hitboxCollider.enabled = false;
         stateMachine.ChangeState(fallingState);
     }
 
@@ -54,8 +52,8 @@ public class Bat : Ennemy
 
         if (character == null) return;
 
+        // Attack collision are already in the character script
         Collider2D[] characterHitBoxes = character.attackHitboxes;
-
         if (characterHitBoxes.Any(hb => hb == col)) return;
 
         Attack(character);

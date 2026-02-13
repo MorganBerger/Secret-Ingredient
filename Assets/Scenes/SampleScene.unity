@@ -373,7 +373,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3307794855230128716, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
   m_PrefabInstance: {fileID: 7835613252968288473}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1640220215}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 255a5d3b3e24c4a5cba3c6784ed0b46e, type: 3}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 672484745}
   - component: {fileID: 672484746}
   m_Layer: 0
-  m_Name: AttackTriggerCollider
+  m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,7 +612,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0055999756, y: 0.011755466}
+  m_Offset: {x: -0.006356895, y: 0.011755459}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -622,7 +622,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.34981, y: 0.18073869}
+  m_Size: {x: 0.35382688, y: 0.15109308}
   m_EdgeRadius: 0
 --- !u!1 &709727305
 GameObject:
@@ -882,15 +882,15 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  detectRange: 2
-  attackRange: 0.8
+  detectRange: 3
+  attackRange: 0.6
   isDead: 0
-  targetPlayer: {fileID: 0}
+  targetPlayer: {fileID: 1640220215}
   chaseSpeed: 1
   fallSpeed: 2
   attackForce: 4
   currentState: 
-  attackCollider: {fileID: 672484746}
+  hitboxCollider: {fileID: 672484746}
 --- !u!50 &1161498297
 Rigidbody2D:
   serializedVersion: 5
@@ -952,7 +952,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0059099644, y: 0.014709733}
+  m_Offset: {x: -0.014129102, y: -0.00081521645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -962,7 +962,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.3740513, y: 0.17652114}
+  m_Size: {x: 0.25898397, y: 0.0870244}
   m_EdgeRadius: 0
 --- !u!1001 &1216359645
 PrefabInstance:
@@ -1202,6 +1202,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1161498293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1640220215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5997269319799633757, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
+  m_PrefabInstance: {fileID: 7835613252968288473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1948157731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1522,10 @@ PrefabInstance:
     - target: {fileID: 3158455163696836737, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: health
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158455163696836737, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3158455163696836737, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: chaseSpeed

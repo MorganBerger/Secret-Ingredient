@@ -230,7 +230,7 @@ public class Character: MonoBehaviour
         {
             ennemy.TakeDamage(damage, gameObject);
 
-            if (ennemy.health > 0) 
+            if (ennemy.health > 0)
             {
                 ApplyKnockback(ennemy.gameObject, force: .6f);
             }
