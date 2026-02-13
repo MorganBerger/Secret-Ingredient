@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WolfChaseState: WolfState
@@ -41,11 +42,24 @@ public class WolfChaseState: WolfState
         float dirToPlayer = wolf.targetPlayer.transform.position.x - wolf.transform.position.x;
         if ((dirToPlayer > 0 && wolf.transform.localScale.x < 0) || (dirToPlayer < 0 && wolf.transform.localScale.x > 0))
         {
-            wolf.Flip();
+            // wolf.Flip();
+            if (!isFlipping)
+            {
+                isFlipping = true;
+                wolf.StartCoroutine(flipWithDelay());
+            }
         }
 
         var playerCollider = wolf.DetectPlayer();
         wolf.targetPlayer = playerCollider != null ? playerCollider.gameObject : null;
+    }
+
+    private bool isFlipping = false;
+    IEnumerator flipWithDelay()
+    {
+        yield return new WaitForSeconds(0.15f);
+        wolf.Flip();
+        isFlipping = false;
     }
 
     public override void PhysicsUpdate()
