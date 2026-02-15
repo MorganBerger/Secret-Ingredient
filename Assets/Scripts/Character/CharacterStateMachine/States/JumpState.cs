@@ -43,9 +43,10 @@ public class JumpState : AirState
             canTransition = true;
         }
 
-        if ((Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Space)) && character.rb.linearVelocity.y > 0f)
-        {
-            character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
-        }
+        
+        // if ((Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Space)) && character.rb.linearVelocity.y > 0f)
+        // {
+        //     character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
+        // }
     }
 }
