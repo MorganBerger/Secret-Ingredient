@@ -11,15 +11,10 @@ public class GroundAttackState : MovementState//CharacterState
     {
         base.TransitionChecks();
 
-        if (isExitingState) return;
-    }
-
-    public override void AnimationTrigger()
-    {
-        base.AnimationTrigger();
-
-        if (isExitingState) return;
-
-        stateMachine.ChangeState(character.idleState);
+        if (isAnimationFinished)
+        {
+            stateMachine.ChangeState(character.idleState);
+            return;
+        }
     }
 }
