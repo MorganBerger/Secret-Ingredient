@@ -30,6 +30,7 @@ public class Character: MonoBehaviour
     public AirAttackState airAttackState { get; private set; }
     public HurtState hurtState { get; private set; }
     public DeathState deathState { get; private set; }
+    public ParryState parryState { get; private set; }
 
     public bool canDoubleJump { get; set; }
     public bool canDash { get; set; }
@@ -61,6 +62,8 @@ public class Character: MonoBehaviour
 
     public float jumpBufferCounter { get; private set; }
 
+    public bool isParrying;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -86,7 +89,8 @@ public class Character: MonoBehaviour
         airAttackState = new AirAttackState(this, "isAirAttacking");
         hurtState = new HurtState(this, "isHurting");
         deathState = new DeathState(this, "isDead");
-
+        parryState = new ParryState(this, "isParrying");
+        
         stateMachine.InitializeStateMachine(idleState);
     }
 

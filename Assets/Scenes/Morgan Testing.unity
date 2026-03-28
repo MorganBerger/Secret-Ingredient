@@ -169,6 +169,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6943404076448849209, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.52787894
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943404076448849209, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7257562998766722318, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.436
@@ -315,6 +323,10 @@ PrefabInstance:
     - target: {fileID: 1329264985594863053, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: m_Name
       value: Wolf
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329264985594863053, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3158455163696836737, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: speed
