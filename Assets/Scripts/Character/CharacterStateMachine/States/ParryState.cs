@@ -8,10 +8,8 @@ public class ParryState: CharacterState
     override public void Enter()
     {
         base.Enter();
-        // character.parry();
 
         character.rb.linearVelocity = Vector2.zero;
-
         character.isParrying = true;
     }
 
@@ -25,5 +23,6 @@ public class ParryState: CharacterState
     {
         base.AnimationTrigger();
         stateMachine.ChangeState(character.idleState);
+        character.StartParryBuffer();
     }
 }

@@ -32,7 +32,7 @@ public class GroundedState : MovementState
             return;
         }
 
-        if (!character.isParrying && Input.GetKeyDown(KeyCode.P))
+        if (!character.isParrying && Input.GetKeyDown(KeyCode.P) && character.parryBufferCounter <= 0f)
         {
             stateMachine.ChangeState(character.parryState);
             return;

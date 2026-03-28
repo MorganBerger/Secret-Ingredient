@@ -11,6 +11,7 @@ public struct CharacterSkills
 public class Character: MonoBehaviour
 {
     [SerializeField] private float jumpBufferTime = .15f;
+    [SerializeField] private float parryBufferTime = .5f;
 
     public CharacterStateMachine stateMachine { get; private set; }
 
@@ -62,6 +63,7 @@ public class Character: MonoBehaviour
 
     public float jumpBufferCounter { get; private set; }
 
+    public float parryBufferCounter { get; private set; }
     public bool isParrying;
 
     void Awake()
@@ -104,9 +106,13 @@ public class Character: MonoBehaviour
         {
             jumpBufferCounter -= Time.deltaTime;
         }
+
+        parryBufferCounter -= Time.deltaTime;
+
         stateMachine._CurrentState.LogicUpdate();
     }
 
+    public void StartParryBuffer() => parryBufferCounter = parryBufferTime;
     public void ConsumeJumpBuffer() => jumpBufferCounter = 0f;
 
     void FixedUpdate()
