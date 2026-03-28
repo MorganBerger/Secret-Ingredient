@@ -11,6 +11,7 @@ public struct CharacterSkills
 public class Character: MonoBehaviour
 {
     [SerializeField] private float jumpBufferTime = .15f;
+    [SerializeField] private float parryBufferTime = .5f;
 
     public CharacterStateMachine stateMachine { get; private set; }
 
@@ -30,6 +31,8 @@ public class Character: MonoBehaviour
     public AirAttackState airAttackState { get; private set; }
     public HurtState hurtState { get; private set; }
     public DeathState deathState { get; private set; }
+    public ParryState parryState { get; private set; }
+    public ParryHitState parryHitState { get; private set; }
 
     public bool canDoubleJump { get; set; }
     public bool canDash { get; set; }
@@ -61,6 +64,9 @@ public class Character: MonoBehaviour
 
     public float jumpBufferCounter { get; private set; }
 
+    public float parryBufferCounter { get; private set; }
+    public bool isParrying;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -86,7 +92,9 @@ public class Character: MonoBehaviour
         airAttackState = new AirAttackState(this, "isAirAttacking");
         hurtState = new HurtState(this, "isHurting");
         deathState = new DeathState(this, "isDead");
-
+        parryState = new ParryState(this, "isParrying");
+        parryHitState = new ParryHitState(this, "isParryHitting");
+        
         stateMachine.InitializeStateMachine(idleState);
     }
 
@@ -100,14 +108,24 @@ public class Character: MonoBehaviour
         {
             jumpBufferCounter -= Time.deltaTime;
         }
+
+        parryBufferCounter -= Time.deltaTime;
+
         stateMachine._CurrentState.LogicUpdate();
     }
 
+    public void ResetParryBuffer() => parryBufferCounter = parryBufferTime;
     public void ConsumeJumpBuffer() => jumpBufferCounter = 0f;
 
     void FixedUpdate()
     {
         stateMachine._CurrentState.PhysicsUpdate();
+    }
+
+    public void ParryAttack()
+    {
+        print("PARRYING HIT YO");
+        stateMachine.ChangeState(parryHitState);
     }
 
     public bool isDead()

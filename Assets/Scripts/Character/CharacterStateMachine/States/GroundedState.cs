@@ -32,6 +32,12 @@ public class GroundedState : MovementState
             return;
         }
 
+        if (!character.isParrying && Input.GetKeyDown(KeyCode.P) && character.parryBufferCounter <= 0f)
+        {
+            stateMachine.ChangeState(character.parryState);
+            return;
+        }
+
         float moveInput = Input.GetAxisRaw("Horizontal");
 
         if (Mathf.Approximately(moveInput, 0f) && Mathf.Approximately(character.rb.linearVelocity.y, 0f))
