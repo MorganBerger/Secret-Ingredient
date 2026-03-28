@@ -183,11 +183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7257562998766722318, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.436
+      value: -5.351
       objectReference: {fileID: 0}
     - target: {fileID: 7257562998766722318, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.206
+      value: -3.198
       objectReference: {fileID: 0}
     - target: {fileID: 7257562998766722318, guid: ef7783d49b84645a09bd64b8836d027a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -330,23 +330,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329264985594863053, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3158455163696836737, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: speed
-      value: 1.5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3158455163696836737, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3158455163696836737, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: chaseSpeed
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4074023636465541080, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.288
+      value: -4.93
       objectReference: {fileID: 0}
     - target: {fileID: 4074023636465541080, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.252
+      value: -3.258
       objectReference: {fileID: 0}
     - target: {fileID: 4074023636465541080, guid: 81d192d7d5c5949c18b159740cbf17de, type: 3}
       propertyPath: m_LocalPosition.z

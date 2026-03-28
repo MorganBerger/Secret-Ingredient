@@ -98,15 +98,29 @@ public class Ennemy : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
     }
 
-    public virtual void Attack(Character character)
+    private bool IsFacing(Character character)
     {
-        character.TakeDamage(damage, gameObject);
+        return character.transform.localScale.x == -transform.localScale.x;
     }
 
-    private void ApplyKnockback(GameObject from)
+    public virtual void Attack(Character character)
     {
+        if (IsFacing(character) && character.isParrying)
+        {
+            character.ParryAttack();
+            // ApplyKnockback(character.gameObject, .2f);
+        } 
+        else
+        {
+            character.TakeDamage(damage, gameObject);
+        }
+    }
+
+    private void ApplyKnockback(GameObject from, float knockbackForce = 1.5f)
+    {
+        // TODO: Unified knockback direction so its strenght doens't increase/decrease based on the distance between the attacker and the target
         Vector2 knockbackDirection = (transform.position - from.transform.position).normalized;
-        rb.AddForce(knockbackDirection * 1.5f, ForceMode2D.Impulse);
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
     }
 
     public virtual void TakeDamage(float damageAmount, GameObject attacker)

@@ -23,6 +23,6 @@ public class ParryState: CharacterState
     {
         base.AnimationTrigger();
         stateMachine.ChangeState(character.idleState);
-        character.StartParryBuffer();
+        character.ResetParryBuffer();
     }
 }
