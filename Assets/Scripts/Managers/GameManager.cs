@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager: MonoBehaviour
@@ -8,6 +9,8 @@ public class GameManager: MonoBehaviour
     private SaveData saveData;
     public int currentSeed;
     public Vector2 lastCheckpoint;
+    public Vector2 lastSafePosition;
+    private Coroutine respawnCoroutine;
 
     private void Awake()
     {
@@ -96,5 +99,20 @@ public class GameManager: MonoBehaviour
     {
         lastCheckpoint = position;
         SaveGameData();
+    }
+
+    public void Respawn()
+    {
+        if (character == null) return;
+        if (respawnCoroutine != null) StopCoroutine(respawnCoroutine);
+        respawnCoroutine = StartCoroutine(RespawnCoroutine());
+    }
+
+    private IEnumerator RespawnCoroutine()
+    {
+        UIManager.Instance.ShowBlackScreen();
+        yield return new WaitForSeconds(1f);
+        character.transform.position = new(lastSafePosition.x, lastSafePosition.y, 0);
+        UIManager.Instance.CloseEveryMenus();
     }
 }

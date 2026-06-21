@@ -5,13 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject craftMenu;
-    [SerializeField] private GameObject inventoryMenu;
-    [SerializeField] private GameObject deathMenu;
     [SerializeField] private CanvasGroup craftMenuCG;
     [SerializeField] private CanvasGroup deathMenuCG;
     [SerializeField] private CanvasGroup inventoryMenuCG;
-    private Dictionary<GameObject, bool> menuStates = new();
+    [SerializeField] private CanvasGroup blackScreenCG;
+    private readonly Dictionary<CanvasGroup, bool> menuStates = new();
     private readonly float fadeDuration = 0.25f;
     private Coroutine fadeCoroutine;
     public static UIManager Instance;
@@ -31,37 +29,24 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if (craftMenu != null)
-        {
-            craftMenuCG = craftMenu.GetComponent<CanvasGroup>();
-            menuStates[craftMenu] = false;
-        } else
-        {
-            Debug.LogWarning("Craft menu has not been assigned yet");
-        }
+        if (craftMenuCG != null) menuStates[craftMenuCG] = false;
+        else Debug.LogWarning("Craft menu has not been assigned yet");
 
-        if (inventoryMenu != null)
-        {
-            inventoryMenuCG = inventoryMenu.GetComponent<CanvasGroup>();
-            menuStates[inventoryMenu] = false;
-        } else
-        {
-            Debug.LogWarning("Inventory menu has not been assigned yet");
-        }
+        if (inventoryMenuCG != null) menuStates[inventoryMenuCG] = false;
+        else Debug.LogWarning("Inventory menu has not been assigned yet");
 
-        if (deathMenu != null)
-        {
-            deathMenuCG = deathMenu.GetComponent<CanvasGroup>();
-            menuStates[deathMenu] = false;
-        } else
-        {
-            Debug.LogWarning("Death menu has not been assigned yet");
-        }
+
+        if (deathMenuCG != null) menuStates[deathMenuCG] = false;
+        else Debug.LogWarning("Death menu has not been assigned yet");
+
+        if (blackScreenCG != null) menuStates[blackScreenCG] = false;
+        else Debug.LogWarning("Black screen has not been assigned yet");
+
 
         // Ensure all menus are hidden at the start
-        foreach (KeyValuePair<GameObject, bool> kvp in menuStates)
+        foreach (KeyValuePair<CanvasGroup, bool> kvp in menuStates)
         {
-            ResetMenu(kvp.Key.GetComponent<CanvasGroup>());
+            ResetMenu(kvp.Key);
         }
     }
 
@@ -69,27 +54,26 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            List<GameObject> keys = new(menuStates.Keys);
-            foreach (GameObject key in keys) {
-                // menuStates[key] = false;
-                HideMenu(key, key.GetComponent<CanvasGroup>());
+            List<CanvasGroup> keys = new(menuStates.Keys);
+            foreach (CanvasGroup key in keys) {
+                HideMenu(key);
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))
         {
-            if (menuStates[inventoryMenu] == true)
+            if (menuStates[inventoryMenuCG] == true)
             {
-                HideMenu(inventoryMenu, inventoryMenuCG);
+                HideMenu(inventoryMenuCG);
             }
             else
             {
-                ShowMenu(inventoryMenu, inventoryMenuCG);
+                ShowMenu(inventoryMenuCG);
             }
         }
     }
 
-    private void ShowMenu(GameObject menu, CanvasGroup cg)
+    private void ShowMenu(CanvasGroup menu)
     {
         if (menuStates[menu] == true) return;
         CloseEveryMenus();
@@ -99,19 +83,18 @@ public class UIManager : MonoBehaviour
         {
             StopCoroutine(fadeCoroutine);
         }
-        fadeCoroutine = StartCoroutine(FadeIn(cg));
+        fadeCoroutine = StartCoroutine(FadeIn(menu));
     }
 
     public void CloseEveryMenus()
     {
-        List<GameObject> keys = new(menuStates.Keys);
-        foreach (GameObject key in keys) {
-            menuStates[key] = false;
-            HideMenu(key, key.GetComponent<CanvasGroup>());
+        List<CanvasGroup> keys = new(menuStates.Keys);
+        foreach (CanvasGroup key in keys) {
+            HideMenu(key);
         }
     }
 
-    private void HideMenu(GameObject menu, CanvasGroup cg)
+    private void HideMenu(CanvasGroup menu)
     {
         if (menuStates[menu] == false) return;
 
@@ -120,7 +103,7 @@ public class UIManager : MonoBehaviour
         {
             StopCoroutine(fadeCoroutine);
         }
-        fadeCoroutine = StartCoroutine(FadeOut(cg));
+        fadeCoroutine = StartCoroutine(FadeOut(menu));
     }
 
     IEnumerator FadeIn(CanvasGroup cg)
@@ -169,24 +152,29 @@ public class UIManager : MonoBehaviour
 
     public void ToggleCraftMenu()
     {
-        if (menuStates[craftMenu] == true)
+        if (menuStates[craftMenuCG] == true)
         {
-            HideMenu(craftMenu, craftMenuCG);
+            HideMenu(craftMenuCG);
         }
         else
         {
-            ShowMenu(craftMenu, craftMenuCG);
+            ShowMenu(craftMenuCG);
         }
     }
 
     public void HideCraftMenu()
     {
-        HideMenu(craftMenu, craftMenuCG);
+        HideMenu(craftMenuCG);
     }
 
     public void ShowDeathMenu()
     {
-        ShowMenu(deathMenu, deathMenuCG);
+        ShowMenu(deathMenuCG);
+    }
+
+    public void ShowBlackScreen()
+    {
+        ShowMenu(blackScreenCG);
     }
 
     public void Quit()
