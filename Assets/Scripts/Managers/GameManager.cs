@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager: MonoBehaviour
 {
+    private readonly static WaitForSeconds _waitForSeconds1 = new(1f);
     public static GameManager Instance;
     public int currentLevel = 1;
     private Character character;
@@ -111,8 +112,26 @@ public class GameManager: MonoBehaviour
     private IEnumerator RespawnCoroutine()
     {
         UIManager.Instance.ShowBlackScreen();
-        yield return new WaitForSeconds(1f);
+        yield return _waitForSeconds1;
         character.transform.position = new(lastSafePosition.x, lastSafePosition.y, 0);
         UIManager.Instance.CloseEveryMenus();
+    }
+
+    public void ContinueGame()
+    {
+        if (character == null || !character.IsDead()) return;
+        if (respawnCoroutine != null) StopCoroutine(respawnCoroutine);
+        respawnCoroutine = StartCoroutine(ContinueGameCoroutine());
+    }
+
+    private IEnumerator ContinueGameCoroutine()
+    {
+        UIManager.Instance.ShowBlackScreen();
+        yield return _waitForSeconds1;
+        UIManager.Instance.HideDeathMenu();
+        saveData = SaveManager.LoadGame();
+        LoadDataInTheGame();
+        yield return _waitForSeconds1;
+        UIManager.Instance.HideBlackScreen();
     }
 }

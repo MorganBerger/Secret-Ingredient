@@ -20,7 +20,6 @@ public class Trap : MonoBehaviour
     {
         if (auto && !isTriggered)
         {
-            Debug.Log("Auto-triggering trap");
             TriggerTrap();
         }
     }
@@ -56,7 +55,6 @@ public class Trap : MonoBehaviour
 
     protected virtual void ResetTrap()
     {
-        Debug.Log("Resetting trap");
         animator.SetBool("isTriggered", false);
         isTriggered = false;
     }

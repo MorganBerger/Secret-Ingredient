@@ -104953,6 +104953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
   jumpBufferTime: 0.15
+  parryBufferTime: 0.5
   currentState: 
   whatIsGround:
     serializedVersion: 2
@@ -104968,6 +104969,7 @@ MonoBehaviour:
   damage: 2
   checkGroundBoxWidth: 0
   attackHitboxes: []
+  isParrying: 0
 --- !u!50 &1086972119
 Rigidbody2D:
   serializedVersion: 5
@@ -162235,7 +162237,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1800896976}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ContinueGame
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -213713,6 +213715,10 @@ PrefabInstance:
     - target: {fileID: 2001861393039278997, guid: 5a84f107dab4540569dacbe12ff22f72, type: 3}
       propertyPath: m_PixelPerfect
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001861393039278997, guid: 5a84f107dab4540569dacbe12ff22f72, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2001861393039278997, guid: 5a84f107dab4540569dacbe12ff22f72, type: 3}
       propertyPath: m_VertexColorAlwaysGammaSpace

@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     private readonly Dictionary<CanvasGroup, bool> menuStates = new();
     private readonly float fadeDuration = 0.25f;
     private Coroutine fadeCoroutine;
+    private Coroutine quitCoroutine;
     public static UIManager Instance;
 
     private void Awake()
@@ -76,7 +77,6 @@ public class UIManager : MonoBehaviour
     private void ShowMenu(CanvasGroup menu)
     {
         if (menuStates[menu] == true) return;
-        CloseEveryMenus();
         menuStates[menu] = true;
 
         if (fadeCoroutine != null)
@@ -172,9 +172,24 @@ public class UIManager : MonoBehaviour
         ShowMenu(deathMenuCG);
     }
 
+    public void HideDeathMenu()
+    {
+        HideMenu(deathMenuCG);
+    }
+
     public void ShowBlackScreen()
     {
         ShowMenu(blackScreenCG);
+    }
+
+    public void HideBlackScreen()
+    {
+        HideMenu(blackScreenCG);
+    }
+
+    public void Continue()
+    {
+        GameManager.Instance.ContinueGame();
     }
 
     public void Quit()
@@ -183,11 +198,28 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    /// <summary>
-    /// Reloads the current scene, reloading data
-    /// </summary>
     public void QuitToMainMenu()
     {
+        if (quitCoroutine != null)
+            StopCoroutine(quitCoroutine);
+        quitCoroutine = StartCoroutine(QuitToMainMenuRoutine());
+    }
+
+    private IEnumerator QuitToMainMenuRoutine()
+    {
+        // Fade to black
+        ShowBlackScreen();
+        yield return new WaitForSeconds(fadeDuration);
+
+        // Hide death menu instantly while hidden behind black screen
+        ResetMenu(deathMenuCG);
+        menuStates[deathMenuCG] = false;
+
+        // Load main menu
         SceneManager.LoadScene("MainMenu");
+
+        yield return null; // wait one frame for scene to initialize
+
+        HideBlackScreen();
     }
 }
