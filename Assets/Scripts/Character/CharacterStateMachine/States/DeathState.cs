@@ -21,4 +21,17 @@ public class DeathState : CharacterState
         base.PhysicsUpdate();
         character.rb.linearVelocity = Vector2.zero;
     }
+
+    public override void TransitionChecks()
+    {
+        base.TransitionChecks();
+
+        if (isExitingState) return;
+
+        if (!character.IsDead())
+        {
+            stateMachine.ChangeState(character.idleState);
+            return;
+        }
+    }
 }
