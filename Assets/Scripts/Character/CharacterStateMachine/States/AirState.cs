@@ -29,7 +29,7 @@ public class AirState : MovementState
             stateMachine.ChangeState(character.idleState);
         }
 
-        if (character.isDead()) return;
+        if (character.IsDead()) return;
 
         if (Input.GetKeyDown(KeyCode.T) && !touchingGround)
         {

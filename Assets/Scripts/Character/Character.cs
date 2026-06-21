@@ -128,7 +128,7 @@ public class Character: MonoBehaviour
         stateMachine.ChangeState(parryHitState);
     }
 
-    public bool isDead()
+    public bool IsDead()
     {
         return health <= 0;
     }
@@ -257,9 +257,9 @@ public class Character: MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount, GameObject attacker)
+    public void TakeDamage(float damageAmount, GameObject attacker = null)
     {
-        if (isDead()) return;
+        if (IsDead()) return;
         if (!canTakeDamage) return;
 
         canTakeDamage = false;
@@ -268,10 +268,13 @@ public class Character: MonoBehaviour
         health -= damageAmount;
 
         spriteRenderer.color = new Color(1, 1, 1, health <= 0 ? 1f : 0.75f);
-  
+
         stateMachine.ChangeState(hurtState);
 
-        ApplyKnockback(attacker);
+        if (attacker != null)
+        {
+            ApplyKnockback(attacker);
+        }
     }
 
     IEnumerator TakeDamageCooldown()

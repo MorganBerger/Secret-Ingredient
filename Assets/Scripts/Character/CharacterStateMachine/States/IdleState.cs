@@ -13,9 +13,9 @@ public class IdleState : GroundedState
     {
         base.TransitionChecks();
 
-        if (isExitingState) return; 
+        if (isExitingState) return;
 
-        if (character.isDead())
+        if (character.IsDead())
         {
             stateMachine.ChangeState(character.deathState);
             return;

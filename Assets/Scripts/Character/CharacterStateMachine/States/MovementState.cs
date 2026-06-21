@@ -20,7 +20,7 @@ public class MovementState : CharacterState
     {
         base.TransitionChecks();
 
-        if (Input.GetKeyDown(KeyCode.F) && character.canDash && !character.isDead())
+        if (Input.GetKeyDown(KeyCode.F) && character.canDash && !character.IsDead())
         {
             stateMachine.ChangeState(character.dashState);
             return;
@@ -47,7 +47,7 @@ public class MovementState : CharacterState
     {
         base.PhysicsUpdate();
 
-        if (character.isDead()) return;
+        if (character.IsDead()) return;
         
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
