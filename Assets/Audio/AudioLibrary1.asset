@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3240851b7d24022aa86f37a43170ee, type: 3}
+  m_Name: AudioLibrary1
+  m_EditorClassIdentifier: Assembly-CSharp::AudioLibrary
+  slashSounds:
+  - {fileID: 8300000, guid: 48dcd12a6fdcb487697f8bb4e4b5ee55, type: 3}
+  - {fileID: 8300000, guid: 70413ba4ef09c4201a70aa5bda670608, type: 3}
+  hitSounds: []
+  footstepSounds:
+  - {fileID: 8300000, guid: c025c43d1749af5469c7dd8af13e162f, type: 3}
+  - {fileID: 8300000, guid: 65713fdea647c1949961f91d42bed416, type: 3}
+  - {fileID: 8300000, guid: 684d90e2defae1547a1d51bec24e6e9d, type: 3}
