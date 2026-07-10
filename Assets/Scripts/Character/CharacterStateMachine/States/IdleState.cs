@@ -28,5 +28,10 @@ public class IdleState : GroundedState
         {
             stateMachine.ChangeState(character.runState);
         }
+
+        if (character.drinkAction.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(character.drinkState);
+        }
     }
 }
