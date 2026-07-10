@@ -62,8 +62,6 @@ public class AirState : MovementState
             canCheckForGround = true;
         }
 
-        
-        // if ((Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Space)) && character.rb.linearVelocity.y > 0f)
         if (character.jumpAction.WasReleasedThisFrame() && character.rb.linearVelocity.y > 0f)
         {
             character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
