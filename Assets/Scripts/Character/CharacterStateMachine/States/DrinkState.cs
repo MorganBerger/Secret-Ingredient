@@ -20,4 +20,10 @@ public class DrinkState : CharacterState
             stateMachine.ChangeState(character.idleState);
         }
     }
+
+    public override void LogicUpdate()
+    {
+        base.LogicUpdate();
+        character.rb.linearVelocity = Vector2.zero;
+    }
 }

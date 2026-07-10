@@ -1,4 +1,5 @@
 using UnityEngine;
+using SomeExtensions;
 
 public class WallSlideState : GroundedState
 {
@@ -22,14 +23,14 @@ public class WallSlideState : GroundedState
         base.TransitionChecks();
 
         if (character.jumpBufferCounter > 0f)
-        // if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
         {
             stateMachine.ChangeState(character.wallJumpState);
             return;
         }
 
         var direction = character.transform.localScale.x;
-        if (!character.IsTouchingWall() || Input.GetAxisRaw("Horizontal") != direction)
+        // if (!character.IsTouchingWall() || Input.GetAxisRaw("Horizontal") != direction)
+        if (!character.IsTouchingWall() || character.moveAction.ReadValue<Vector2>().x.Raw() != direction)
         {
             stateMachine.ChangeState(character.peakState);
         }

@@ -1,3 +1,4 @@
+using SomeExtensions;
 using UnityEngine;
 
 public class AirState : MovementState
@@ -31,20 +32,21 @@ public class AirState : MovementState
 
         if (character.IsDead()) return;
 
-        if (Input.GetKeyDown(KeyCode.T) && !touchingGround)
+        if (character.attackAction.WasPressedThisFrame() && !touchingGround)
         {
             stateMachine.ChangeState(character.airAttackState);
             return;
         }
 
         var direction = character.transform.localScale.x;
-        if (touchingWall && !touchingGround && Input.GetAxisRaw("Horizontal") == direction)
+
+        if (touchingWall && !touchingGround && character.moveAction.ReadValue<Vector2>().x.Raw() == direction)
         {
             stateMachine.ChangeState(character.wallSlideState);
         }
 
         var type = GetType();
-        if (character.canDoubleJump && (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space)) && type != typeof(WallSlideState))
+        if (character.canDoubleJump && character.jumpAction.WasPressedThisFrame() && type != typeof(WallSlideState))
         {
             stateMachine.ChangeState(character.doubleJumpState);
         }
@@ -60,7 +62,7 @@ public class AirState : MovementState
             canCheckForGround = true;
         }
 
-        if ((Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Space)) && character.rb.linearVelocity.y > 0f)
+        if (character.jumpAction.WasReleasedThisFrame() && character.rb.linearVelocity.y > 0f)
         {
             character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
         }

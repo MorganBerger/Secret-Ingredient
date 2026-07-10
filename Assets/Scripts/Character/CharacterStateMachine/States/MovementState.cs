@@ -1,3 +1,4 @@
+using SomeExtensions;
 using UnityEngine;
 
 public class MovementState : CharacterState
@@ -20,7 +21,7 @@ public class MovementState : CharacterState
     {
         base.TransitionChecks();
 
-        if (Input.GetKeyDown(KeyCode.F) && character.canDash && !character.IsDead())
+        if (character.dashAction.WasPressedThisFrame() && character.canDash && !character.IsDead())
         {
             stateMachine.ChangeState(character.dashState);
             return;
@@ -30,8 +31,8 @@ public class MovementState : CharacterState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+                
+        float horizontalInput = character.moveAction.ReadValue<Vector2>().x;
 
         if (horizontalInput > 0)
         {
@@ -49,9 +50,9 @@ public class MovementState : CharacterState
 
         if (character.IsDead()) return;
         
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float horizontalInput = character.moveAction.ReadValue<Vector2>().x;
 
-        var velocity = horizontalInput * character.speed;
+        var velocity = horizontalInput.Raw() * character.speed;
 
         if (!canGoRight && velocity > 0)
         {

@@ -18,7 +18,7 @@ public class GroundedState : MovementState
 
         if (isExitingState) return;
 
-        if (Input.GetKeyDown(KeyCode.T) && GetType() != typeof(WallSlideState))
+        if (character.attackAction.WasPressedThisFrame() && GetType() != typeof(WallSlideState))
         {
             stateMachine.ChangeState(character.groundAttackState);
             return;
@@ -32,13 +32,13 @@ public class GroundedState : MovementState
             return;
         }
 
-        if (!character.isParrying && Input.GetKeyDown(KeyCode.P) && character.parryBufferCounter <= 0f)
+        if (!character.isParrying && character.parryAction.WasPressedThisFrame() && character.parryBufferCounter <= 0f)
         {
             stateMachine.ChangeState(character.parryState);
             return;
         }
 
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        float moveInput = character.moveAction.ReadValue<Vector2>().x;
 
         if (Mathf.Approximately(moveInput, 0f) && Mathf.Approximately(character.rb.linearVelocity.y, 0f))
         {
@@ -50,6 +50,11 @@ public class GroundedState : MovementState
         {
             stateMachine.ChangeState(character.peakState);
             return;
+        }
+
+        if (character.drinkAction.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(character.drinkState);
         }
     }
 }

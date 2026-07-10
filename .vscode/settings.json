@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Secret-Ingredient.slnx"
+    "dotnet.defaultSolution": "Secret-Ingredient.slnx",
+    "vstuc.enableCodeModel": false
 }
