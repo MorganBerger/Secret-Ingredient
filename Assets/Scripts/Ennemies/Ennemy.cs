@@ -143,7 +143,7 @@ public class Ennemy : MonoBehaviour
 
     void AnimationFinished()
     {
-        stateMachine._CurrentState.AnimationTrigger();
+        stateMachine._CurrentState.AnimationFinishTrigger();
     }
 
     void OnDrawGizmos()

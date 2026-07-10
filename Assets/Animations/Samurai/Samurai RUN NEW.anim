@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Samurai RUN
+  m_Name: Samurai RUN NEW
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,37 +22,37 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 252397848, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.06666667
+    - time: 0.05
       value: {fileID: -1653403004, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.13333334
+    - time: 0.1
       value: {fileID: 643708870, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.2
+    - time: 0.15
       value: {fileID: -1725221619, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.26666668
+    - time: 0.2
       value: {fileID: 1907478541, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.33333334
+    - time: 0.25
       value: {fileID: 1506254575, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.4
+    - time: 0.3
       value: {fileID: -332109960, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.46666667
+    - time: 0.35
       value: {fileID: 1242175407, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.53333336
+    - time: 0.4
       value: {fileID: 1424636291, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.6
+    - time: 0.45
       value: {fileID: -1832683274, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.6666667
+    - time: 0.5
       value: {fileID: 428973487, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.73333335
+    - time: 0.55
       value: {fileID: 905149773, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.8
+    - time: 0.6
       value: {fileID: 1911796018, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.8666667
+    - time: 0.65
       value: {fileID: 1778202244, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 0.93333334
+    - time: 0.7
       value: {fileID: -16455646, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 1
+    - time: 0.75
       value: {fileID: -666375372, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
-    - time: 1.05
+    - time: 0.78333336
       value: {fileID: -666375372, guid: 17100b77de0e04ed9a245405259131ea, type: 3}
     attribute: m_Sprite
     path: 
@@ -98,7 +98,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0666666
+    m_StopTime: 0.8
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -118,21 +118,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
+  - time: 0.25
     functionName: AnimationTrigger
     data: Run
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.26666668
-    functionName: AnimationTrigger
-    data: Run
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6666667
+  - time: 0.65
     functionName: AnimationTrigger
     data: Run
     objectReferenceParameter: {fileID: 0}

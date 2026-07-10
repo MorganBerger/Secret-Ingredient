@@ -19,9 +19,9 @@ public class ParryState: CharacterState
         character.isParrying = false;
     }
 
-    public override void AnimationTrigger()
+    public override void AnimationFinishTrigger()
     {
-        base.AnimationTrigger();
+        base.AnimationFinishTrigger();
         stateMachine.ChangeState(character.idleState);
         character.ResetParryBuffer();
     }

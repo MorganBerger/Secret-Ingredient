@@ -77,11 +77,14 @@ public class Character: MonoBehaviour
     public float parryBufferCounter { get; private set; }
     public bool isParrying;
 
+    public CharacterAudio characterAudio;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        characterAudio = GetComponentInChildren<CharacterAudio>();
     }
 
     void Start()
@@ -243,7 +246,13 @@ public class Character: MonoBehaviour
 
     void AnimationFinished()
     {
-        stateMachine._CurrentState.AnimationTrigger();
+        // stateMachine._CurrentState.AnimationTrigger();
+        stateMachine._CurrentState.AnimationFinishTrigger();
+    }
+
+    void AnimationTrigger(string name)
+    {
+        stateMachine._CurrentState.AnimationTrigger(name);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -309,6 +318,20 @@ public class Character: MonoBehaviour
         rb.AddForce(knockbackDirection * force, ForceMode2D.Impulse);
     }
 
+
+    // ---- AUDIO ----
+
+    public void PlayAttackSound()
+    {
+        characterAudio.PlaySlash();
+    }
+
+    public void PlayStepSound()
+    {
+        characterAudio.PlayStep();
+    }
+
+    // ---- GIZMOS ----
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

@@ -5,10 +5,9 @@ public class BatHurtState: BatState
     {
     }
 
-    public override void AnimationTrigger()
+    public override void AnimationFinishTrigger()
     {
-        base.AnimationTrigger();
-
+        base.AnimationFinishTrigger();
         stateMachine.ChangeState(bat.idleState);
     }
 }

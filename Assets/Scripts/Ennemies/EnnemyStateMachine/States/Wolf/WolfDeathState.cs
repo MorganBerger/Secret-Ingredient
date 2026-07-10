@@ -7,9 +7,9 @@ public class WolfDeathState: WolfState
     {
     }
 
-    public override void AnimationTrigger()
+    public override void AnimationFinishTrigger()
     {
-        base.AnimationTrigger();
+        base.AnimationFinishTrigger();
         GameObject.Destroy(wolf.gameObject);
     }
 
