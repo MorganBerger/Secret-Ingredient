@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class IdleState : GroundedState
@@ -21,14 +22,14 @@ public class IdleState : GroundedState
             return;
         }
 
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        float moveInput = character.moveAction.ReadValue<Vector2>().x;
 
         if (!Mathf.Approximately(moveInput, 0f))
         {
             stateMachine.ChangeState(character.runState);
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if (character.drinkAction.WasPressedThisFrame())
         {
             stateMachine.ChangeState(character.drinkState);
         }

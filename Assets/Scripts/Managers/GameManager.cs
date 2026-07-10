@@ -44,6 +44,7 @@ public class GameManager: MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
  
+        // TODO: Save from menu?
         if (Input.GetKeyDown(KeyCode.S) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftCommand)))
         {
             SaveGameData();

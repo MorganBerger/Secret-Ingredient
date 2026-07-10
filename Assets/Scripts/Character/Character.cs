@@ -1,6 +1,9 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.InputSystem;
+
+
 public struct CharacterSkills
 {
     public static bool canDash = true;
@@ -52,6 +55,13 @@ public class Character: MonoBehaviour
     public float attackSpeed = 1f;
     public float damage = 1f;
 
+    [HideInInspector] public InputAction moveAction;
+    [HideInInspector] public InputAction jumpAction;
+    [HideInInspector] public InputAction attackAction;
+    [HideInInspector] public InputAction dashAction;
+    [HideInInspector] public InputAction parryAction;
+    [HideInInspector] public InputAction drinkAction;
+
     public float checkRadius {
         get { return 0.025f; }
         private set {}
@@ -76,6 +86,13 @@ public class Character: MonoBehaviour
 
     void Start()
     {
+        moveAction = InputSystem.actions["Move"];
+        jumpAction = InputSystem.actions["Jump"];
+        attackAction = InputSystem.actions["Attack"];
+        dashAction = InputSystem.actions["Dash"];
+        parryAction = InputSystem.actions["Parry"];
+        drinkAction = InputSystem.actions["Drink"];
+
         stateMachine = new CharacterStateMachine();
 
         idleState = new IdleState(this, "isIdle");
@@ -100,7 +117,7 @@ public class Character: MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
+        if (jumpAction.WasPressedThisFrame())
         {
             jumpBufferCounter = jumpBufferTime;
         }
