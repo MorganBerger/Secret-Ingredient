@@ -7,9 +7,9 @@ public class BatDeathState: BatState
     {
     }
 
-    public override void AnimationTrigger()
+    public override void AnimationFinishTrigger()
     {
-        base.AnimationTrigger();
+        base.AnimationFinishTrigger();
         GameObject.Destroy(bat.gameObject);
     }
 

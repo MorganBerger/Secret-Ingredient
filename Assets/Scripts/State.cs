@@ -44,7 +44,12 @@ public class State
     {
     }
     
-    public virtual void AnimationTrigger()
+    public virtual void AnimationTrigger(string name)
+    {
+        
+    }
+
+    public virtual void AnimationFinishTrigger()
     {
         isAnimationFinished = true;
     }
