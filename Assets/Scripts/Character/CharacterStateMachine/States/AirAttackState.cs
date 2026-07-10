@@ -1,24 +1,21 @@
 using UnityEngine;
 
-public class AirAttackState : AirState //CharacterState
+public class AirAttackState : AirState
 {
     public AirAttackState(Character _character, string _animationName)
         : base(_character, _animationName)
     {
     }
 
-    public override void AnimationTrigger()
+    public override void Enter()
     {
-        base.AnimationTrigger();
-        stateMachine.ChangeState(character.fallState);
+        base.Enter();
+        character.PlayAttackSound();
     }
 
-    // public override void PhysicsUpdate()
-    // {
-    //     base.PhysicsUpdate();
-    //     if ((Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.Space)) && character.rb.linearVelocity.y > 0f)
-    //     {
-    //         character.rb.linearVelocity = new Vector2(character.rb.linearVelocity.x, 0f);
-    //     }
-    // }
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+        stateMachine.ChangeState(character.fallState);
+    }
 }

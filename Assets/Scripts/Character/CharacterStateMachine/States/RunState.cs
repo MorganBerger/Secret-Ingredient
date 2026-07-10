@@ -15,4 +15,10 @@ public class RunState: GroundedState
 
         if (isExitingState) return;
     }
+    
+    public override void AnimationTrigger(string name)
+    {
+        base.AnimationTrigger(name);
+        character.PlayStepSound();
+    }
 }
