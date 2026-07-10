@@ -51,5 +51,10 @@ public class GroundedState : MovementState
             stateMachine.ChangeState(character.peakState);
             return;
         }
+
+        if (character.drinkAction.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(character.drinkState);
+        }
     }
 }
