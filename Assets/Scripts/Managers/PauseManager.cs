@@ -42,9 +42,11 @@ public class PauseManager : MonoBehaviour
     public void BackToMainMenu()
     {
         Time.timeScale = 1f;
-        pauseMenu.SetActive(false);
-        creditsMenu.SetActive(false);
-        mainMenu.SetActive(true);
+        
+        // TODO: Switch this to LoadScene("MainMenu")
+        // pauseMenu.SetActive(false);
+        // creditsMenu.SetActive(false);
+        // mainMenu.SetActive(true);
     }
 
     public void OpenCredits()
