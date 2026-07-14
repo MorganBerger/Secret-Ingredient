@@ -6,13 +6,16 @@ using UnityEngine.InputSystem;
 
 public class ButtonStack : MonoBehaviour
 {    
-    int currentIndex = 0;
-
-    List<Button> buttons = new List<Button>();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [HideInInspector] public List<Button> buttons = new List<Button>();
+    
+    public void Ready()
     {
         buttons = GetComponentsInChildren<Button>().ToList();
-        buttons[0].Select();
+
+        if (buttons.Count > 0)
+        {
+            Debug.Log($"ButtonStack: Ready with {buttons.Count} buttons. Selecting the first button.");
+            buttons[0].Select();
+        }
     }
 }

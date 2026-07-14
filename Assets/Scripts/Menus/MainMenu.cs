@@ -1,43 +1,92 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject mainMenu;
-    public GameObject settingsMenu;
-    public GameObject creditsMenu;
+    public SubMenu mainMenu;
+    public SubMenu settingsMenu;
+    public SubMenu creditsMenu;
+
+    SubMenu currentMenu;
+
+    Stack<SubMenu> menuHistory = new Stack<SubMenu>();
+
+    void Start()
+    {
+        if (mainMenu != null) mainMenu.OnMenuButtonClicked += HandleMenuClicks;
+        if (settingsMenu != null) settingsMenu.OnMenuButtonClicked += HandleMenuClicks;
+        if (creditsMenu != null) creditsMenu.OnMenuButtonClicked += HandleMenuClicks;
+
+        OpenSubMenu(mainMenu);   
+    }
 
     public void PlayGame(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
 
-    public void BackToMainMenu()
+    void HandleMenuClicks(string buttonTag)
     {
-        Time.timeScale = 1f;
+        switch (buttonTag)
+        {
+            case "playGame":
+                // PlayGame("Level1Scene"); // Replace with your scene name
+                break;
+            case "settings":
+                OpenSubMenu(settingsMenu);
+                break;
+            case "credits":
+                OpenSubMenu(creditsMenu);
+                break;
+            case "back":
+                GoBack();
+                break;
+            case "quitGame":
+                QuitGame();
+                break;
+            default:
+                Debug.LogWarning($"Unrecognized button tag clicked: {buttonTag}");
+                break;
+        }
+    }
+
+    void OpenSubMenu(SubMenu subMenu)
+    {
+        if (currentMenu != null)
+        {
+            menuHistory.Push(currentMenu);
+            currentMenu.Hide();
+        }
+
+        currentMenu = subMenu;
+        currentMenu.Show();
+    }
+
+    void GoBack()
+    {
+        if (menuHistory.Count == 0) return;
+
+        currentMenu.Hide();
         
-        // TODO: Switch this to LoadScene("MainMenu")
-        settingsMenu.SetActive(false);
-        creditsMenu.SetActive(false);
-        mainMenu.SetActive(true);
-    }
-
-    public void OpenOptions()
-    {
-        mainMenu.SetActive(false);
-        settingsMenu.SetActive(true);
-        creditsMenu.SetActive(false);
-    }
-
-    public void OpenCredits()
-    {
-        settingsMenu.SetActive(false);
-        mainMenu.SetActive(false);
-        creditsMenu.SetActive(true);
+        currentMenu = menuHistory.Pop();
+        currentMenu.Show();
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    void OnDestroy()
+    {
+        if (currentMenu != null)
+        {
+            currentMenu.OnMenuButtonClicked -= HandleMenuClicks;
+        }
+
+        if (mainMenu != null) mainMenu.OnMenuButtonClicked -= HandleMenuClicks;
+        if (settingsMenu != null) settingsMenu.OnMenuButtonClicked -= HandleMenuClicks;
+        if (creditsMenu != null) creditsMenu.OnMenuButtonClicked -= HandleMenuClicks;
     }
 }

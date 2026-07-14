@@ -10,5 +10,4 @@ public class AudioLibrary : ScriptableObject
     [Header("Movement Sounds")]
     public AudioClip[] footstepSounds;
     
-    // You can add logic here too if you want, like a GetRandomSlash() method
 }
