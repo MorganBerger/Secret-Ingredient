@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using System;
 using TMPro;
 
+[ExecuteAlways]
 public class SubMenu : MonoBehaviour
 {
     public SubMenuData data;
@@ -22,14 +23,29 @@ public class SubMenu : MonoBehaviour
         titleText.text = data.title;
 
         GenerateButtons();
-        buttonStack.Ready();
+
+        if (Application.isPlaying)
+        {
+            buttonStack.Ready();
+        }
     }
 
     public void GenerateButtons()
     {
+        if (buttonStack == null) return;
+
         for (int i = buttonStack.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(buttonStack.transform.GetChild(i).gameObject);
+            GameObject child = buttonStack.transform.GetChild(i).gameObject;
+            
+            if (Application.isPlaying)
+            {
+                Destroy(child);
+            }
+            else
+            {
+                DestroyImmediate(child);
+            }
         }
 
         if (data == null || data.buttons == null) return;
@@ -54,6 +70,8 @@ public class SubMenu : MonoBehaviour
 
     void Update()
     {
+        if (!Application.isPlaying) return;
+
         if (InputSystem.actions["Cancel"].WasPressedThisFrame()) 
         {
             OnMenuButtonClicked?.Invoke("back");
