@@ -419,6 +419,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 499147960}
     m_Modifications:
     - target: {fileID: 270737211367563036, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 270737211367563036, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
@@ -431,11 +435,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1622807950399064666, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622807950399064666, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1622807950399064666, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622807950399064666, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3848857566835825932, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
@@ -535,7 +547,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6863134197585957746, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863134197585957746, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863134197585957746, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8906475780487278601, guid: 5f390660ccbf94fd1b89eecca0b34f81, type: 3}
@@ -1338,6 +1358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   data: {fileID: 0}
   buttonPrefab: {fileID: 0}
+  titleText: {fileID: 0}
 --- !u!1 &1471545374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,6 +2042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SubMenu
   data: {fileID: 0}
   buttonPrefab: {fileID: 0}
+  titleText: {fileID: 0}
 --- !u!1001 &8725795077094222337
 PrefabInstance:
   m_ObjectHideFlags: 0

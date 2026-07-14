@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System;
 using TMPro;
+using UnityEngine.EventSystems;
 
 [ExecuteAlways]
 public class SubMenu : MonoBehaviour
@@ -16,7 +17,7 @@ public class SubMenu : MonoBehaviour
 
     [HideInInspector] public Action<string> OnMenuButtonClicked;
 
-    void Start()
+    void Awake()
     {
         buttonStack = GetComponentInChildren<ButtonStack>();
 
@@ -34,19 +35,7 @@ public class SubMenu : MonoBehaviour
     {
         if (buttonStack == null) return;
 
-        for (int i = buttonStack.transform.childCount - 1; i >= 0; i--)
-        {
-            GameObject child = buttonStack.transform.GetChild(i).gameObject;
-            
-            if (Application.isPlaying)
-            {
-                Destroy(child);
-            }
-            else
-            {
-                DestroyImmediate(child);
-            }
-        }
+        buttonStack.Clear();
 
         if (data == null || data.buttons == null) return;
 
@@ -71,6 +60,18 @@ public class SubMenu : MonoBehaviour
     void Update()
     {
         if (!Application.isPlaying) return;
+
+        if (InputSystem.actions["Navigate"].WasPressedThisFrame())
+        {
+            bool somethingSelected = EventSystem.current.currentSelectedGameObject != null;
+
+            Debug.Log("Navigate input detected. Something selected: " + somethingSelected);
+
+            if (!somethingSelected)
+            {
+                buttonStack.SelectFirst();
+            }
+        } 
 
         if (InputSystem.actions["Cancel"].WasPressedThisFrame()) 
         {

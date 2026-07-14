@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 
+[ExecuteAlways]
 public class SubMenuButton : MonoBehaviour
 {
     SubMenuButtonData data;
